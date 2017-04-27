@@ -1,27 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>Dashboard</title>
+
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/ezpc.css">
 </head>
 <body>
-	<p>Usuario: <span id="name"></span></p>
-	<p>ID: <span id="id"></span></p>
-	<a href="/api/logout">Cerrar sesión</a>
-	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<nav id="sidepanel">
+		<div id="sidepanel-logo" class="horizontal">
+			<!-- <div class="vertical"> -->
+					<img src="images/dark logo.png">
+			<!-- </div> -->
+		</div>
+		<div id="sidepanel-username" class="horizontal">
+			<div class="vertical">
+				<p id="name"></p>
+			</div>
+		</div>
+		<div id="sidepanel-info">
+			<img src="images/user-icon.png" class="pull-left">
+			<div class="vertical">
+				<p>Bonificación: $685.50</p>
+				<p>Puntos: 68</p>
+				<p>Puntos Restantes: 32</p>
+			</div>
+		</div>
+		<div id="sidepanel-menu">
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Inicio" data-toggle="collapse">Inicio
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Inicio">
+					<li>Información General</li>
+					<li>Información Personal</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Actividad" data-toggle="collapse">Mi Actividad
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Actividad">
+					<li>Compras Recientes</li>
+					<li>Ultimos Socios Agregados</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Red" data-toggle="collapse">Mi Red
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Red">
+					<li>Ver Arbol</li>
+					<li>Inscribir Socio</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Reportes" data-toggle="collapse">Reportes
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Reportes">
+					<li>Bonificaciones</li>
+					<li>Puntos</li>
+				</div>
+			</ul>
+		</div>
+	</nav>
+	<div id="maincontent">
+		<div id="toppanel">
+			<div class="col-md-11">
+				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
+			</div>
+			<div class="col-md-1 horizontal">
+				<img src="images/user-icon-dark.png">
+				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
+			</div>
+		</div>
+		<div id="content-info" class="horizontal">
+			<div class="col-md-3 vertical border-right">
+				<h4><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Progreso Mensual</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="68"
+						 aria-minvalue="0" aria-maxvalue="100" style="width: 68%"></div>
+				</div>
+				<h5>68/100 puntos</h5>
+			</div>
+			<div class="col-md-3 vertical border-right">
+				<h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Bonificación</h4>
+				<h1>$ 685.50</h1>
+			</div>
+			<div class="col-md-3 vertical border-right">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mis Socios</h4>
+				<h1>13</h1>
+			</div>
+			<div class="col-md-3 vertical">
+				<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Estado</h4>
+				<div class="status status-ok horizontal">
+					<img src="images/ok-icon.png" class="pull-left">
+					<h4> Bueno</h4>
+				</div>
+				<div class="status-help-container">
+					<div class="status-help">
+						<div class="horizontal">
+							<img src="images/ok-icon.png" class="pull-left">
+							<p>Tu membresía está segura por este mes.</p>
+						</div>
+						<div class="horizontal">
+							<img src="images/alert-icon.png" class="pull-left">
+							<p>No arriesges tu membresía. Sigue acumulando puntos.</p>
+						</div>
+						<div class="horizontal">
+							<img src="images/danger-icon.png" class="pull-left">
+							<p>Tu membresía será bloqueada al final del mes.</p>
+						</div>
+					</div>
+					<!-- <div class="triangle-left"></div> -->
+				</div>
+			</div>
+		</div>
+		<div id="graph-container">
+			<div id="grafica" class="col-md-6">
+				<canvas id="myChart2"></canvas>	
+			</div>
+			<div class="col-md-6">
+				<canvas id="myChart"></canvas>	
+			</div>
+		</div>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="bootstrap/js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/Chart.bundle.min.js"></script>
+	<script type="text/javascript" src="js/ezpc.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function(){
-			obtenerDatos();
+	$(document).ready(function(){
+		obtenerDatos();
+	});
+	function obtenerDatos()
+	{
+		$.ajax({
+			type : 'GET',
+			url : "/api/user"})
+		.done(function(usuario){
+			$("#name").text(usuario.name);
+			$("#id").text(usuario.id);
 		});
-		function obtenerDatos()
-		{
-			$.ajax({
-				type : 'GET',
-				url : "/api/user"})
-			.done(function(usuario){
-				$("#name").text(usuario.name);
-				$("#id").text(usuario.id);
-			});
-		}
-	</script>
+	}
+</script>
 </body>
 </html>
