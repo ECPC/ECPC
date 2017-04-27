@@ -1,0 +1,259 @@
+/*
+    gray: #efefef
+    dark-blue: #2b3a48
+*/
+
+.bg-color-gray{
+    background-color: #efefef;
+}
+
+.bg-color-blue{
+    background-color: #2b3a48;
+}
+
+.section-big{
+    display: block;
+    height: 700px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.section-small{
+    display: block;
+    height: 270px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel{
+    width: inherit;
+    height: inherit;
+    min-width: 1262px;
+}
+
+.logo-container{
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.logo-bg{
+    background-color: black;
+    opacity: .5;
+}
+
+#logo{
+    display: block;
+    height: 50%;
+    margin: 100px auto 0 auto;
+}
+
+#logo-phrase{
+    display: block;
+    width: 70%;
+    margin: auto;
+    color: white;
+}
+
+#netImg{
+    max-width: 300px;
+    min-width: 100px;
+}
+
+.feature{
+    margin-bottom: 40px;
+}
+
+.parallax-bg{
+    background-image: url("../img/parallax.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div.footer{
+    color: white;
+}
+    .footer-logo{
+        height: 270px;
+    }
+    .footer .footer-list{
+        padding-left: 40px; 
+    }
+
+    .footer .footer-list h2{
+        margin: 10px auto;
+        width: 50%;
+    }
+
+    .footer .footer-list ul{
+        list-style-type: none;
+        padding-left: 15px;
+        width: 50%;
+        margin: auto;
+    }
+
+
+    .footer .footer-social{
+        height: 270px;
+        padding: 0px 50px;
+    }
+
+    .footer .footer-social .social-bubble{
+        background: #efefef;
+        border-radius: 5px;
+        height: 80%;
+    }
+    .footer .footer-social .social-icon{
+        width: 50px;
+    }
+    .footer .footer-social .triangle-left{
+        margin-left: 30px;
+    }
+
+.triangle-left{
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid #efefef;
+    border-left: 10px solid #efefef;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+@media (max-width: 767px){
+    div.footer{
+        height: 900px;
+    }
+    img.logo-responsive{
+        width: 50%;
+    }
+}
+
+/*---- General classes -----*/
+
+@media (min-width:768px){
+    .full-height-content{
+        height: 100%;
+    }
+}
+
+.center{
+    margin: auto;
+}
+
+.full-height{
+    height: 100%;
+}
+
+.half-height{
+    height: 50%;
+}
+
+.height-8{
+    height: 80%;
+}
+.height-2{
+    height: 20%;
+}
+
+.v-center-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.center-img{
+    display: block;
+    margin: auto;
+}
+
+.img-full-w{
+    width: 100%;
+}
+.img-half-w{
+    width: 50%;
+}
+
+.content{
+    padding: 20px;
+}
+
+.container-full{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* ---------  Sobreescribiendo bootstrap nav ---------- */
+
+.navbar-brand{
+    padding: 5px;
+}
+
+.navbar-absolute{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+}
+
+.navbar-bg{
+    background-color: black;
+    opacity: .8;
+}
+
+.navbar a{
+    color: white;
+}
+
+.nav>li>a.highlight{
+    background-color:#367b7b;
+}
+
+.nav>li>a:focus, .nav>li>a:hover{
+    background-color: #212222;
+}
+.nav>li>a.highlight:focus, .nav>li>a.highlight:hover{
+    background-color:#367b7b;
+    /*color: black;
+    background-color: #85c9cb;*/
+}
+
+.nav li > a.highlight {
+	position: relative;
+	z-index: 1;
+}
+
+.nav li > a.highlight::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    background: #4eb1b1;
+    z-index: -1;
+    transition: transform 0.2s;
+}
+
+.nav li > a.highlight:hover::after{
+	transform: scaleY(1);
+}
+
+
+@media (min-width:768px){
+  .navbar > .container .navbar-brand,
+  .navbar > .container-fluid .navbar-brand {
+    margin-left: 10px;
+  }
+}
