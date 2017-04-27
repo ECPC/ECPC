@@ -257,3 +257,145 @@ div.footer{
     margin-left: 10px;
   }
 }
+
+
+
+
+/* ------------------------- form ------------------ */
+
+#logInModal .modal-body{
+    padding: 0px;
+}
+
+#modalCloseBtn{
+    color: red;
+}
+
+.form-container a {
+    display: block !important;
+    color: inherit;
+    text-decoration: inherit !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+div.horizontal {
+    display: flex;
+    justify-content: center;
+}
+div.vertical {
+    display: flex;
+    flex-direction:  column;
+    justify-content: center;
+}
+span.glyphicon.pull-right, img.pull-right {
+    margin-right: 20px;
+}
+span.glyphicon.pull-left, img.pull-left {
+    margin-left: 20px;
+}
+div.pull-left {
+    float: left;
+}
+div.pull-right {
+    float: right;
+}
+div.pull-left:after, div.pull-right:after {
+    clear: both;
+}
+div.border-right:after, div.border-left:before {
+    height: 70%;
+    width: 2px;
+    position: absolute;
+    background: #CCCCCC;
+    content: '';
+}
+div.border-left:before {
+    left: 0;
+}
+div.border-right:after {
+    right: 0;
+}
+div.form-group {
+    margin-bottom: 5px;
+}
+div.form-container {
+    width: 100%;
+    height: 80%;
+    background-color: #2B3A48;
+}
+.form-container form {
+    padding: 10px 30px;
+}
+.form-container form:not(.form-active) {
+    display: none;
+}
+div.form-header {
+    width: 100%;
+    height: 100px;
+    background-color: #212222;
+    color: #D9D9D9;
+    font-weight: bold;
+}
+div.form-header>div {
+    cursor: pointer;
+    height: 100%;
+}
+div.form-header>div:hover {
+    color: white !important;
+}
+div.form-header>div:not(.form-header-active) {
+    box-shadow: 0 0 0 1px #323434 inset !important;
+}
+div.form-header>div:not(.form-header-active):hover {
+    color: #85C9CB;
+}
+div.form-header-active {
+    background-color: #2B3A48;
+}
+label {
+    color: #85C9CB;
+    font-size: 10pt;
+    font-weight: lighter;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+    border: none;
+    border-bottom: 2px solid #367b7d !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    background-color: #212222 !important;
+    color: #D9D9D9 !important;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="date"]:focus {
+    border-bottom: 2px solid #85c9cb !important;
+    background-color: #262727 !important;
+}
+label.form-label {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+label.hidden-label {
+    opacity: 0;
+}
+label.visible-label {
+    color: #D9D9D9;
+    font-size: 10pt;
+}
+
+.form-container .button-group{
+    text-align: center;
+}
+.form-container .button-group button{
+    margin: 10px;
+}
+
+.btn{
+    border: none;
+    border-radius: 0px;
+}
+.btn-primary{
+    background-color: #367b7d;
+}
+.btn-primary:hover,.btn-primary:active,.btn-primary:focus{
+    background-color: #4eb1b1;
+}
+

@@ -21,8 +21,8 @@
                     <img class="navbar-brand" src="img/light-logo.png">
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
-                    <li><a class="highlight" href="#"><span class="glyphicon glyphicon-user"></span> Comienza</a></li>
+                    <li><a id="lnkLogIn" data-toggle="modal" href="#logInModal" data-tab="1"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+                    <li><a id="lnkSignIn" data-toggle="modal" class="highlight" href="#logInModal" data-tab="0"><span class="glyphicon glyphicon-user"></span> Comienza</a></li>
                 </ul>
             </div>
         </nav>
@@ -205,5 +205,93 @@
                 </div>
             </div>
         </div>
+
+        <div id="logInModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <!--<div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>-->
+                    <div class="modal-body">
+                        <div class="form-container">
+                            <div class="form-header">
+                                <div id="tabRegistrar" class="col-xs-6 form-header-active horizontal">
+                                    <div class="vertical"><h3><a href="#frmRegistrar">Registrate</a></h3></div>
+                                </div>
+                                <div id="tabIniciar" class="col-xs-6 horizontal">
+                                    <div class="vertical"><h3><a href="#frmIniciar">Iniciar Sesíon</a></h3></div>
+                                </div>
+                            </div>
+                            <form id="frmRegistrar" class="form-active" onsubmit="return false;">
+                                <div class="form-group">
+                                    <label for="txtNombre" class="form-label hidden-label">Nombre(s)</label>
+                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre(s)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtApellidoPaterno" class="form-label hidden-label">Apellido paterno</label>
+                                    <input type="text" class="form-control" id="txtApellidoPaterno" placeholder="Apellido paterno">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtApellidoMaterno" class="form-label hidden-label">Apellido materno</label>
+                                    <input type="text" class="form-control" id="txtApellidoMaterno" placeholder="Apellido materno">
+                                </div>
+                                <div class="form-group">
+                                    <label for="radGeneros">Genero</label>
+                                    <div id="radGeneros" class="radio">
+                                        <label>
+                                            <input type="radio" name="radiosGenero" id="radGeneroM" value="Mujer">
+                                            Mujer
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="radiosGenero" id="radGeneroH" value="Hombre">
+                                            Hombre
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtFechaNacimiento" class="form-label hidden-label">Fecha de Nacimiento</label>
+                                    <input type="date" class="form-control" id="txtFechaNacimiento" placeholder="Fecha de Nacimiento">
+                                </div>
+                                <div class="button-group">
+                                    <button id="btnSignIn" type="submit" class="btn btn-primary">Registrarte</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                            <form id="frmIniciar" onsubmit="return false;">
+                                <div class="form-group">
+                                    <label for="txtNombre" class="form-label hidden-label">Nombre(s)</label>
+                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre(s)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtApellidoPaterno" class="form-label hidden-label">Apellido paterno</label>
+                                    <input type="text" class="form-control" id="txtApellidoPaterno" placeholder="Apellido paterno">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtApellidoMaterno" class="form-label hidden-label">Apellido materno</label>
+                                    <input type="text" class="form-control" id="txtApellidoMaterno" placeholder="Apellido materno">
+                                </div>
+                                <div class="button-group">
+                                    <button id="btnLogIn" type="submit" class="btn btn-primary">Iniciar sesion</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                    -->
+                </div>
+
+            </div>
+        </div>
+
+
+
+
     </body>
 </html>
