@@ -5,15 +5,56 @@ var page = {
         $("#tabRegistrar, #tabIniciar").on("click", page.onModalTabClick);
         $("input").on("input", page.onInputKeyDown);
         $("input").focusout(page.onInputFocusOut);
-        $('#lnkLogIn').click(page.onLogInClick);
-        $('#lnkSignIn').click(page.onSignInClick);
+        $('#btnLogIn').click(page.onLogInClick);
+        $('#btnSignIn').click(page.onSignInClick);
         $('#logInModal').on('show.bs.modal', page.onModalShow);
+        page.getToken();
+    },
+    getToken: function(){
+        //Puedes obtener el valor del token con la siguiente ruta
+        $.ajax({method: "GET", url: "/api/token"})
+        .done(function(msg){
+            //Le concatenamos el valor del token al atributo oculto del form,
+            //esto nos permitira poder llevar a cabo la petición mediante el
+            //método POST
+            $(".formToken").attr("value", msg);
+        });
     },
     onLogInClick: function(){
-        
+        var data = $('#frmIniciar').serialize();
+        console.log(data);
+        $.ajax({
+            type : 'POST',
+            url : "/api/login", 
+            data : $('#frmIniciar').serialize()})
+        .done(function(response){
+            //Checamos la respuesta del servicio
+            if(response.status == "OK"){
+                //Redireccionamos a donde sea que la respuesta nos mande
+                window.location = response.redirect;
+            }
+            else{
+                $("#mensaje").text("No se pudo iniciar sesión");
+            }
+        });
     },
     onSignInClick: function(){
-
+        var data = $('#frmRegistrar').serialize();
+        console.log(data);
+        $.ajax({
+            type : 'POST',
+            url : "/api/user/create", 
+            data : $('#frmRegistrar').serialize()})
+        .done(function(response){
+            //Checamos la respuesta del servicio
+            if(response.status == "OK"){
+                //Redireccionamos a donde sea que la respuesta nos mande
+                window.location = response.redirect;
+            }
+            else{
+                //No se pudo registrar
+            }
+        });
     },
     onScrollDown: function(){
         var scroll = $(window).scrollTop();

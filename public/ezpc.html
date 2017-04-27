@@ -21,7 +21,7 @@
                     <img class="navbar-brand" src="img/light-logo.png">
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="lnkLogIn" data-toggle="modal" href="#logInModal" data-tab="1"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+                    <li><a id="lnkLogIn" data-toggle="modal" href="#logInModal" data-tab="1"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
                     <li><a id="lnkSignIn" data-toggle="modal" class="highlight" href="#logInModal" data-tab="0"><span class="glyphicon glyphicon-user"></span> Comienza</a></li>
                 </ul>
             </div>
@@ -226,18 +226,20 @@
                                 </div>
                             </div>
                             <form id="frmRegistrar" class="form-active" onsubmit="return false;">
+                                <input class="formToken" type="hidden" name="_token">
                                 <div class="form-group">
-                                    <label for="txtNombre" class="form-label hidden-label">Nombre(s)</label>
-                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre(s)">
+                                    <label for="txtNombre" class="form-label hidden-label" >Nombre(s)</label>
+                                    <input type="text" class="form-control" id="txtNombre" name="name" placeholder="Nombre(s)">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtApellidoPaterno" class="form-label hidden-label">Apellido paterno</label>
-                                    <input type="text" class="form-control" id="txtApellidoPaterno" placeholder="Apellido paterno">
+                                    <label for="txtEmailSignIn" class="form-label hidden-label" >Correo</label>
+                                    <input type="text" class="form-control" id="txtEmailSignIn" name="email" placeholder="Correo">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtApellidoMaterno" class="form-label hidden-label">Apellido materno</label>
-                                    <input type="text" class="form-control" id="txtApellidoMaterno" placeholder="Apellido materno">
+                                    <label for="txtPasswordSignIn" class="form-label hidden-label" >Constraseña</label>
+                                    <input type="password" class="form-control" id="txtPasswordSignIn" name="password" placeholder="Constraseña">
                                 </div>
+                                <!--
                                 <div class="form-group">
                                     <label for="radGeneros">Genero</label>
                                     <div id="radGeneros" class="radio">
@@ -251,6 +253,7 @@
                                         </label>
                                     </div>
                                 </div>
+                                -->
                                 <div class="form-group">
                                     <label for="txtFechaNacimiento" class="form-label hidden-label">Fecha de Nacimiento</label>
                                     <input type="date" class="form-control" id="txtFechaNacimiento" placeholder="Fecha de Nacimiento">
@@ -261,20 +264,17 @@
                                 </div>
                             </form>
                             <form id="frmIniciar" onsubmit="return false;">
+                                <input class="formToken" type="hidden" name="_token">
                                 <div class="form-group">
-                                    <label for="txtNombre" class="form-label hidden-label">Nombre(s)</label>
-                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre(s)">
+                                    <label for="txtEmailLogin" class="form-label hidden-label">Correo</label>
+                                    <input type="text" class="form-control" id="txtEmailLogin" name="email" placeholder="Correo">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtApellidoPaterno" class="form-label hidden-label">Apellido paterno</label>
-                                    <input type="text" class="form-control" id="txtApellidoPaterno" placeholder="Apellido paterno">
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtApellidoMaterno" class="form-label hidden-label">Apellido materno</label>
-                                    <input type="text" class="form-control" id="txtApellidoMaterno" placeholder="Apellido materno">
+                                    <label for="txtPasswordLogIn" class="form-label hidden-label">Contraseña</label>
+                                    <input type="password" class="form-control" name="password" id="txtPasswordLogIn" placeholder="Contraseña">
                                 </div>
                                 <div class="button-group">
-                                    <button id="btnLogIn" type="submit" class="btn btn-primary">Iniciar sesion</button>
+                                    <button id="btnLogIn" type="submit" class="btn btn-primary">Iniciar sesión</button>
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                 </div>
                             </form>
