@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registro de usuario</title>
+</head>
+<body>
+	<!-- Todos los forms deben de procesarse de forma asincrona con ajax -->
+	<form id="form-registro">
+		<input id="formToken" type="hidden" name="_token">
+		<label for="name">Nombre</label>
+		<input type="text" name="name" required>
+		<label for="mail">Correo electrónico</label>
+		<input type="email" name="email" required>
+		<label for="name">Contraseña</label>
+		<input type="password" name="password" required>
+		<br>
+		<input type="submit" name="boton" value="Registrar usuario">
+	</form>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			prepararForm("#form-registro", procesarRegistro);
+			getToken();
+		});
+		function prepararForm(selector, callback){
+			//Hay que evitar que el form refresque la página
+			$(selector).submit(function(e){
+     			e.preventDefault();
+				callback();
+				return false;
+			});
+		}
+		function procesarRegistro(){
+			$.ajax({
+				type : 'POST',
+				url : "/api/user/create", 
+				data : $("#form-registro").serialize()})
+			.done(function(response){
+				//Checamos la respuesta del servicio
+				if(response.status == "OK"){
+					//Redireccionamos a donde sea que la respuesta nos mande
+					window.location = response.redirect;
+				}
+				else{
+					//No se pudo registrar
+				}
+			});
+		}
+		function getToken()
+		{
+			//Puedes obtener el valor del token con la siguiente ruta
+			$.ajax({method: "GET", url: "/api/token"})
+			.done(function(msg){
+				//Le concatenamos el valor del token al atributo oculto del form,
+				//esto nos permitira poder llevar a cabo la petición mediante el
+				//método POST
+				$("#formToken").attr("value", msg);
+			});
+		}
+	</script>
+</body>
+</html>

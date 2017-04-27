@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+</head>
+<body>
+	<p>Usuario: <span id="name"></span></p>
+	<p>ID: <span id="id"></span></p>
+	<a href="/api/logout">Cerrar sesión</a>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			obtenerDatos();
+		});
+		function obtenerDatos()
+		{
+			$.ajax({
+				type : 'GET',
+				url : "/api/user"})
+			.done(function(usuario){
+				$("#name").text(usuario.name);
+				$("#id").text(usuario.id);
+			});
+		}
+	</script>
+</body>
+</html>
