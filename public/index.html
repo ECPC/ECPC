@@ -8,70 +8,51 @@
 	<title>Ejemplo de API</title>
 </head>
 <body>
+	<!-- Ejemplo de signin / login -->
 	<div>
-		<p>Para poder hacer un post request debes de pasar un campo llamado "_token" con el valor de dicho token</p>
-		<p>_token: <span id="token">Obteniendo token...</span></p>
-	</div>
-	<hr>
-	<div>
-		<form id="form-entity">
-			<label for="valor">Valor</label>
+		<!-- Todos los forms deben de procesarse de forma asincrona con ajax -->
+		<form id="form-login">
 			<!-- Es muy importante que los forms tengan este campo -->
 			<input id="formToken" type="hidden" name="_token" required>
-			<input type="text" name="value" required>
-			<input type="submit" name="crear" value="Crear entidad">
+			<label for="email">Correo electrónico</label>
+			<input type="email" name="email" required>
+			<label for="password">Contraseña</label>
+			<input type="password" name="password" required>
+			<input type="submit" name="login" value="Iniciar sesión">
 		</form>
+		<p id="mensaje"></p>
+		<a href="/signin.html">Registrar a un usuario</a>
 	</div>
-	<hr>
-	<div>
-		<table id="display-table">
-			<caption>Entidades</caption>
-			<tr>
-				<th>ID</th>
-				<th>Valor</th>
-			</tr>
-		</table>
-	</div>
-	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			prepararForm();
-			getEntities();
+			//prepararForm();
+			//getEntities();
+			prepararFormLogin();
 			getToken();
 		});
-		function prepararForm()
-		{
+		function prepararFormLogin(){
 			//Hay que evitar que el form refresque la página
-			$("#form-entity").submit(function(e){
+			$("#form-login").submit(function(e){
      			e.preventDefault();
-				createEntity();
+				procesarLogin();
 				return false;
 			});
 		}
-		function createEntity()
-		{
-			//La siguiente ruta espera una petición con cierto nombre de parametros,
-			//así que es importante el nombre de los inputs en el form
-			//nota: empezar las rutas con '/' para evitar problemas de routeo
+		function procesarLogin(){
 			$.ajax({
 				type : 'POST',
-				url : "/api/testEntity/create", 
-				data : $("#form-entity").serialize()})
-			.done(function(item){
-				//A partir de aquí se puede trabajar con la información como sea necesario
-				$("#display-table").append(generateItemRow(item));
-				$("#form-entity input[name=value]").val('');
-			});
-		}
-		function getEntities()
-		{
-			//La siguiente petición nos regresa todas las entidades de prueba
-			$.ajax({method: "GET", url: "/api/testEntity"})
-			.done(function(msg){
-				//A partir de aquí se puede trabajar con la información como sea necesario
-				for_each(msg, function(item){
-					$("#display-table").append(generateItemRow(item));
-				});
+				url : "/api/login", 
+				data : $("#form-login").serialize()})
+			.done(function(response){
+				//Checamos la respuesta del servicio
+				if(response.status == "OK"){
+					//Redireccionamos a donde sea que la respuesta nos mande
+					window.location = response.redirect;
+				}
+				else{
+					$("#mensaje").text("No se pudo iniciar sesión");
+				}
 			});
 		}
 		function getToken()
@@ -85,19 +66,6 @@
 				//método POST
 				$("#formToken").attr("value", msg);
 			});
-		}
-		function for_each(_array, _function)
-		{
-			for(i = 0; i < _array.length; i++){
-				_function(_array[i]);
-			}
-		}
-		function generateItemRow(item)
-		{
-			const value = "<td>"+ item.value +"</td>";
-			const id = "<td>"+ item.id +"</td>";
-			const tableRow = "<tr>"+ id + value +"</tr>";
-			return tableRow;
 		}
 	</script>
 </body>
