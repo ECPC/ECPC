@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ordenar</title>
+</head>
+<body>
+	<h4>Ordenar producto</h4>
+	<p>Solo hay que pasar las ids de los productos como arreglo de inputs. Necesitan estar logeados para poder comprar, sino habra errores</p>
+	<button id="agregarProducto">Agregar producto +</button>
+	<hr>
+	<form id="frmOrdenar" onsubmit="return false;">
+		<input class="formToken" type="hidden" name="_token">
+		<label for="address">Dirección de pedido</label>
+		<input type="text" name="address" required>
+		<br>
+		<button id="btnOrdenar" type="submit">Ordenar</button>
+		<br>
+		<small>Validen que se envíe por lo menos un producto</small>
+	</form>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+	        //Puedes obtener el valor del token con la siguiente ruta
+	        $.ajax({method: "GET", url: "/api/token"})
+	        .done(function(msg){
+	            //Le concatenamos el valor del token al atributo oculto del form,
+	            //esto nos permitira poder llevar a cabo la petición mediante el
+	            //método POST
+	            $(".formToken").attr("value", msg);
+	        });
+			//Hay que evitar que el form refresque la página
+			$("#frmOrdenar").submit(function(e){
+     			e.preventDefault();
+				onInscribir();
+				return false;
+			});
+			$("#agregarProducto").click(function(){
+				let producto = "<span>Producto ID</span><input type='number' name='products[]' min='1' max='10' step='1' value='1'><br>";
+				$("#frmOrdenar").prepend(producto);
+			});
+		});
+
+		function onInscribir()
+		{
+			$.ajax({
+            type : 'POST',
+            url : "/api/order/create", 
+            data : $('#frmOrdenar').serialize()})
+	        .done(function(response){
+	            //Checamos la respuesta del servicio
+	            console.log("done");
+	        });
+		}
+	</script>
+</body>
+</html>

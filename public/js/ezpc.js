@@ -34,7 +34,14 @@ var page = {
                 window.location = response.redirect;
             }
             else{
-                $("#mensaje").text("No se pudo iniciar sesión");
+                //Credenciales incorrectas
+                if(response.message == "1"){
+                    $("#mensaje").text("No se pudo iniciar sesión");
+                }
+                //Hay que validar la identidad
+                else if(response.message == "0"){
+                    window.location = response.redirect;
+                }
             }
         });
     },

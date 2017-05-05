@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inscribir</title>
+</head>
+<body>
+	<h4>Inscribir usuario</h4>
+	<p>Los datos de inicio de sesión seran enviados al correo de tu nuevo socio</p>
+	<form id="frmInscribir" onsubmit="return false;">
+		<input class="formToken" type="hidden" name="_token">
+		<label for="name">Nombre</label>
+		<input type="text" name="name" required>
+		<label for="email">Correo electrónico</label>
+		<input type="email" name="email" required>
+		<button id="btnInscribir" type="submit">Inscribir</button>
+		<br>
+		<small>Borren los campos despues de subscribir a un usuario</small>
+	</form>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+	        //Puedes obtener el valor del token con la siguiente ruta
+	        $.ajax({method: "GET", url: "/api/token"})
+	        .done(function(msg){
+	            //Le concatenamos el valor del token al atributo oculto del form,
+	            //esto nos permitira poder llevar a cabo la petición mediante el
+	            //método POST
+	            $(".formToken").attr("value", msg);
+	        });
+
+			//Hay que evitar que el form refresque la página
+			$("#frmInscribir").submit(function(e){
+     			e.preventDefault();
+				onInscribir();
+				return false;
+			});
+		});
+
+		function onInscribir()
+		{
+			$.ajax({
+            type : 'POST',
+            url : "/api/user/subscribe", 
+            data : $('#frmInscribir').serialize()})
+	        .done(function(response){
+	            //Checamos la respuesta del servicio
+	            console.log("done");
+	        });
+		}
+	</script>
+</body>
+</html>
