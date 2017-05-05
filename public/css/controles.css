@@ -1,0 +1,105 @@
+button {
+	border: none;
+	color: white;
+	padding: 6px 12px;
+	font-size: 16px;
+	border-radius: 5px;
+	position: relative;
+	box-sizing: border-box;
+	transition: all 500ms ease; 
+}
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="date"], 
+input[type="number"],
+input[type="radio"] {
+	border: none;
+	border-bottom: 2px solid #367b7d !important;
+	border-radius: 0px !important;
+	box-shadow: none !important;
+	background-color: #212222 !important;
+	color: #D9D9D9 !important;
+}
+input.white[type="text"],
+input.white[type="email"], 
+input.white[type="password"], 
+input.white[type="date"], 
+input.white[type="number"],
+input.white[type="radio"]
+{
+	background-color: white !important;
+	border-bottom: 2px solid #4c4d4d !important;
+	color: #212222 !important;
+	transition: all 0.5s ease;
+}
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="password"]:focus, 
+input[type="date"]:focus, 
+input[type="number"]:focus,
+input[type="radio"]:focus {
+	border-bottom: 2px solid #85c9cb !important;
+	background-color: #262727 !important;
+}
+input.white[type="text"]:focus,
+input.white[type="email"]:focus, 
+input.white[type="password"]:focus, 
+input.white[type="date"]:focus, 
+input.white[type="number"]:focus,
+input.white[type="radio"]:focus {
+	border-bottom: 2px solid #212222 !important;
+	background-color: white !important;
+}
+button {
+	background-color: white;
+	border: 2px solid #212222;
+	box-shadow: 0 0 1px 1px #e5e6e6;
+	color: #212222;
+}
+button.blue {
+	border-color: #2B3A48;
+	color: #2B3A48;
+}
+button:before {
+	content:'';
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 0;
+	height: 4px;
+	background: #212222;
+	border-radius: 3px;
+	transition: all 0.4s ease;
+}
+button:hover:before {
+	width: 100%;
+}
+label {
+	color: #85C9CB;
+	font-size: 10pt;
+	font-weight: lighter;
+}
+label.white {
+	color: #2B3A48;
+}
+label.form-label {
+	opacity: 1;
+	transition: opacity 200ms;
+}
+label.hidden-label {
+	opacity: 0;
+}
+label.visible-label {
+	color: #D9D9D9;
+	font-size: 10pt;
+}
+label.visible-label.white {
+	color: #212222;
+}
+div.form-group {
+	margin-bottom: 5px;
+}
+legend {
+	margin-bottom: 10px !important;
+}
