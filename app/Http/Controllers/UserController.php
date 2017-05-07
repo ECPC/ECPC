@@ -74,26 +74,37 @@ class UserController extends Controller
     public function selfPartnerNet()
     {
         $user = Auth::user();
-        $childs = $user->child_partners();
+        $childs = $user->child_partners_chart();
         $parent = $user->parent;
+        $month = MonthEarning::currentMonth($user);
         return response()->json([
             'id' => $user->id,
             'name' => $user->name,
             'email' => $user->email,
             'parent' => $parent,
-            'childs' => $childs
+            'childs' => $childs,
+            'child_count' => $user->direct_child_count(),
+            'points' => $month->points,
+            'earnings' => $month->earnings
             ]);
+/*        return response()->json([
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'parent' => $parent,
+            'childs' => $childs
+            ]);*/
     }
-    public function partnerNet($id)
+/*    public function partnerNet($id)
     {
         $user = User::find($id);
-        $childs = $user->child_partners;
+        $childs = $user->child_partners_chart;
         $parent = $user->parent;
         return response()->json([
             'parent' => $parent,
             'childs' => $childs
             ]);
-    }
+    }*/
     public static function SendActivationEmail($user)
     {
         //$user = User::find($id);

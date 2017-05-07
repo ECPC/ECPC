@@ -1,51 +1,63 @@
-var config = {
-    container: "#collapsable-example",
+var myConfig = {
+    chart: {
+        container: "#collapsable-example",
 
-    animateOnInit: true,
-    
-    node: {
-        collapsable: true
+        animateOnInit: true,
+        
+        node: {
+            collapsable: true
+        },
+        animation: {
+            nodeAnimation: "easeOutBounce",
+            nodeSpeed: 700,
+            connectorsAnimation: "bounce",
+            connectorsSpeed: 700
+        }
     },
-    animation: {
-        nodeAnimation: "easeOutBounce",
-        nodeSpeed: 700,
-        connectorsAnimation: "bounce",
-        connectorsSpeed: 700
+    nodeStructure: {}
+};
+
+var usersInfo = {};
+function initNodeChart(data)
+{
+    usersInfo = {};
+    chart_config = myConfig;
+    //
+    var node = chart_config.nodeStructure;
+    usersInfo[String(data.id)] = data;
+    node.text = { name : "" };
+    node.text.name = data.name;
+    node.image = "/img/user-icon-dark.png";
+    node.HTMLid = data.id;
+    setChildren(node, data);
+    tree = new Treant(chart_config);
+    //
+    fillPartnerInfo(data.id);
+    $(".chart div").mouseenter(function(){
+        var user_id = $(this).attr('id');
+        fillPartnerInfo(user_id);
+    });
+}
+
+function setChildren(node, data){
+    node.children = [];
+    for(var i = 0; i < data.childs.length; i++){
+        var child = data.childs[i];
+        usersInfo[String(child.id)] = child;
+        node.children.push({
+            text : { name : child.name},
+            image : "/img/user-icon-dark.png",
+            HTMLid : child.id
+        });
+        var lastNode = node.children[node.children.length - 1];
+        setChildren(lastNode, child);
     }
-},
-malory = {
-    image: "img/user-icon-dark.png"
-},
-
-lana = {
-    parent: malory,
-    image: "img/user-icon-dark.png"
 }
 
-figgs = {
-    parent: malory,
-    image: "img/user-icon-dark.png"
+function fillPartnerInfo(user_id){
+    $("#partnerName").text(usersInfo[user_id].name);
+    $("#userEmail").text(usersInfo[user_id].email);
+    $("#userPoints").text(usersInfo[user_id].points);
+    $("#userEarnings").text(usersInfo[user_id].earnings);
+    $("#userPartners").text(usersInfo[user_id].child_count);
 }
-
-sterling = {
-    parent: lana,
-    childrenDropLevel: 1,
-    image: "img/user-icon-dark.png"
-},
-
-woodhouse = {
-    parent: figgs,
-    image: "img/user-icon-dark.png"
-},
-
-cheryl = {
-    parent: lana,
-    image: "img/user-icon-dark.png"
-},
-
-pam = {
-    parent: figgs,
-    image: "img/user-icon-dark.png"
-},
-
-chart_config = [config, malory, lana, figgs, sterling, woodhouse, pam, cheryl];
