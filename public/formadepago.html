@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Dashboard</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
+
+	<link rel="stylesheet" type="text/css" href="css/controles.css">
+	<link rel="stylesheet" type="text/css" href="css/ezpc-nav.css">
+	<link rel="stylesheet" type="text/css" href="css/formadepago.css">
+</head>
+<body>
+	<nav id="sidepanel">
+		<div id="sidepanel-logo" class="horizontal">
+			<!-- <div class="vertical"> -->
+					<img src="img/dark logo.png">
+			<!-- </div> -->
+		</div>
+		<div id="sidepanel-username" class="horizontal">
+			<div class="vertical">
+				<p id="name"></p>
+			</div>
+		</div>
+		<div id="sidepanel-info">
+			<img src="img/user-icon.png" class="pull-left">
+			<div class="vertical">
+				<p>Bonificación: $685.50</p>
+				<p>Puntos: 68</p>
+				<p>Puntos Restantes: 32</p>
+			</div>
+		</div>
+		<div id="sidepanel-menu">
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Inicio" data-toggle="collapse">Inicio
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Inicio">
+					<li>Información General</li>
+					<li>Información Personal</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Actividad" data-toggle="collapse">Mi Actividad
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Actividad">
+					<li>Compras Recientes</li>
+					<li>Ultimos Socios Agregados</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Red" data-toggle="collapse">Mi Red
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Red">
+					<li>Ver Arbol</li>
+					<li>Inscribir Socio</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Reportes" data-toggle="collapse">Reportes
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Reportes">
+					<li>Bonificaciones</li>
+					<li>Puntos</li>
+				</div>
+			</ul>
+		</div>
+	</nav>
+	<div id="maincontent">
+		<div id="toppanel">
+			<div class="col-md-11">
+				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Configurar forma de pago </h2>
+			</div>
+			<div class="col-md-1 horizontal">
+				<img src="img/user-icon-dark.png">
+				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
+			</div>
+		</div>
+        <div class="mainpannel">
+			<div class="content container-fluid">
+				<div class="col-md-8 col-md-offset-2">
+				<form id="frmMetodo">
+					<h3>Metodo de pago:</h3>
+					<select id="selectMetodo" class="selectpicker" title="Seleccione un metodo">
+						<option data-content="<img class='select-icon' src='img/paypal.png'> Paypal">Paypal</option>
+						<option data-content="<img class='select-icon' src='img/credit-card.png'> Tarjeta de credito/debito">Tarjeta de credito/debito</option>
+					</select>
+					<div class="form-section container-fluid container-box active">
+						<div class="col-xs-5">
+						<div class="form-group">
+							<label for="txtEmailSignIn" class="white form-label hidden-label" >Correo de paypal</label>
+							<input type="email" class="white form-control" id="txtEmailSignIn" name="email" placeholder="Correo de paypal">
+						</div>
+						</div>
+					</div>
+					<div class="form-section container-fluid container-box active">
+						<div class="display-card">
+							<div class="card card-front">
+								
+							</div>
+							<div class="card card-back">
+								
+							</div>
+						</div>
+					</div>
+					<div class="form-group horizontal">
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</div>
+				</form>
+				</div>
+			</div>
+        </div>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-select.js"></script>
+	<script src="js/controles.js"></script>
+</body>
+</html>

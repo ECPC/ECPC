@@ -1,0 +1,94 @@
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="date"], 
+input[type="number"],
+input[type="radio"] {
+	border: none;
+	border-bottom: 2px solid #367b7d;
+	border-radius: 0px !important;
+	box-shadow: none !important;
+	background-color: #212222 !important;
+	color: #D9D9D9 !important;
+}
+input.white[type="text"],
+input.white[type="email"], 
+input.white[type="password"], 
+input.white[type="date"], 
+input.white[type="number"],
+input.white[type="radio"]
+ {
+	background-color: white !important;
+	border-bottom: 2px solid #8b8d8d;/*2#4c4d4d !important;*/
+	color: #212222 !important;
+}
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="password"]:focus, 
+input[type="date"]:focus, 
+input[type="number"]:focus,
+input[type="radio"]:focus {
+	border-bottom: 2px solid #85c9cb !important;
+	background-color: #262727 !important;
+}
+input.white[type="text"]:focus,
+input.white[type="email"]:focus, 
+input.white[type="password"]:focus, 
+input.white[type="date"]:focus, 
+input.white[type="number"]:focus,
+input.white[type="radio"]:focus {
+	border-bottom: 2px solid #212222 !important;
+	background-color: white !important;
+}
+input[type="submit"] {
+	position: relative;
+	z-index: 1;
+}
+input[type="submit"]::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    background: #4eb1b1;
+    z-index: -1;
+    transition: transform 0.2s;
+}
+input[type="submit"]:hover::after {
+	transform: scaleY(1);
+}
+label {
+	color: #85C9CB;
+	font-size: 10pt;
+	font-weight: lighter;
+}
+label.white {
+	color: #2B3A48;
+}
+label.form-label {
+	opacity: 1;
+	transition: opacity 200ms;
+}
+label.hidden-label {
+	opacity: 0;
+}
+label.visible-label {
+	color: #D9D9D9;
+	font-size: 10pt;
+}
+label.visible-label.white {
+	color: #212222;
+}
+div.form-group {
+	margin-bottom: 5px;
+}
+legend {
+	margin-bottom: 10px !important;
+}
+
+.select-icon{
+	width: 20px;
+}
