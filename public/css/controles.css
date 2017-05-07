@@ -83,7 +83,7 @@ a.btn.highlight:before {
 	background: #cc2900;
 }
 button.highlight:before {
-	background: #212222;
+	background: #cc2900;
 }
 button:hover:before, a.btn:hover:before {
 	width: 100%;

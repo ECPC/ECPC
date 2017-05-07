@@ -1,70 +1,187 @@
-<div id="comprasRecientesContent">
-	<div class="compra-reciente">
-		<a data-toggle="collapse" data-target="#compra1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Compra hecha el <strong>05/05/2017</strong></a>
-		<!-- <a href="" class="btn">Agregar</a> -->
-		<div id="compra1" class="collapse">
-			<table class="carrito-tabla">
-				<tr>
-					<th>Producto</th>
-					<th>Cantidad</th>
-					<th>Precio</th>
-					<th>Total</th>
-				</tr>
-				<tr>
-					<td class="cell-producto"><a href="producto.html">Monitor Acer Z35</a></td>
-					<td class="cell-cantidad">2</td>
-					<td class="cell-precio">$2999</td>
-					<td class="cell-total">$5998</td>
-				</tr>
-				<tr>
-					<td class="cell-producto"><a href="producto.html">Tarjeta de video Nvidia MSI GTX 970</a></td>
-					<td class="cell-cantidad">2</td>
-					<td class="cell-precio">$6999</td>
-					<td class="cell-total">$13998</td>
-				</tr>
-			</table>
-			<div class="row">
-				<div class="col-xs-6">
-					<a href="" class="btn highlight pull-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</a>
-				</div>
-				<div class="col-xs-6">
-					<p><strong>Total: </strong>$20000</p>
-				</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Dashboard</title>
+
+	<!-- Bootstrap -->
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
+	<link rel="stylesheet" type="text/css" href="../css/ezpc.css">
+	<link rel="stylesheet" type="text/css" href="../css/controles.css">
+</head>
+<body>
+	<nav id="sidepanel">
+		<div id="sidepanel-logo" class="horizontal">
+			<!-- <div class="vertical"> -->
+					<img src="../img/dark logo.png">
+			<!-- </div> -->
+		</div>
+		<div id="sidepanel-username" class="horizontal">
+			<div class="vertical">
+				<p id="name"></p>
 			</div>
-		</div>	
-	</div>
-	<div class="compra-reciente">
-		<a data-toggle="collapse" data-target="#compra2"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Compra hecha el <strong>07/05/2017</strong></a>
-		<!-- <a href="" class="btn">Agregar</a> -->
-		<div id="compra2" class="collapse">
-			<table class="carrito-tabla">
-				<tr>
-					<th>Producto</th>
-					<th>Cantidad</th>
-					<th>Precio</th>
-					<th>Total</th>
-				</tr>
-				<tr>
-					<td class="cell-producto"><a href="producto.html">Monitor Acer Z35</a></td>
-					<td class="cell-cantidad">2</td>
-					<td class="cell-precio">$2999</td>
-					<td class="cell-total">$5998</td>
-				</tr>
-				<tr>
-					<td class="cell-producto"><a href="producto.html">Tarjeta de video Nvidia MSI GTX 970</a></td>
-					<td class="cell-cantidad">2</td>
-					<td class="cell-precio">$6999</td>
-					<td class="cell-total">$13998</td>
-				</tr>
-			</table>
-			<div class="row">
-				<div class="col-xs-6">
-					<a href="" class="btn highlight pull-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</a>
-				</div>
-				<div class="col-xs-6">
-					<p><strong>Total: </strong>$20000</p>
-				</div>
+		</div>
+		<div id="sidepanel-info">
+			<img src="../img/user-icon.png" class="pull-left">
+			<div class="vertical">
+				<p>Bonificación: $685.50</p>
+				<p>Puntos: 68</p>
+				<p>Puntos Restantes: 32</p>
 			</div>
-		</div>	
+		</div>
+		<div id="sidepanel-menu">
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Inicio" data-toggle="collapse">Inicio
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Inicio">
+					<li>Información General</li>
+					<li>Información Personal</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Actividad" data-toggle="collapse">Mi Actividad
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Actividad">
+					<li>Compras Recientes</li>
+					<li>Ultimos Socios Agregados</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Red" data-toggle="collapse">Mi Red
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Red">
+					<li>Ver Arbol</li>
+					<li>Inscribir Socio</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Reportes" data-toggle="collapse">Reportes
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Reportes">
+					<li>Bonificaciones</li>
+					<li>Puntos</li>
+				</div>
+			</ul>
+		</div>
+	</nav>
+
+	<div id="maincontent">
+		<div id="toppanel">
+			<div class="col-md-11">
+				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
+			</div>
+			<div class="col-md-1 horizontal">
+				<img src="../img/user-icon-dark.png">
+				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
+			</div>
+		</div>
+		<div id="comprasRecientesContent">
+			<div class="compra-reciente">
+				<a data-toggle="collapse" data-target="#compra1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Compra hecha el <strong>05/05/2017</strong></a>
+				<!-- <a href="" class="btn">Agregar</a> -->
+				<div id="compra1" class="collapse">
+					<table class="carrito-tabla">
+						<tr>
+							<th>Producto</th>
+							<th>Cantidad</th>
+							<th>Precio</th>
+							<th>Total</th>
+						</tr>
+						<tr>
+							<td class="cell-producto"><a href="producto.html">Monitor Acer Z35</a></td>
+							<td class="cell-cantidad">2</td>
+							<td class="cell-precio">$2999</td>
+							<td class="cell-total">$5998</td>
+						</tr>
+						<tr>
+							<td class="cell-producto"><a href="producto.html">Tarjeta de video Nvidia MSI GTX 970</a></td>
+							<td class="cell-cantidad">2</td>
+							<td class="cell-precio">$6999</td>
+							<td class="cell-total">$13998</td>
+						</tr>
+					</table>
+					<div class="row">
+						<div class="col-xs-6">
+							<a href="" class="btn highlight pull-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</a>
+						</div>
+						<div class="col-xs-6">
+							<p><strong>Total: </strong>$20000</p>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="compra-reciente">
+				<a data-toggle="collapse" data-target="#compra2"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Compra hecha el <strong>07/05/2017</strong></a>
+				<!-- <a href="" class="btn">Agregar</a> -->
+				<div id="compra2" class="collapse">
+					<table class="carrito-tabla">
+						<tr>
+							<th>Producto</th>
+							<th>Cantidad</th>
+							<th>Precio</th>
+							<th>Total</th>
+						</tr>
+						<tr>
+							<td class="cell-producto"><a href="producto.html">Monitor Acer Z35</a></td>
+							<td class="cell-cantidad">2</td>
+							<td class="cell-precio">$2999</td>
+							<td class="cell-total">$5998</td>
+						</tr>
+						<tr>
+							<td class="cell-producto"><a href="producto.html">Tarjeta de video Nvidia MSI GTX 970</a></td>
+							<td class="cell-cantidad">2</td>
+							<td class="cell-precio">$6999</td>
+							<td class="cell-total">$13998</td>
+						</tr>
+					</table>
+					<div class="row">
+						<div class="col-xs-6">
+							<a href="" class="btn highlight pull-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</a>
+						</div>
+						<div class="col-xs-6">
+							<p><strong>Total: </strong>$20000</p>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
 	</div>
-</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="../js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/ezpc.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		obtenerDatos();
+	});
+	function obtenerDatos()
+	{
+		$.ajax({
+			type : 'GET',
+			url : "/api/user"})
+		.done(function(usuario){
+			$("#name").text(usuario.name);
+			$("#id").text(usuario.id);
+		});
+	}
+</script>
+</body>
+</html>
