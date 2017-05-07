@@ -1,14 +1,21 @@
-var config = {
-    container: "#collapsable-example",
+var myConfig = {
+    chart: {
+        container: "#collapsable-example",
 
-    animateOnInit: true,
-    
-    node: {
-        collapsable: true
+        animateOnInit: true,
+        
+        node: {
+            collapsable: true
+        },
+        animation: {
+            nodeAnimation: "easeOutBounce",
+            nodeSpeed: 700,
+            connectorsAnimation: "bounce",
+            connectorsSpeed: 700
+        }
     },
     nodeStructure: {}
-};
-
+}
 var usersInfo = {};
 function initNodeChart(data)
 {
