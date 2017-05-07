@@ -5,6 +5,12 @@ a {
 	width: 100% !important;
 	height: 100% !important;
 }
+hr {
+	border-top: 1px solid #636665;
+}
+strong {
+	font-weight: bold !important;
+}
 div.horizontal {
 	display: flex;
 	justify-content: center;
@@ -29,6 +35,17 @@ div.pull-right {
 div.pull-left:after, div.pull-right:after {
 	clear: both;
 }
+.bottom-right {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.bottom-center {
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	transform: translateX(-50%);
+}
 div.border-right:after, div.border-left:before {
 	height: 70%;
 	width: 2px;
@@ -50,12 +67,13 @@ div.border-right:after {
     border-right: 20px solid #D9D9D9;
     border-bottom: 20px solid #D9D9D9;
 }
-div.form-group {
-	margin-bottom: 5px;
-}
 #sidepanel {
 	position: fixed;
-	background-color: #2B3A48;
+	background: #212222;
+	background: -moz-linear-gradient(top, #212222 0%, #2b3a48 1%, #212222 100%);
+	background: -webkit-linear-gradient(top, #212222 0%,#2b3a48 1%,#212222 100%);
+	background: linear-gradient(to bottom, #212222 0%,#2b3a48 1%,#212222 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212222', endColorstr='#212222',GradientType=0 );
 	width: 20vw;
 	max-width: 20vw;
 	min-width: 20vw;
@@ -129,6 +147,7 @@ ul.sidepanel-list>div>li:hover {
 	width: 80vw;
 	height: 100vh;
 	margin-left: 20vw;
+	overflow-x: hidden;
 }
 #toppanel {
 	background-color: #EFEFEF;
@@ -138,6 +157,7 @@ ul.sidepanel-list>div>li:hover {
 }
 #toppanel h2 {
 	margin: 0px 0px 0px 0px;
+	font-size: 18pt;
 }
 #toppanel>div {
 	margin-top: 5px;
@@ -149,17 +169,19 @@ ul.sidepanel-list>div>li:hover {
 #toppanel>div>span {
 	margin: 10 5px;
 }
-#content-info {
-	width: 100%;
-	height: 150px;
-	padding: 0px 50px;
+#maincontent>div + div {
+	background: #d9d9d9;
+	background: -moz-linear-gradient(top, #d9d9d9 0%, #ffffff 18%, #ffffff 100%);
+	background: -webkit-linear-gradient(top, #d9d9d9 0%,#ffffff 18%,#ffffff 100%);
+	background: linear-gradient(to bottom, #d9d9d9 0%,#ffffff 18%,#ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#ffffff',GradientType=0 );
 }
-#content-info>div {
+/*#content>div {
 	text-align: center;
 }
-#content-info>div>h1 {
+#content>div>h1 {
 	margin-top: 0px;
-}
+}*/
 div.progress {
 	margin: 0;
 	padding: 0;
@@ -173,8 +195,18 @@ div.form-container {
 form {
 	padding: 10px;
 }
+div#content form {
+	width: 100%;
+}
 form:not(.form-active) {
 	display: none;
+}
+div.form-row > div.form-col {
+	padding-left: 0px;
+	padding-right: 20px;
+}
+div.form-row > div.form-col + div.form-col {
+	padding-right: 0px;
 }
 div.form-header {
 	width: 100%;
@@ -199,36 +231,8 @@ div.form-header>div:not(.form-header-active):hover {
 div.form-header-active {
 	background-color: #2B3A48;
 }
-label {
-	color: #85C9CB;
-	font-size: 10pt;
-	font-weight: lighter;
-}
-input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
-	border: none;
-	border-bottom: 2px solid #367b7d !important;
-	border-radius: 0px !important;
-	box-shadow: none !important;
-	background-color: #212222 !important;
-	color: #D9D9D9 !important;
-}
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="date"]:focus {
-	border-bottom: 2px solid #85c9cb !important;
-	background-color: #262727 !important;
-}
-label.form-label {
-	opacity: 1;
-	transition: opacity 200ms;
-}
-label.hidden-label {
-	opacity: 0;
-}
-label.visible-label {
-	color: #D9D9D9;
-	font-size: 10pt;
-}
 #graph-container {
-	margin: 30px 10px;
+	margin: 50px 10px;
 }
 div.status img {
 	width: 32px;
@@ -249,7 +253,7 @@ div.status-help-container {
 }
 div.status-help {
 	position: absolute;
-	bottom: 0;
+	bottom: -30;
 	right: -30px;
 	width: 160px;
 	height: 190px;
@@ -259,8 +263,310 @@ div.status-help {
 	font-size: 9pt;
 	padding: 10px;
 	box-shadow: 2px 1px 1px 2px #212222;
+	z-index: 10;
 }
 div.status-help img {
 	height: 24px;
 	margin-right: 4px;
 }
+div#progressInfo {
+	margin: 20px 0px;
+	padding: 0px 20px;
+	height: 90px;
+}
+div#progressInfo div.progress {
+	width: 90%;
+	margin: auto;
+
+}
+div#progressInfo div.progress-bar {
+	background-color: #2B3A48;
+}
+div#progressInfo h5 {
+	text-align: center;
+}
+div#fotoPerfil {
+	margin-top: 20px;
+}
+div#fotoPerfil>div + div {
+	height: 100px;
+}
+div#submitButton {
+	height: 50px;
+}
+/***************Dashboard******************/
+div#content-info {
+	width: 100%;
+	padding: 50px 50px;
+	text-align: center;
+}
+div#content-info > div.container-fluid {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+div#content-info h4 {
+	font-size: 14pt;
+	margin-bottom: 10px;
+}
+div#content-info h1 {
+	font-size: 16pt;
+	font-weight: bold;
+}
+/******************************************/
+
+/****************TIENDA********************/
+div#storeContent {
+	width: 100%;
+	padding: 10px 50px;
+	margin-bottom: 60px;
+}
+div#storeContent div.container {
+	width: 100%;
+}
+nav.navbar button.highlight {
+	padding: 3px;
+	margin-top: 10px;
+}
+div#productoGrid {
+	margin: 0px;
+	margin-top: 30px;
+}
+nav.navbar {
+	background-color: transparent;
+	border: none;
+	border-radius: 0px;
+	border-bottom: 2px solid #212222;
+	color: #212222;
+}
+ul.navbar-nav>li>a {
+	position: relative;
+	z-index: 1;
+	transition: color 0.3s ease;
+}
+ul.navbar-nav>li:hover {
+	color: white;
+}
+ul.navbar-nav>li>a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    background: #212222;
+	background: -moz-linear-gradient(top, #212222 0%, #2b3a48 1%, #212222 100%);
+	background: -webkit-linear-gradient(top, #212222 0%,#2b3a48 1%,#212222 100%);
+	background: linear-gradient(to bottom, #212222 0%,#2b3a48 1%,#212222 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212222', endColorstr='#212222',GradientType=0 );
+    z-index: -1;
+    transition: transform 0.1s;
+}
+ul.navbar-nav>li>a:hover::after {
+	transform: scaleY(1);
+}
+ul.navbar-nav>li>a {
+	display: block !important;
+}
+a.navbar-brand {
+	padding: 9px;
+}
+a.navbar-brand>img {
+	height: 32px;
+}
+div.slide {
+	/*height: 80%;*/
+}
+div.carousel-inner img {
+	max-height: 300px;
+	border-radius: 6px;
+}
+div.producto p {
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+	font-size: 14pt;
+}
+div.producto img {
+	height: 128px;
+}
+p.precio {
+	color: red;	
+	font-weight: bold;
+	font-size: 10pt !important;
+	margin-top: 10px !important;
+}
+/*******************************************/
+
+div#registroInfo {
+	width: 100%;
+	padding: 10px 50px;
+	margin: auto;
+}
+div#progressInfo h4 {
+	font-size: 16pt;
+	margin-bottom: 10px;
+}
+
+/*****************Pagina Producto****************/
+div#productoContent {
+	padding: 10px 50px;
+}
+div#productoContent div.producto-info {
+	background-color: white; 
+	margin-top: 30px;
+	padding: 15px;
+	box-shadow: 1px 1px 2px 1px #212222;
+	text-align: center;
+}
+div#productoContent div.producto-info form {
+	margin-bottom: 20px;
+}
+div#productoContent div.producto-info form input{
+	width: 70px;
+}
+div#productoContent div.producto-info p {
+	font-size: 18pt;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+div#productoContent p.precio {
+	font-size: 24pt !important;
+}
+div#productoContent p.descripcion {
+	font-size: 14pt !important;
+}
+/************************************************/
+
+/*********************Arbol**********************/
+div#arbolContent {
+	width: 100%;
+	padding: 10px 50px; 
+}
+div#arbolContent img {
+	width: 80px;
+	height: 80px;
+}
+div#arbolContent h1 {
+	font-size: 20pt;
+}
+div#arbolContent>div.container-fluid>div.row>div + div {
+	margin-top: 100px;
+	padding: 15px;
+	box-shadow: 1px 1px 2px 1px #212222;
+}
+div#arbolContent>div.container-fluid>div.row>div + div p{
+	margin-top: 10px;
+}
+div#arbolContent>div + div strong{
+	font-size: 16pt;
+	font-weight: bold;
+}
+/************************************************/
+
+/*******************Carrito**********************/
+div#carritoContent {
+	padding: 10px 50px;
+}
+div#carritoContent table.carrito-tabla {
+	width: 80%;
+	margin: auto;
+}
+table.carrito-tabla tr {
+	box-shadow: 0px 0px 2px 0px #212222;
+}
+table.carrito-tabla th {
+	background: #212222;
+	background: -moz-linear-gradient(top, #212222 0%, #2b3a48 1%, #212222 100%);
+	background: -webkit-linear-gradient(top, #212222 0%,#2b3a48 1%,#212222 100%);
+	background: linear-gradient(to bottom, #212222 0%,#2b3a48 1%,#212222 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212222', endColorstr='#212222',GradientType=0 );
+	color: white;
+	text-align: center;
+}
+table.carrito-tabla th:first-of-type {
+	border-top-left-radius: 4px;
+}
+table.carrito-tabla th:last-of-type {
+	border-top-right-radius: 4px;
+}
+table.carrito-tabla td {
+	padding: 10px;
+}
+table.carrito-tabla td.cell-eliminar {
+	width: 50px;
+	color: red;
+}
+table.carrito-tabla td.cell-imagen {
+	width: 80px;
+}
+td.cell-producto {
+	width: 300px;
+}
+td.cell-cantidad {
+	width: 20px;
+	text-align: center;
+}
+table.carrito-tabla td.cell-cantidad input {
+	width: 60%;
+	margin-left: 20px;
+}
+td.cell-precio,
+td.cell-total {
+	width: 50px;
+	text-align: center;
+}
+table.carrito-tabla td.cell-imagen img {
+	height: 50px;
+}
+td.cell-producto {
+	text-decoration: underline;
+}
+div#carritoContent form {
+	width: 100%;
+	padding: 10px 100px;
+	text-align: right;
+}
+div#carritoContent form p {
+	font-size: 10pt;
+	margin: 5px 0px;
+}
+div#carritoContent form p strong {
+	font-weight: bolder;
+}
+div#carritoContent form button, div#carritoContent form a.btn {
+	margin-top: 20px;
+}
+/************************************************/
+
+/*************Compras recientes******************/
+div#comprasRecientesContent {
+	width: 100%;
+	padding: 10px 50px;
+}
+div.compra-reciente {
+	color: white;
+	padding: 10px;
+	border-radius: 4px;
+	background-color: #2B3A48;
+	margin-bottom: 20px;
+}
+div.compra-reciente>div {
+	padding: 5px;
+	color: #212222;
+	background-color: white;
+}
+div.compra-reciente>div>table {
+	width: 100%;
+}
+div.compra-reciente>div>table + div {
+	margin-top: 10px;
+	font-size: 10pt;
+	text-align: right;
+}
+div.compra-reciente>div>table + div p {
+	margin-top: 10px;
+}
+/************************************************/

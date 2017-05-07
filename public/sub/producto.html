@@ -8,20 +8,16 @@
 	<title>Dashboard</title>
 
 	<!-- Bootstrap -->
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
-	<link rel="stylesheet" type="text/css" href="css/ezpc.css">
-	<link rel="stylesheet" type="text/css" href="css/controles.css">
-	<!-- Arbol -->
-	<link rel="stylesheet" type="text/css" href="css/Treant.css">
-	<link rel="stylesheet" type="text/css" href="css/collapsable.css">
-	<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="../css/ezpc.css">
+	<link rel="stylesheet" type="text/css" href="../css/controles.css">
 </head>
 <body>
 	<nav id="sidepanel">
 		<div id="sidepanel-logo" class="horizontal">
 			<!-- <div class="vertical"> -->
-					<img src="img/dark logo.png">
+					<img src="../img/dark logo.png">
 			<!-- </div> -->
 		</div>
 		<div id="sidepanel-username" class="horizontal">
@@ -30,7 +26,7 @@
 			</div>
 		</div>
 		<div id="sidepanel-info">
-			<img src="img/user-icon.png" class="pull-left">
+			<img src="../img/user-icon.png" class="pull-left">
 			<div class="vertical">
 				<p>Bonificación: $685.50</p>
 				<p>Puntos: 68</p>
@@ -86,83 +82,71 @@
 	</nav>
 
 	<div id="maincontent">
-<!-- 		<div id="toppanel">
+		<div id="toppanel">
 			<div class="col-md-11">
 				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
 			</div>
 			<div class="col-md-1 horizontal">
-				<img src="img/user-icon-dark.png">
+				<img src="../img/user-icon-dark.png">
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
 		</div>
-		<div id="content-info" class="horizontal">
-			<div class="col-md-3 vertical border-right">
-				<h4><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Progreso Mensual</h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="68"
-						 aria-minvalue="0" aria-maxvalue="100" style="width: 68%"></div>
+		<div id="productoContent">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">
+						<img src="../img/light logo.png">
+					</a>
 				</div>
-				<h5>68/100 puntos</h5>
-			</div>
-			<div class="col-md-3 vertical border-right">
-				<h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Bonificación</h4>
-				<h1>$ 685.50</h1>
-			</div>
-			<div class="col-md-3 vertical border-right">
-				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mis Socios</h4>
-				<h1>13</h1>
-			</div>
-			<div class="col-md-3 vertical">
-				<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Estado</h4>
-				<div class="status status-ok horizontal">
-					<img src="img/ok-icon.png" class="pull-left">
-					<h4> Bueno</h4>
-				</div>
-				<div class="status-help-container">
-					<div class="status-help">
-						<div class="horizontal">
-							<img src="img/ok-icon.png" class="pull-left">
-							<p>Tu membresía está segura por este mes.</p>
-						</div>
-						<div class="horizontal">
-							<img src="img/alert-icon.png" class="pull-left">
-							<p>No arriesges tu membresía. Sigue acumulando puntos.</p>
-						</div>
-						<div class="horizontal">
-							<img src="img/danger-icon.png" class="pull-left">
-							<p>Tu membresía será bloqueada al final del mes.</p>
-						</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="">Inicio</a></li>
+						<li><a href="">Hardware</a></li>
+						<li><a href="">Accesorios</a></li>
+						<li><a href="">Almacenamiento</a></li>
+						<li><a href="">Software</a></li>
+					</ul>
+					<div class="navbar-right">
+						<button type="submit" form="frmAgregar" value="Submit" class="highlight"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</button>
 					</div>
 				</div>
+			</nav>
+			<div class="container-fluid">
+				<div class="row">					
+					<div class="col-md-6">
+						<div class="horizontal">
+							<div class="vertical">
+								<img src="../img/productos/msi1080.png">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-offset-1 producto-info">
+
+						<p>Tarjeta de video Nvidia MSI GTX 970</p>
+						<p class="descripcion">Descripcion del producto, puede incluir especificaciones.</p>
+						<p class="precio">$ 1999</p>
+						<form id="frmAgregar" class="form-active form-inline">
+							<div class="form-group">
+								<label for="txtCantidad" class="visible-inline">Cantidad </label>
+								<input type="number" id="txtCantidad" name="txtCantidad" class="form-control white" value="1" min="1">
+							</div>
+						</form>
+						<button type="submit" form="frmAgregar" value="Submit" class="highlight"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</button>
+					</div>
+				</div>
+				<hr>
 			</div>
 		</div>
-		<div id="graph-container">
-			<div id="grafica" class="col-md-6">
-				<canvas id="myChart2"></canvas>	
-			</div>
-			<div class="col-md-6">
-				<canvas id="myChart"></canvas>	
-			</div>
-		</div> -->
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="js/jquery.min.js"></script>
+	<script src="../js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<!-- <script src="js/Chart.bundle.min.js"></script> -->
-	<script type="text/javascript" src="js/ezpc.js"></script>
-	<!-- <script type="text/javascript" src="js/dashboardCharts.js"></script> -->
-		<!-- Arbol -->
-	<script type="text/javascript" src="js/jquery.easing.js"></script>
-	<script type="text/javascript" src="js/raphael.js"></script>
-	<script type="text/javascript" src="js/Treant.js"></script>
-	<script type="text/javascript" src="js/collapsable.js"></script>
-	<!-- collapsable.js es necesario para el arbol -->
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/ezpc.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		obtenerDatos();
-		appendContent("/sub/socios.html");
 	});
 	function obtenerDatos()
 	{
@@ -172,14 +156,6 @@
 		.done(function(usuario){
 			$("#name").text(usuario.name);
 			$("#id").text(usuario.id);
-		});
-	}
-	function appendContent(source){
-		$.get(source, function(data){
-			$("#maincontent").append(data);
-			$.get("/api/user/selfPartnerNet", function(response){
-				initNodeChart(response);
-			});
 		});
 	}
 </script>

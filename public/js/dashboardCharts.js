@@ -81,7 +81,7 @@ $(document).ready(function(){
             var myChart2 = new Chart(ctx2, data2);
             var myChart = new Chart(ctx, data);
 
-                $("div.status img").on("mouseenter", function() {
+            $("div.status img").on("mouseenter", function() {
                 $("div.status-help-container").fadeIn('100', function() {
                     // $("div.status-help-container").fadeOut('200');
                 });

@@ -1,3 +1,16 @@
+button, a.btn {
+	border: none;
+	color: white;
+	padding: 6px 12px;
+	font-size: 16px;
+	border-radius: 5px;
+	position: relative;
+	box-sizing: border-box;
+	transition: all 500ms ease; 
+}
+a.btn {
+	display: inline-block !important;
+}
 input[type="text"], 
 input[type="email"], 
 input[type="password"], 
@@ -19,8 +32,11 @@ input.white[type="number"],
 input.white[type="radio"]
  {
 	background-color: white !important;
-	border-bottom: 2px solid #8b8d8d;/*2#4c4d4d !important;*/
+	/*border-bottom: 2px solid #8b8d8d;/*2#4c4d4d !important;*/
 	color: #212222 !important;
+	background-color: white !important;
+	border-bottom: 2px solid #4c4d4d !important;
+	transition: all 0.5s ease;
 }
 input[type="text"]:focus, 
 input[type="email"]:focus, 
@@ -60,10 +76,47 @@ input[type="submit"]::after {
 input[type="submit"]:hover::after {
 	transform: scaleY(1);
 }
+button, a.btn {
+	background-color: transparent;
+	border: 2px solid #212222;
+	box-shadow: 0 0 1px 1px #e5e6e6;
+	color: #212222;
+}
+button.blue {
+	border-color: #2B3A48;
+	color: #2B3A48;
+}
+button.highlight, a.btn.highlight {
+	border-color: #cc2900 !important;
+	color: #cc2900 !important;
+}
+button:before, a.btn:before {
+	content:'';
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 0;
+	height: 4px;
+	background: #212222;
+	border-radius: 3px;
+	transition: all 0.4s ease;
+}
+a.btn.highlight:before {
+	background: #cc2900;
+}
+button.highlight:before {
+	background: #cc2900;
+}
+button:hover:before, a.btn:hover:before {
+	width: 100%;
+}
 label {
 	color: #85C9CB;
 	font-size: 10pt;
 	font-weight: lighter;
+}
+label.visible-inline {
+	color: #212222;
 }
 label.white {
 	color: #2B3A48;

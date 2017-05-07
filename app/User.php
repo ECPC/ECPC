@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 //use Illuminate\Database\Eloquent\Model;
+use App\MonthEarning;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -30,14 +31,18 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\User', 'parent_partner');
     }
-    public function child_partners()
+    public function child_partners_chart()
     {
         $childs = $this->hasMany('App\User', 'parent_partner')->get(['id', 'email', 'name']);
         $data = [];
         if(!$childs->isEmpty()){
             foreach($childs as $child){
+                $monthOfChild = MonthEarning::currentMonth($child);
                 $childArr = $child->toArray();
-                $childArr['childs'] = $child->child_partners();
+                $childArr['childs'] = $child->child_partners_chart();
+                $childArr['child_count'] = $child->direct_child_count();
+                $childArr['points'] = $monthOfChild->points;
+                $childArr['earnings'] = $monthOfChild->earnings;
                 array_push($data, $childArr);
             }
         }

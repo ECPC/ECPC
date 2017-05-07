@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Dashboard</title>
+
+	<!-- Bootstrap -->
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
+	<link rel="stylesheet" type="text/css" href="../css/ezpc.css">
+	<link rel="stylesheet" type="text/css" href="../css/controles.css">
+</head>
+<body>
+	<nav id="sidepanel">
+		<div id="sidepanel-logo" class="horizontal">
+			<!-- <div class="vertical"> -->
+					<img src="../img/dark logo.png">
+			<!-- </div> -->
+		</div>
+		<div id="sidepanel-username" class="horizontal">
+			<div class="vertical">
+				<p id="name"></p>
+			</div>
+		</div>
+		<div id="sidepanel-info">
+			<img src="../img/user-icon.png" class="pull-left">
+			<div class="vertical">
+				<p>Bonificación: $685.50</p>
+				<p>Puntos: 68</p>
+				<p>Puntos Restantes: 32</p>
+			</div>
+		</div>
+		<div id="sidepanel-menu">
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Inicio" data-toggle="collapse">Inicio
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Inicio">
+					<li>Información General</li>
+					<li>Información Personal</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Actividad" data-toggle="collapse">Mi Actividad
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Actividad">
+					<li>Compras Recientes</li>
+					<li>Ultimos Socios Agregados</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Red" data-toggle="collapse">Mi Red
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Red">
+					<li>Ver Arbol</li>
+					<li>Inscribir Socio</li>
+				</div>
+			</ul>
+			<ul class="sidepanel-list">
+				<li class="sidepanel-list-item">
+					<a href="#Menu-Reportes" data-toggle="collapse">Reportes
+						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+					</a>
+				</li>
+				<div class="collapse" id="Menu-Reportes">
+					<li>Bonificaciones</li>
+					<li>Puntos</li>
+				</div>
+			</ul>
+		</div>
+	</nav>
+
+	<div id="maincontent">
+		<div id="toppanel">
+			<div class="col-md-11">
+				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
+			</div>
+			<div class="col-md-1 horizontal">
+				<img src="../img/user-icon-dark.png">
+				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
+			</div>
+		</div>
+		<div id="registroInfo">
+			<div id="progressInfo" class="col-xs-12">
+				<h4>Progreso del registro</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="68"
+						 aria-minvalue="0" aria-maxvalue="100" style="width: 28%"></div>
+				</div>
+				<h5>Haz completado el <strong>38%</strong> de tu registro.</h5>
+			</div>
+			<form id="frmRegistro" class="form-active">
+				<div class="row">
+					<div class="col-xs-6">
+						<fieldset>
+							<legend>Información Basica</legend>
+							<div class="form-group">
+								<label for="txtNombre" class="form-label hidden-label white">Nombre(s)</label>
+								<input type="text" id="txtNombre" class="form-control white" placeholder="Nombre(s)">
+							</div>
+							<div class="form-row">
+								<div class="col-xs-6 form-col">
+									<div class="form-group">
+										<label for="txtApellidoPaterno" class="form-label hidden-label white">Apellido paterno</label>
+										<input type="text" id="txtApellidoPaterno" class="form-control white" placeholder="Apellido paterno">
+									</div>
+								</div>
+								<div class="col-xs-6 form-col">
+									<div class="form-group">
+										<label for="txtApellidoMaterno" class="form-label hidden-label white">Apellido materno</label>
+										<input type="text" id="txtApellidoMaterno" class="form-control white" placeholder="Apellido materno">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="txtFechaNacimiento" class="form-label hidden-label white">Fecha de nacimiento</label>	
+								<input type="text" id="txtFechaNacimiento" class="form-control white form-control-date" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')">
+							</div>
+							<div class="form-row">
+								<br>
+								<div class="col-xs-6 form-col">
+									<label class="white">
+				                        <input type="radio" name="radiosGenero" id="radGeneroM" class="white" value="Mujer">
+				                        Mujer
+				                    </label>
+								</div>
+								<div class="col-xs-6 form-col">
+									<label class="white">
+				                        <input type="radio" name="radiosGenero" id="radGeneroH" class="white" value="Hombre">
+				                        Hombre
+				                    </label>
+								</div>
+							</div>
+							<br><br>
+							<div class="form-group">							
+								<label for="inpPerfil" class="form-label white">Foto de perfil</label>
+								<input type="file" id="inpPerfil" class="form-control white" placeholder="Foto de perfil">
+							</div>
+						</fieldset>
+					</div>	
+					<div class="col-xs-6">
+						<fieldset>
+							<legend>Domicilio</legend>
+							<div class="form-group">
+								<label for="txtCalleNumero" class="form-label hidden-label white">Calle y Número</label>
+								<input type="text" id="txtCalleNumero" class="form-control white" placeholder="Calle y Número">
+							</div>
+							<div class="form-row">
+								<div class="col-xs-6 form-col">
+									<div class="form-group">
+										<label for="txtColonia" class="form-label hidden-label white">Colonia</label>
+										<input type="text" id="txtColonia" class="form-control white" placeholder="Colonia">
+									</div>
+								</div>
+								<div class="col-xs-6 form-col">
+									<div class="form-group">
+										<label for="txtCodigoPostal" class="form-label hidden-label white">Código Postal</label>
+										<input type="number" id="txtCodigoPostal" class="form-control white" placeholder="Código postal">
+									</div>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="col-xs-6 form-col">
+									<div class="form-group">
+										<label for="txtMunicipio" class="form-label hidden-label white">Municipio</label>
+										<input type="text" id="txtMunicipio" class="form-control white" placeholder="Municipio">
+									</div>
+								</div>
+								<div class="col-xs-6 form-col">
+									<div class="form-group">
+										<label for="txtEstado" class="form-label hidden-label white">Estado</label>
+										<input type="text" id="txtEstado" class="form-control white" placeholder="Estado">
+									</div>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+					<div id="submitButton" class="col-xs-12">
+						<button type="submit" form="frmRegistro" class="bottom-right" value="Submit">Guardar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/ezpc.js"></script>
+	<!-- collapsable.js es necesario para el arbol -->
+	<script type="text/javascript">
+	$(document).ready(function(){
+		obtenerDatos();
+	});
+	function obtenerDatos()
+	{
+		$.ajax({
+			type : 'GET',
+			url : "/api/user"})
+		.done(function(usuario){
+			$("#name").text(usuario.name);
+			$("#id").text(usuario.id);
+		});
+	}
+</script>
+</body>
+</html>
