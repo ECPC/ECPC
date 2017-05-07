@@ -144,6 +144,7 @@ ul.sidepanel-list>div>li:hover {
 	width: 80vw;
 	height: 100vh;
 	margin-left: 20vw;
+	overflow-x: hidden;
 }
 #toppanel {
 	background-color: #EFEFEF;
@@ -165,9 +166,12 @@ ul.sidepanel-list>div>li:hover {
 #toppanel>div>span {
 	margin: 10 5px;
 }
-#content {
-	width: 100%;
-	padding: 0px 50px;
+#maincontent>div + div {
+	background: #d9d9d9;
+	background: -moz-linear-gradient(top, #d9d9d9 0%, #ffffff 18%, #ffffff 100%);
+	background: -webkit-linear-gradient(top, #d9d9d9 0%,#ffffff 18%,#ffffff 100%);
+	background: linear-gradient(to bottom, #d9d9d9 0%,#ffffff 18%,#ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#ffffff',GradientType=0 );
 }
 /*#content>div {
 	text-align: center;
@@ -245,7 +249,7 @@ div.status-help-container {
 }
 div.status-help {
 	position: absolute;
-	bottom: 0;
+	bottom: -30;
 	right: -30px;
 	width: 160px;
 	height: 190px;
@@ -255,6 +259,7 @@ div.status-help {
 	font-size: 9pt;
 	padding: 10px;
 	box-shadow: 2px 1px 1px 2px #212222;
+	z-index: 10;
 }
 div.status-help img {
 	height: 24px;
@@ -268,6 +273,10 @@ div#progressInfo {
 div#progressInfo div.progress {
 	width: 90%;
 	margin: auto;
+
+}
+div#progressInfo div.progress-bar {
+	background-color: #2B3A48;
 }
 div#progressInfo h5 {
 	text-align: center;
@@ -281,22 +290,46 @@ div#fotoPerfil>div + div {
 div#submitButton {
 	height: 50px;
 }
+/***************Dashboard******************/
+div#content-info {
+	width: 100%;
+	padding: 50px 50px;
+	text-align: center;
+}
+div#content-info > div.container-fluid {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+div#content-info h4 {
+	font-size: 14pt;
+	margin-bottom: 10px;
+}
+div#content-info h1 {
+	font-size: 16pt;
+	font-weight: bold;
+}
+/******************************************/
 
 /****************TIENDA********************/
+div#storeContent {
+	width: 100%;
+	padding: 10px 50px;
+	margin-bottom: 60px;
+}
 div#storeContent div.container {
 	width: 100%;
 }
-div#storeContent {
-	width: 85%;
-	padding: 0px 50px;
-	margin: auto;
+nav.navbar button.highlight {
+	padding: 3px;
+	margin-top: 10px;
 }
 div#productoGrid {
 	margin: 0px;
-	margin-top: 20px;
+	margin-top: 30px;
 }
 nav.navbar {
-	background-color: white;
+	background-color: transparent;
 	border: none;
 	border-radius: 0px;
 	border-bottom: 2px solid #212222;
@@ -339,12 +372,6 @@ a.navbar-brand {
 a.navbar-brand>img {
 	height: 32px;
 }
-form#frmBuscar {
-	width: 200px !important;
-}
-form#frmBuscar {
-	margin-top: 10px;
-}
 div.slide {
 	/*height: 80%;*/
 }
@@ -369,16 +396,37 @@ p.precio {
 }
 /*******************************************/
 
+div#registroInfo {
+	width: 100%;
+	padding: 10px 50px;
+	margin: auto;
+}
+div#progressInfo h4 {
+	font-size: 16pt;
+	margin-bottom: 10px;
+}
+
 /*****************Pagina Producto****************/
 div#productoContent {
-	padding: 10px;
-}
-div#productoContent>p {
-	padding-left: 40px;
-	font-size: 18pt;
-	font-weight: bold;
+	padding: 10px 50px;
 }
 div#productoContent div.producto-info {
+	background-color: white; 
+	margin-top: 30px;
+	padding: 15px;
+	box-shadow: 1px 1px 2px 1px #212222;
+	text-align: center;
+}
+div#productoContent div.producto-info form {
+	margin-bottom: 20px;
+}
+div#productoContent div.producto-info form input{
+	width: 70px;
+}
+div#productoContent div.producto-info p {
+	font-size: 18pt;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 div#productoContent p.precio {
 	font-size: 24pt !important;
@@ -390,9 +438,8 @@ div#productoContent p.descripcion {
 
 /*********************Arbol**********************/
 div#arbolContent {
-	width: 90%;
-	margin: auto;
-	margin-top: 20px;
+	width: 100%;
+	padding: 10px 50px; 
 }
 div#arbolContent img {
 	width: 80px;
@@ -401,12 +448,12 @@ div#arbolContent img {
 div#arbolContent h1 {
 	font-size: 20pt;
 }
-div#arbolContent>div + div {
+div#arbolContent>div.container-fluid>div.row>div + div {
 	margin-top: 100px;
 	padding: 15px;
 	box-shadow: 1px 1px 2px 1px #212222;
 }
-div#arbolContent>div + div p{
+div#arbolContent>div.container-fluid>div.row>div + div p{
 	margin-top: 10px;
 }
 div#arbolContent>div + div strong{

@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">
-				<img src="images/light logo.png">
+				<img src="img/light logo.png">
 			</a>
 		</div>
 		<div class="collapse navbar-collapse">
@@ -13,11 +13,9 @@
 				<li><a href="">Almacenamiento</a></li>
 				<li><a href="">Software</a></li>
 			</ul>
-			<form id="frmBuscar" class="navbar-form navbar-right form-active">
-				<div class="form-group">
-					<input type="text" placeholder="Buscar" class="white">
-				</div>
-			</form>
+			<div class="navbar-right">
+				<button type="submit" form="frmAgregar" value="Submit" class="highlight"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</button>
+			</div>
 		</div>
 	</nav>
 	<div class="row">
@@ -33,15 +31,15 @@
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
 					<div class="item active">
-						<img src="images/light logo.png" alt="Los Angeles">
+						<img src="img/light logo.png" alt="Promocion 1">
 					</div>
 
 					<div class="item">
-						<img src="images/light logo.png" alt="Chicago">
+						<img src="img/light logo.png" alt="Promocion 2">
 					</div>
 
 					<div class="item">
-						<img src="images/light logo.png" alt="New York">
+						<img src="img/light logo.png" alt="Promocion 3">
 					</div>
 				</div>
 
@@ -57,24 +55,64 @@
 			</div>
 		</div>
 	</div>
-	<div id="productoGrid" class="container">
-		<div class="col-md-4 col-sm-6 producto">
-			<div class="horizontal">
-				<div class="vertical">
-					<img src="images/productos/msi1080.png">
+	<div id="productoGrid">
+		<div class="row">
+			<div class="col-md-4 col-sm-6 producto">
+				<div class="horizontal">
+					<div class="vertical">
+						<a href=""><img src="img/productos/msi1080.png"></a>
+					</div>
 				</div>
+				<p>Tarjeta de video NVIDIA MSI GTX 1080</p>
+				<p class="precio">$8999</p>
 			</div>
-			<p>NVIDIA MSI GTX 1080</p>
-			<p class="precio">$1999</p>
-			<!-- <button class="blue"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</button> -->
+			<div class="col-md-4 col-sm-6 producto">
+				<div class="horizontal">
+					<div class="vertical">
+						<a href=""><img src="img/productos/corsaircase.png"></a>
+					</div>
+				</div>
+				<p>Gabinete Corsair</p>
+				<p class="precio">$1999</p>
+			</div>
+			<div class="col-md-4 col-sm-6 producto">
+				<div class="horizontal">
+					<div class="vertical">
+						<a href=""><img src="img/productos/inteli7.jpg"></a>
+					</div>
+				</div>
+				<p>Procesador Intel I7</p>
+				<p class="precio">$6999</p>
+			</div>
 		</div>
-		<div class="col-md-4 col-sm-6 producto">
-			<img src="images/light logo.png">
-			<p>Producto 1</p>
-		</div>
-		<div class="col-md-4 col-sm-6 producto">
-			<img src="images/light logo.png">
-			<p>Producto 1</p>
+		<div class="row">
+			<div class="col-md-4 col-sm-6 producto">
+				<div class="horizontal">
+					<div class="vertical">
+						<a href=""><img src="img/productos/razermk.jpg"></a>
+					</div>
+				</div>
+				<p>Teclado mecanico Razer Chroma</p>
+				<p class="precio">$2999</p>
+			</div>
+			<div class="col-md-4 col-sm-6 producto">
+				<div class="horizontal">
+					<div class="vertical">
+						<a href=""><img src="img/productos/acermonitor.jpg"></a>
+					</div>
+				</div>
+				<p>Monitor Acer Z35</p>
+				<p class="precio">$2499</p>
+			</div>
+			<div class="col-md-4 col-sm-6 producto">
+				<div class="horizontal">
+					<div class="vertical">
+						<a href=""><img src="img/productos/asusroghero.png"></a>
+					</div>
+				</div>
+				<p>Tarjeta madre Asus ROG VI Hero</p>
+				<p class="precio">$1899</p>
+			</div>
 		</div>
 	</div>
 </div>

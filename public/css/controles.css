@@ -52,7 +52,7 @@ input.white[type="radio"]:focus {
 	background-color: white !important;
 }
 button {
-	background-color: white;
+	background-color: transparent;
 	border: 2px solid #212222;
 	box-shadow: 0 0 1px 1px #e5e6e6;
 	color: #212222;
@@ -60,6 +60,10 @@ button {
 button.blue {
 	border-color: #2B3A48;
 	color: #2B3A48;
+}
+button.highlight {
+	border-color: #cc2900;
+	color: #cc2900;
 }
 button:before {
 	content:'';
@@ -72,6 +76,9 @@ button:before {
 	border-radius: 3px;
 	transition: all 0.4s ease;
 }
+button.highlight:before {
+	background: #cc2900;
+}
 button:hover:before {
 	width: 100%;
 }
@@ -79,6 +86,9 @@ label {
 	color: #85C9CB;
 	font-size: 10pt;
 	font-weight: lighter;
+}
+label.visible-inline {
+	color: #212222;
 }
 label.white {
 	color: #2B3A48;
