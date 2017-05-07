@@ -1,4 +1,4 @@
-button {
+button, a.btn {
 	border: none;
 	color: white;
 	padding: 6px 12px;
@@ -7,6 +7,9 @@ button {
 	position: relative;
 	box-sizing: border-box;
 	transition: all 500ms ease; 
+}
+a.btn {
+	display: inline-block !important;
 }
 input[type="text"], 
 input[type="email"], 
@@ -51,7 +54,7 @@ input.white[type="radio"]:focus {
 	border-bottom: 2px solid #212222 !important;
 	background-color: white !important;
 }
-button {
+button, a.btn {
 	background-color: transparent;
 	border: 2px solid #212222;
 	box-shadow: 0 0 1px 1px #e5e6e6;
@@ -61,11 +64,11 @@ button.blue {
 	border-color: #2B3A48;
 	color: #2B3A48;
 }
-button.highlight {
-	border-color: #cc2900;
-	color: #cc2900;
+button.highlight, a.btn.highlight {
+	border-color: #cc2900 !important;
+	color: #cc2900 !important;
 }
-button:before {
+button:before, a.btn:before {
 	content:'';
 	position: absolute;
 	bottom: 0px;
@@ -76,10 +79,13 @@ button:before {
 	border-radius: 3px;
 	transition: all 0.4s ease;
 }
-button.highlight:before {
+a.btn.highlight:before {
 	background: #cc2900;
 }
-button:hover:before {
+button.highlight:before {
+	background: #212222;
+}
+button:hover:before, a.btn:hover:before {
 	width: 100%;
 }
 label {

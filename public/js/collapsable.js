@@ -1,18 +1,10 @@
-var myConfig = {
-    chart: {
-        container: "#collapsable-example",
+var config = {
+    container: "#collapsable-example",
 
-        animateOnInit: true,
-        
-        node: {
-            collapsable: true
-        },
-        animation: {
-            nodeAnimation: "easeOutBounce",
-            nodeSpeed: 700,
-            connectorsAnimation: "bounce",
-            connectorsSpeed: 700
-        }
+    animateOnInit: true,
+    
+    node: {
+        collapsable: true
     },
     nodeStructure: {}
 };
