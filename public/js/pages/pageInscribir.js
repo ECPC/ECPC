@@ -1,15 +1,13 @@
 var page = {
     ready: function(){
-        			//Hay que evitar que el form refresque la página
+        	//Hay que evitar que el form refresque la página
+            page.getToken();
 			$("#frmInscribir").submit(page.onFrmInscribirSubmit);
     },
     getToken: function(){
         //Puedes obtener el valor del token con la siguiente ruta
         $.ajax({method: "GET", url: "/api/token"})
         .done(function(msg){
-            //Le concatenamos el valor del token al atributo oculto del form,
-            //esto nos permitira poder llevar a cabo la petición mediante el
-            //método POST
             $(".formToken").attr("value", msg);
         });
     },
@@ -29,7 +27,8 @@ var page = {
         data : $('#frmInscribir').serialize()})
         .done(function(response){
             //Checamos la respuesta del servicio
-            console.log("done");
+            //console.log("done");
+            window.location = "/sub/socios.html";
         });
     }
 };

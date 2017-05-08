@@ -20,8 +20,15 @@ class CreateUsersTable extends Migration
                 $table->increments('id');
                 $table->integer('parent_partner')->unsigned()->nullable();
                 $table->string('name');
-                $table->string('lastname1')->nullable();
-                $table->string('lastname2')->nullable();
+                $table->string('apellido_paterno')->nullable();
+                $table->string('apellido_materno')->nullable();
+                $table->string('calle_numero')->nullable();
+                $table->string('colonia')->nullable();
+                $table->string('codigo_postal')->nullable();
+                $table->string('municipio')->nullable();
+                $table->string('estado')->nullable();
+                $table->boolean('genero')->nullable();
+                //$table->string('lastname2')->nullable();
                 $table->string('email')->unique();
                 $table->string('password');
                 $table->string('activation_token')->nullable();

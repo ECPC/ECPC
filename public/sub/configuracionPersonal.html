@@ -95,37 +95,38 @@
 			<div id="progressInfo" class="col-xs-12">
 				<h4>Progreso del registro</h4>
 				<div class="progress">
-					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="68"
-						 aria-minvalue="0" aria-maxvalue="100" style="width: 28%"></div>
+					<div id="progressBar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="68"
+						 aria-minvalue="0" aria-maxvalue="100" style="width: 0%"></div>
 				</div>
-				<h5>Haz completado el <strong>38%</strong> de tu registro.</h5>
+				<h5>Haz completado el <strong id="registerProgress">...</strong><strong>%</strong> de tu registro.</h5>
 			</div>
-			<form id="frmRegistro" class="form-active">
+			<form method="post" action="/api/user/editInfo" id="frmRegistro" class="form-active">
+				<input class="formToken" type="hidden" name="_token">
 				<div class="row">
 					<div class="col-xs-6">
 						<fieldset>
 							<legend>Información Basica</legend>
 							<div class="form-group">
-								<label for="txtNombre" class="form-label hidden-label white">Nombre(s)</label>
-								<input type="text" id="txtNombre" class="form-control white" placeholder="Nombre(s)">
+								<label for="name" class="form-label hidden-label white">Nombre(s)</label>
+								<input type="text" name="name" id="txtNombre" class="form-control white" placeholder="Nombre(s)" required>
 							</div>
 							<div class="form-row">
 								<div class="col-xs-6 form-col">
 									<div class="form-group">
-										<label for="txtApellidoPaterno" class="form-label hidden-label white">Apellido paterno</label>
-										<input type="text" id="txtApellidoPaterno" class="form-control white" placeholder="Apellido paterno">
+										<label for="apellido_paterno" class="form-label hidden-label white">Apellido paterno</label>
+										<input type="text" name="apellido_paterno" id="txtApellidoPaterno" class="form-control white" placeholder="Apellido paterno">
 									</div>
 								</div>
 								<div class="col-xs-6 form-col">
 									<div class="form-group">
-										<label for="txtApellidoMaterno" class="form-label hidden-label white">Apellido materno</label>
-										<input type="text" id="txtApellidoMaterno" class="form-control white" placeholder="Apellido materno">
+										<label for="apellido_materno" class="form-label hidden-label white">Apellido materno</label>
+										<input type="text" name="apellido_materno" id="txtApellidoMaterno" class="form-control white" placeholder="Apellido materno">
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="txtFechaNacimiento" class="form-label hidden-label white">Fecha de nacimiento</label>	
-								<input type="text" id="txtFechaNacimiento" class="form-control white form-control-date" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')">
+								<label for="birthdate" class="form-label hidden-label white">Fecha de nacimiento</label>	
+								<input type="text" name="birthdate" id="txtFechaNacimiento" class="form-control white form-control-date" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')">
 							</div>
 							<div class="form-row">
 								<br>
@@ -143,51 +144,51 @@
 								</div>
 							</div>
 							<br><br>
-							<div class="form-group">							
+<!-- 							<div class="form-group">							
 								<label for="inpPerfil" class="form-label white">Foto de perfil</label>
 								<input type="file" id="inpPerfil" class="form-control white" placeholder="Foto de perfil">
-							</div>
+							</div> -->
 						</fieldset>
 					</div>	
 					<div class="col-xs-6">
 						<fieldset>
 							<legend>Domicilio</legend>
 							<div class="form-group">
-								<label for="txtCalleNumero" class="form-label hidden-label white">Calle y Número</label>
-								<input type="text" id="txtCalleNumero" class="form-control white" placeholder="Calle y Número">
+								<label for="calle_numero" class="form-label hidden-label white">Calle y Número</label>
+								<input type="text" name="calle_numero" id="txtCalleNumero" class="form-control white" placeholder="Calle y Número">
 							</div>
 							<div class="form-row">
 								<div class="col-xs-6 form-col">
 									<div class="form-group">
-										<label for="txtColonia" class="form-label hidden-label white">Colonia</label>
-										<input type="text" id="txtColonia" class="form-control white" placeholder="Colonia">
+										<label for="colonia" class="form-label hidden-label white">Colonia</label>
+										<input type="text" name="colonia" id="txtColonia" class="form-control white" placeholder="Colonia">
 									</div>
 								</div>
 								<div class="col-xs-6 form-col">
 									<div class="form-group">
-										<label for="txtCodigoPostal" class="form-label hidden-label white">Código Postal</label>
-										<input type="number" id="txtCodigoPostal" class="form-control white" placeholder="Código postal">
+										<label for="codigo_postal" class="form-label hidden-label white">Código Postal</label>
+										<input type="number" name="codigo_postal" id="txtCodigoPostal" class="form-control white" placeholder="Código postal">
 									</div>
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="col-xs-6 form-col">
 									<div class="form-group">
-										<label for="txtMunicipio" class="form-label hidden-label white">Municipio</label>
-										<input type="text" id="txtMunicipio" class="form-control white" placeholder="Municipio">
+										<label for="municipio" class="form-label hidden-label white">Municipio</label>
+										<input type="text" name="municipio" id="txtMunicipio" class="form-control white" placeholder="Municipio">
 									</div>
 								</div>
 								<div class="col-xs-6 form-col">
 									<div class="form-group">
-										<label for="txtEstado" class="form-label hidden-label white">Estado</label>
-										<input type="text" id="txtEstado" class="form-control white" placeholder="Estado">
+										<label for="estado" class="form-label hidden-label white">Estado</label>
+										<input type="text" name="estado" id="txtEstado" class="form-control white" placeholder="Estado">
 									</div>
 								</div>
 							</div>
 						</fieldset>
 					</div>
 					<div id="submitButton" class="col-xs-12">
-						<button type="submit" form="frmRegistro" class="bottom-right" value="Submit">Guardar</button>
+						<button id="editButton" type="submit" form="frmRegistro" class="bottom-right" value="Submit" hidden>Guardar</button>
 					</div>
 				</div>
 			</form>
@@ -198,8 +199,8 @@
 	<script src="../js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/sideNav.js"></script>
 	<script type="text/javascript" src="/js/pages/pageConfiguracionPersonal.js"></script>
+	<script type="text/javascript" src="/js/sideNav.js"></script>
 	<!-- collapsable.js es necesario para el arbol -->
 </body>
 </html>

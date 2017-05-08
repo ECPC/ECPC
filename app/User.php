@@ -33,7 +33,7 @@ class User extends Authenticatable
     }
     public function child_partners_chart()
     {
-        $childs = $this->hasMany('App\User', 'parent_partner')->get(['id', 'email', 'name']);
+        $childs = $this->hasMany('App\User', 'parent_partner')->get(['id', 'email', 'name', 'apellido_paterno', 'apellido_materno']);
         $data = [];
         if(!$childs->isEmpty()){
             foreach($childs as $child){

@@ -61,7 +61,15 @@ var page = {
 	    }
 	},
 	fillPartnerInfo: function(user_id){
-	    $("#partnerName").text(page.usersInfo[user_id].name);
+		let user = page.usersInfo[user_id];
+		let fullName = user.name;
+		if(user.apellido_paterno != null){
+			fullName += " " + user.apellido_paterno;
+		}
+		if(user.apellido_materno != null){
+			fullName += " " + user.apellido_materno;
+		}
+	    $("#partnerName").text(fullName);
 	    $("#userEmail").text(page.usersInfo[user_id].email);
 	    $("#userPoints").text(page.usersInfo[user_id].points);
 	    $("#userEarnings").text(page.usersInfo[user_id].earnings);

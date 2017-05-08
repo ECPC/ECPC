@@ -83,6 +83,7 @@ Route::get('/api/isLogged', function(){
 //User
 Route::group(['prefix' => 'api/user'], function(){
 	Route::post('create', 'UserController@create');
+	Route::post('editInfo', 'UserController@editInfo');
 	Route::get('/', 'UserController@getSelf');
 	Route::get('selfPartnerNet', 'UserController@selfPartnerNet');
 	//Route::get('{id}/partnerNet', 'UserController@partnerNet');

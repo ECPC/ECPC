@@ -11,6 +11,29 @@ use Validator;
 use App\MonthEarning;
 class UserController extends Controller
 {
+    public function editInfo(Request $request)
+    {
+        $user = Auth::user();
+        $user->name = $request->name;
+        $user->apellido_paterno = $request->apellido_paterno;
+        $user->apellido_materno = $request->apellido_materno;
+        $user->birthdate = $request->birthdate;
+        $user->calle_numero = $request->calle_numero;
+        $user->colonia = $request->colonia;
+        $user->municipio = $request->municipio;
+        $user->estado = $request->estado;
+        $user->codigo_postal = $request->codigo_postal;
+        if($request->radiosGenero){
+            if($request->radiosGenero== "Hombre"){
+                $user->genero = 1;
+            }else{
+                $user->genero = 0;
+            }
+        }
+        //$user
+        $user->save();
+        return redirect("/sub/configuracionPersonal.html");//$request->all();//$user;
+    }
     //params
     //@name
     //@email
@@ -69,7 +92,20 @@ class UserController extends Controller
     }
     public function getSelf()
     {
-    	return Auth::user();
+        $user = Auth::user();
+        $registerProgress = 0;
+        if($user->name) $registerProgress += 10;
+        if(!is_null($user->genero)) $registerProgress += 10;
+        if($user->apellido_paterno) $registerProgress += 10;
+        if($user->apellido_materno) $registerProgress += 10;
+        if($user->birthdate) $registerProgress += 10;
+        if($user->calle_numero) $registerProgress += 10;
+        if($user->colonia) $registerProgress += 10;
+        if($user->municipio) $registerProgress += 10;
+        if($user->estado) $registerProgress += 10;
+        if($user->codigo_postal) $registerProgress += 10;
+        $user["registerProgress"] = $registerProgress;
+    	return $user;//Auth::user();
     }
     public function selfPartnerNet()
     {
@@ -80,6 +116,8 @@ class UserController extends Controller
         return response()->json([
             'id' => $user->id,
             'name' => $user->name,
+            'apellido_paterno' => $user->apellido_paterno,
+            'apellido_materno' => $user->apellido_materno,
             'email' => $user->email,
             'parent' => $parent,
             'childs' => $childs,
@@ -116,7 +154,7 @@ class UserController extends Controller
     {
         $parent = Auth::user();
         Mail::send('subscriptionEmail', ["parent" => $parent, "user" => $user, 'password' => $password], function($m) use ($user, $parent){
-            $m->to((string)$user->email, "Usuario")->subject($parent->name."te ha subscrito a la red de EZPC");
+            $m->to((string)$user->email, "Usuario")->subject($parent->name." te ha subscrito a la red de EZPC");
         });
     }
     public function activateAccount($id, $activation_token)
