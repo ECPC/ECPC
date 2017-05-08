@@ -8,16 +8,16 @@
 	<title>Historial de compras</title>
 
 	<!-- Bootstrap -->
-	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
-	<link rel="stylesheet" type="text/css" href="../css/ezpc.css">
-	<link rel="stylesheet" type="text/css" href="../css/controles.css">
+	<link rel="stylesheet" type="text/css" href="/css/ezpc.css">
+	<link rel="stylesheet" type="text/css" href="/css/controles.css">
 </head>
 <body>
 	<nav id="sidepanel">
 		<div id="sidepanel-logo" class="horizontal">
 			<!-- <div class="vertical"> -->
-					<img src="../img/dark logo.png">
+					<img src="/img/dark logo.png">
 			<!-- </div> -->
 		</div>
 		<div id="sidepanel-username" class="horizontal">
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<div id="sidepanel-info">
-			<img src="../img/user-icon.png" class="pull-left">
+			<img src="/img/user-icon.png" class="pull-left">
 			<div class="vertical">
 				<p>Bonificación: $685.50</p>
 				<p>Puntos: 68</p>
@@ -41,8 +41,8 @@
 					</a>
 				</li>
 				<div class="collapse" id="Menu-Inicio">
-					<li>Información General</li>
-					<li>Información Personal</li>
+					<li><a href="/sub/dashboard.html">Información General</a></li>
+					<li><a href="/sub/configuracionPersonal.html">Información Personal</a></li>
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
@@ -52,8 +52,8 @@
 					</a>
 				</li>
 				<div class="collapse" id="Menu-Actividad">
-					<li>Compras Recientes</li>
-					<li>Ultimos Socios Agregados</li>
+					<li><a href="/sub/ultimasCompras.html">Compras recientes</a></li>
+					<!-- <li>Ultimos Socios Agregados</li> -->
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
@@ -63,31 +63,31 @@
 					</a>
 				</li>
 				<div class="collapse" id="Menu-Red">
-					<li>Ver Arbol</li>
-					<li>Inscribir Socio</li>
+					<li><a href="/sub/socios.html">Ver Árbol</a></li>
+					<li><a href="/sub/inscribir.html">Inscribir socio</a></li>
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
 				<li class="sidepanel-list-item">
-					<a href="#Menu-Reportes" data-toggle="collapse">Reportes
+					<a href="#Menu-Reportes" data-toggle="collapse">Tienda
 						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
 					</a>
 				</li>
 				<div class="collapse" id="Menu-Reportes">
-					<li>Bonificaciones</li>
-					<li>Puntos</li>
+					<li><a href="/sub/tienda.html">Ver Productos</a></li>
 				</div>
 			</ul>
 		</div>
 	</nav>
-
 	<div id="maincontent">
 		<div id="toppanel">
-			<div class="col-md-11">
-				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>Historial de compras</h2>
+			<div class="col-xs-11">
+				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
 			</div>
-			<div class="col-md-1 horizontal">
-				<img src="../img/user-icon-dark.png">
+			<div class="col-xs-1 horizontal">
+				<a href="/api/logout">
+					<img id="topProfileImg" src="/img/user-icon-dark.png">
+				</a>
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
 		</div>
@@ -126,56 +126,10 @@
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="../js/jquery.min.js"></script>
+	<script src="/js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
-	<!-- <script type="text/javascript" src="../js/ezpc.js"></script> -->
-	<script type="text/javascript">
-	$(document).ready(function(){
-		obtenerDatos();
-	});
-	function obtenerDatos()
-	{
-		$.ajax({
-			type : 'GET',
-			url : "/api/user"})
-		.done(function(usuario){
-			$("#name").text(usuario.name);
-			$("#id").text(usuario.id);
-		});
-		$.get("/api/order/history", function(response){
-			//console.log(response);
-			_foreach(response, function(item){
-				var order = $("#order-template").clone();
-				llenarCampos(order, item);
-				$("#comprasRecientesContent").append(order);
-				order.show("fast");
-			});
-				$(".product").show();
-		});
-	}
-	function _foreach(_array, callback){
-		for(var i = 0; i < _array.length; i++){
-			callback(_array[i]);
-		}
-	}
-	function llenarCampos(orden, data){
-		orden.find("#toggler").attr("data-target", "#compra"+data.id);
-		orden.find(".collapse").attr("id", "compra"+data.id);
-		orden.find("#orderDate").text(data.created_at);
-		orden.find("#orderTotalPrice").text("$"+data.total_price);
-		_foreach(data.products, function(item){
-			var product = $("#product-template").clone();
-			var productName = product.find("#productName").text(item.name);
-			productName.attr("href", "/sub/producto.html?" + "product_id=" + item.id);
-			product.find("#productCount").text(item.count);
-			product.find("#productPrice").text("$"+item.price);
-			product.find("#productTotal").text("$"+item.total_price);
-			//console.log(product);
-			orden.find("#productSection").append(product);
-			product.addClass("product");
-		});
-	}
-</script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/sideNav.js"></script>
+	<script type="text/javascript" src="/js/pages/pageUltimasCompras.js"></script>
 </body>
 </html>

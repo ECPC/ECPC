@@ -1,4 +1,8 @@
-$(document).ready(function(){
+var page = {
+    ready: function(){
+        page.loadCharts();
+    },
+    loadCharts: function(){
         $.ajax({
             type : 'GET',
             url : "/api/user/monthEarningsHistory"})
@@ -92,4 +96,7 @@ $(document).ready(function(){
                 });
             });
         });
-});
+    }
+};
+
+$(document).ready(page.ready);

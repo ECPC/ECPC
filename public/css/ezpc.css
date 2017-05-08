@@ -162,7 +162,7 @@ ul.sidepanel-list>div>li:hover {
 #toppanel>div {
 	margin-top: 5px;
 }
-#toppanel>div>img {
+#toppanel #topProfileImg {
 	width:  32px;
 	height: 32px;
 }

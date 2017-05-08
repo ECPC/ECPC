@@ -45,7 +45,7 @@
 					</a>
 				</li>
 				<div class="collapse" id="Menu-Inicio">
-					<li><a href="/dashboard.html">Información General</a></li>
+					<li><a href="/sub/dashboard.html">Información General</a></li>
 					<li><a href="/sub/configuracionPersonal.html">Información Personal</a></li>
 				</div>
 			</ul>
@@ -83,14 +83,15 @@
 			</ul>
 		</div>
 	</nav>
-
 	<div id="maincontent">
 		<div id="toppanel">
-			<div class="col-md-11">
+			<div class="col-xs-11">
 				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
 			</div>
-			<div class="col-md-1 horizontal">
-				<img src="/img/user-icon-dark.png">
+			<div class="col-xs-1 horizontal">
+				<a href="/api/logout">
+					<img id="topProfileImg" src="/img/user-icon-dark.png">
+				</a>
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
 		</div>
@@ -152,35 +153,7 @@
 	<script src="/js/Chart.bundle.min.js"></script>
 	<!-- <script type="text/javascript" src="js/ezpc.js"></script> -->
 	<script type="text/javascript" src="/js/dashboardCharts.js"></script>
-		<!-- Arbol -->
-<!-- 	<script type="text/javascript" src="js/jquery.easing.js"></script>
-	<script type="text/javascript" src="js/raphael.js"></script>
-	<script type="text/javascript" src="js/Treant.js"></script>
-	<script type="text/javascript" src="js/collapsable.js"></script> -->
-	<!-- collapsable.js es necesario para el arbol -->
-	<script type="text/javascript">
-	$(document).ready(function(){
-		obtenerDatos();
-		//appendContent("/sub/ultimasCompras.html");
-	});
-	function obtenerDatos()
-	{
-		$.ajax({
-			type : 'GET',
-			url : "/api/user"})
-		.done(function(usuario){
-			$("#name").text(usuario.name);
-			$("#id").text(usuario.id);
-		});
-	}
-/*	function appendContent(source){
-		$.get(source, function(data){
-			$("#maincontent").append(data);
-			$.get("/api/user/selfPartnerNet", function(response){
-				initNodeChart(response);
-			});
-		});
-	}*/
-</script>
+	<script type="text/javascript" src="/js/sideNav.js"></script>
+	<script type="text/javascript" src="/js/pages/pageDashboard.js"></script>
 </body>
 </html>

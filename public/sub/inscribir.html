@@ -16,7 +16,7 @@
 	<nav id="sidepanel">
 		<div id="sidepanel-logo" class="horizontal">
 			<!-- <div class="vertical"> -->
-					<img src="../img/dark logo.png">
+					<img src="/img/dark logo.png">
 			<!-- </div> -->
 		</div>
 		<div id="sidepanel-username" class="horizontal">
@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<div id="sidepanel-info">
-			<img src="../img/user-icon.png" class="pull-left">
+			<img src="/img/user-icon.png" class="pull-left">
 			<div class="vertical">
 				<p>Bonificación: $685.50</p>
 				<p>Puntos: 68</p>
@@ -40,8 +40,8 @@
 					</a>
 				</li>
 				<div class="collapse" id="Menu-Inicio">
-					<li>Información General</li>
-					<li>Información Personal</li>
+					<li><a href="/sub/dashboard.html">Información General</a></li>
+					<li><a href="/sub/configuracionPersonal.html">Información Personal</a></li>
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
@@ -51,8 +51,8 @@
 					</a>
 				</li>
 				<div class="collapse" id="Menu-Actividad">
-					<li>Compras Recientes</li>
-					<li>Ultimos Socios Agregados</li>
+					<li><a href="/sub/ultimasCompras.html">Compras recientes</a></li>
+					<!-- <li>Ultimos Socios Agregados</li> -->
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
@@ -62,31 +62,31 @@
 					</a>
 				</li>
 				<div class="collapse" id="Menu-Red">
-					<li>Ver Arbol</li>
-					<li>Inscribir Socio</li>
+					<li><a href="/sub/socios.html">Ver Árbol</a></li>
+					<li><a href="/sub/inscribir.html">Inscribir socio</a></li>
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
 				<li class="sidepanel-list-item">
-					<a href="#Menu-Reportes" data-toggle="collapse">Reportes
+					<a href="#Menu-Reportes" data-toggle="collapse">Tienda
 						<span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
 					</a>
 				</li>
 				<div class="collapse" id="Menu-Reportes">
-					<li>Bonificaciones</li>
-					<li>Puntos</li>
+					<li><a href="/sub/tienda.html">Ver Productos</a></li>
 				</div>
 			</ul>
 		</div>
 	</nav>
-
 	<div id="maincontent">
 		<div id="toppanel">
-			<div class="col-md-11">
-				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>Historial de compras</h2>
+			<div class="col-xs-11">
+				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
 			</div>
-			<div class="col-md-1 horizontal">
-				<img src="../img/user-icon-dark.png">
+			<div class="col-xs-1 horizontal">
+				<a href="/api/logout">
+					<img id="topProfileImg" src="/img/user-icon-dark.png">
+				</a>
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
 		</div>
@@ -120,41 +120,7 @@
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
 	<!-- <script type="text/javascript" src="../js/ezpc.js"></script> -->
 	<script src="../js/controles.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-	        //Puedes obtener el valor del token con la siguiente ruta
-	        $.ajax({method: "GET", url: "/api/token"})
-	        .done(function(msg){
-	            //Le concatenamos el valor del token al atributo oculto del form,
-	            //esto nos permitira poder llevar a cabo la petición mediante el
-	            //método POST
-	            $(".formToken").attr("value", msg);
-	        });
-
-			//Hay que evitar que el form refresque la página
-			$("#frmInscribir").submit(function(e){
-     			e.preventDefault();
-				onInscribir();
-				clearFrom();
-				return false;
-			});
-		});
-
-		function clearFrom(){
-			$('#frmInscribir input').val('');
-		}
-
-		function onInscribir()
-		{
-			$.ajax({
-            type : 'POST',
-            url : "/api/user/subscribe", 
-            data : $('#frmInscribir').serialize()})
-	        .done(function(response){
-	            //Checamos la respuesta del servicio
-	            console.log("done");
-	        });
-		}
-	</script>
+	<script src="../js/sideNav.js"></script>
+	<script src="../js/pages/pageInscribir.js"></script>
 </body>
 </html>
