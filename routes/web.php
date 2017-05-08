@@ -42,13 +42,16 @@ Route::get('/', function(){
 	return File::get(public_path() . '/ezpc.html');
 });
 //TODO: crear control de sesión
-Route::get('/api/logout', function(){
+Route::get('/api/logout', function($request){
+	session()->flush();
 	Auth::logout();
 	return redirect('/');
 });
 Route::post('/api/login', function(Request $request){
 	if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
 		if(Auth::user()->account_activated){
+			//la llave es el id, el valor es la cantidad
+			Session::put("cart", []);
 			return response()->json([
 				'status' => 'OK',
 				'message' => 'Login successful',
@@ -89,6 +92,7 @@ Route::group(['prefix' => 'api/user'], function(){
 //Products
 Route::group(['prefix' => 'api/product'], function(){
 	Route::get('/', 'ProductController@getAll');
+	Route::get('/{id}', 'ProductController@getProduct');
 });
 //Order
 Route::group(['prefix' => 'api/order'], function(){

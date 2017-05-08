@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
                 $table->increments('id');
                 $table->integer('parent_partner')->unsigned()->nullable();
                 $table->string('name');
+                $table->string('lastname1')->nullable();
+                $table->string('lastname2')->nullable();
                 $table->string('email')->unique();
                 $table->string('password');
                 $table->string('activation_token')->nullable();
@@ -55,7 +57,7 @@ class CreateUsersTable extends Migration
             Schema::create('products', function(Blueprint $table){
                 $table->increments('id');
                 $table->string('name');
-                $table->string('description');
+                $table->text('description');
                 $table->string('image_path');
                 $table->float('price', 8, 2);
                 $table->integer('points')->unsigned();

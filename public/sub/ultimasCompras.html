@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Dashboard</title>
+	<title>Historial de compras</title>
 
 	<!-- Bootstrap -->
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -84,7 +84,7 @@
 	<div id="maincontent">
 		<div id="toppanel">
 			<div class="col-md-11">
-				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
+				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>Historial de compras</h2>
 			</div>
 			<div class="col-md-1 horizontal">
 				<img src="../img/user-icon-dark.png">
@@ -92,70 +92,32 @@
 			</div>
 		</div>
 		<div id="comprasRecientesContent">
-			<div class="compra-reciente">
-				<a data-toggle="collapse" data-target="#compra1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Compra hecha el <strong>05/05/2017</strong></a>
+			<div class="compra-reciente" id="order-template" hidden>
+				<a id="toggler" data-toggle="collapse" data-target="#compra1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Compra hecha en <strong id="orderDate">05/05/2017</strong></a>
 				<!-- <a href="" class="btn">Agregar</a> -->
 				<div id="compra1" class="collapse">
 					<table class="carrito-tabla">
+					<tbody id="productSection">
 						<tr>
 							<th>Producto</th>
 							<th>Cantidad</th>
 							<th>Precio</th>
 							<th>Total</th>
 						</tr>
-						<tr>
-							<td class="cell-producto"><a href="producto.html">Monitor Acer Z35</a></td>
-							<td class="cell-cantidad">2</td>
-							<td class="cell-precio">$2999</td>
-							<td class="cell-total">$5998</td>
+						<tr id="product-template" hidden>
+							<td class="cell-producto"><a href="producto.html" id="productName">Monitor Acer Z35</a></td>
+							<td class="cell-cantidad" id="productCount">2</td>
+							<td class="cell-precio" id="productPrice">$2999</td>
+							<td class="cell-total" id="productTotal">$5998</td>
 						</tr>
-						<tr>
-							<td class="cell-producto"><a href="producto.html">Tarjeta de video Nvidia MSI GTX 970</a></td>
-							<td class="cell-cantidad">2</td>
-							<td class="cell-precio">$6999</td>
-							<td class="cell-total">$13998</td>
-						</tr>
+					</tbody>
 					</table>
 					<div class="row">
 						<div class="col-xs-6">
-							<a href="" class="btn highlight pull-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</a>
+							<!-- <a href="" class="btn highlight pull-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</a> -->
 						</div>
 						<div class="col-xs-6">
-							<p><strong>Total: </strong>$20000</p>
-						</div>
-					</div>
-				</div>	
-			</div>
-			<div class="compra-reciente">
-				<a data-toggle="collapse" data-target="#compra2"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Compra hecha el <strong>07/05/2017</strong></a>
-				<!-- <a href="" class="btn">Agregar</a> -->
-				<div id="compra2" class="collapse">
-					<table class="carrito-tabla">
-						<tr>
-							<th>Producto</th>
-							<th>Cantidad</th>
-							<th>Precio</th>
-							<th>Total</th>
-						</tr>
-						<tr>
-							<td class="cell-producto"><a href="producto.html">Monitor Acer Z35</a></td>
-							<td class="cell-cantidad">2</td>
-							<td class="cell-precio">$2999</td>
-							<td class="cell-total">$5998</td>
-						</tr>
-						<tr>
-							<td class="cell-producto"><a href="producto.html">Tarjeta de video Nvidia MSI GTX 970</a></td>
-							<td class="cell-cantidad">2</td>
-							<td class="cell-precio">$6999</td>
-							<td class="cell-total">$13998</td>
-						</tr>
-					</table>
-					<div class="row">
-						<div class="col-xs-6">
-							<a href="" class="btn highlight pull-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</a>
-						</div>
-						<div class="col-xs-6">
-							<p><strong>Total: </strong>$20000</p>
+							<p><strong>Total: </strong><span id="orderTotalPrice"></span></p>
 						</div>
 					</div>
 				</div>	
@@ -167,7 +129,7 @@
 	<script src="../js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/ezpc.js"></script>
+	<!-- <script type="text/javascript" src="../js/ezpc.js"></script> -->
 	<script type="text/javascript">
 	$(document).ready(function(){
 		obtenerDatos();
@@ -180,6 +142,38 @@
 		.done(function(usuario){
 			$("#name").text(usuario.name);
 			$("#id").text(usuario.id);
+		});
+		$.get("/api/order/history", function(response){
+			//console.log(response);
+			_foreach(response, function(item){
+				var order = $("#order-template").clone();
+				llenarCampos(order, item);
+				$("#comprasRecientesContent").append(order);
+				order.show("fast");
+			});
+				$(".product").show();
+		});
+	}
+	function _foreach(_array, callback){
+		for(var i = 0; i < _array.length; i++){
+			callback(_array[i]);
+		}
+	}
+	function llenarCampos(orden, data){
+		orden.find("#toggler").attr("data-target", "#compra"+data.id);
+		orden.find(".collapse").attr("id", "compra"+data.id);
+		orden.find("#orderDate").text(data.created_at);
+		orden.find("#orderTotalPrice").text("$"+data.total_price);
+		_foreach(data.products, function(item){
+			var product = $("#product-template").clone();
+			var productName = product.find("#productName").text(item.name);
+			productName.attr("href", "/sub/producto.html?" + "product_id=" + item.id);
+			product.find("#productCount").text(item.count);
+			product.find("#productPrice").text("$"+item.price);
+			product.find("#productTotal").text("$"+item.total_price);
+			//console.log(product);
+			orden.find("#productSection").append(product);
+			product.addClass("product");
 		});
 	}
 </script>
