@@ -569,4 +569,7 @@ div.compra-reciente>div>table + div {
 div.compra-reciente>div>table + div p {
 	margin-top: 10px;
 }
+#frmInscribir{
+	display: block;
+}
 /************************************************/
