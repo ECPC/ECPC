@@ -44,7 +44,11 @@ class OrderController extends Controller
     	$user = Auth::user();
     	$orders = Order::where('user_id', $user->id)
     		->orderBy('created_at', 'desc')
-    		->get();
+    		->get(['id', 'total_points', 'total_price', 'created_at']);
+    	foreach ($orders as $order) {
+    		$order["products"] = Order::find($order['id'])->products();
+    		$order["created_at"];
+    	}
     	return $orders;
     }
 }
