@@ -24,6 +24,7 @@
 */
 use Illuminate\Http\Request;
 
+//TODO: crear control de General
 //{ BEGIN General
 Route::get('/api/token', function(){
 	return csrf_token();
@@ -33,7 +34,7 @@ Route::get('/', function(){
     //return redirect('/index.html');
 	if(Auth::check()){
 		if(Auth::user()->account_activated){
-    		return redirect('/dashboard.html');
+    		return redirect('/sub/dashboard.html');
 		}
 		else{
 			Auth::logout();
@@ -41,8 +42,8 @@ Route::get('/', function(){
 	}
 	return File::get(public_path() . '/ezpc.html');
 });
-//TODO: crear control de sesión
 Route::get('/api/logout', function(Request $request){
+	//Refresh the cart
 	$request->session()->flush();
 	Auth::logout();
 	return redirect('/');
@@ -74,6 +75,9 @@ Route::post('/api/login', function(Request $request){
 			]);
 	}
 });
+Route::get('/api/isLogged', function(){
+	return response()->json(Auth::check());
+});
 //} END General
 
 //User
@@ -96,7 +100,16 @@ Route::group(['prefix' => 'api/product'], function(){
 });
 //Order
 Route::group(['prefix' => 'api/order'], function(){
-	//params, @products[], @address
+	//TODO: modificar función create
+	//params, @products[], @quantity, @address
 	Route::post('create', 'OrderController@create');
 	Route::get('history', 'OrderController@history');
+});
+//Cart
+//TODO: crear control de carro
+Route::group(['prefix' => 'api/cart'], function(){
+	Route::get('/', "CartController@getCart");
+	//params, @productID, @txtCantidad
+	Route::get("addToCart", "CartController@addToCart");
+	Route::get("{product}/removeProduct", "CartController@removeProduct");
 });

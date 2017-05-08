@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
             $product->name = $productsNames[$i - 1];
             $product->description = $productsDescriptions[$i - 1];
             $product->image_path = '/img/productos/producto'.$i.'.png';
+            $product->image_path_min = '/img/productos/producto'.$i.'min.png';
             $product->price = $productsPrices[$i - 1];
             $product->points = $productsPrices[$i - 1] / 210;
             $product->save();

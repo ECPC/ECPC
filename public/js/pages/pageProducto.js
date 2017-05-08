@@ -8,10 +8,12 @@ var page = {
 			type : 'GET',
 			url : "/api/product/"+productId})
 		.done(function(producto){
+            $("#productID").attr("value", producto.id);
 			$("#productName").text(producto.name);
 			$("#productDescription").text(producto.description);
 			$("#productPrice").text("$"+producto.price);
 			$("#productImage").attr("src", producto.image_path);
+            $("#agregarButton").show("fast");
 		});
     }
 };

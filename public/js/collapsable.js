@@ -16,7 +16,7 @@ var myConfig = {
     },
     nodeStructure: {}
 }
-var usersInfo = {};
+/*var usersInfo = {};
 function initNodeChart(data)
 {
     usersInfo = {};
@@ -59,4 +59,4 @@ function fillPartnerInfo(user_id){
     $("#userPoints").text(usersInfo[user_id].points);
     $("#userEarnings").text(usersInfo[user_id].earnings);
     $("#userPartners").text(usersInfo[user_id].child_count);
-}
+}*/

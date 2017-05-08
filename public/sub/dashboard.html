@@ -32,9 +32,9 @@
 		<div id="sidepanel-info">
 			<img src="/img/user-icon.png" class="pull-left">
 			<div class="vertical">
-				<p>Bonificación: $685.50</p>
-				<p>Puntos: 68</p>
-				<p>Puntos Restantes: 32</p>
+				<p>Bonificación: $<span class="currentUserEarnings">...</span></p>
+				<p>Puntos: <span class="currentUserPoints">...</span></p>
+				<p>Puntos Restantes: <span class="currentUserPointsLeft">...</span></p>
 			</div>
 		</div>
 		<div id="sidepanel-menu">
@@ -99,18 +99,18 @@
 			<div class="col-md-3 vertical border-right">
 				<h4><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Progreso Mensual</h4>
 				<div class="progress">
-					<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="68"
-						 aria-minvalue="0" aria-maxvalue="100" style="width: 68%"></div>
+					<div class="progress-bar progress-bar-success currentUserProgressBar" role="progressbar" aria-valuenow="68"
+						 aria-minvalue="0" aria-maxvalue="100" style="width: 0%"></div>
 				</div>
-				<h5>68/100 puntos</h5>
+				<h5><span class="currentUserPoints">...</span>/100 puntos</h5>
 			</div>
 			<div class="col-md-3 vertical border-right">
 				<h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Bonificación</h4>
-				<h1>$ 685.50</h1>
+				<h1>$<span class="currentUserEarnings">...</span></h1>
 			</div>
 			<div class="col-md-3 vertical border-right">
 				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mis Socios</h4>
-				<h1>13</h1>
+				<h1><span class="currentUserChilds">...</span></h1>
 			</div>
 			<div class="col-md-3 vertical">
 				<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Estado</h4>

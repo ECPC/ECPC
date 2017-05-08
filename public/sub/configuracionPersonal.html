@@ -28,9 +28,9 @@
 		<div id="sidepanel-info">
 			<img src="/img/user-icon.png" class="pull-left">
 			<div class="vertical">
-				<p>Bonificación: $685.50</p>
-				<p>Puntos: 68</p>
-				<p>Puntos Restantes: 32</p>
+				<p>Bonificación: $<span class="currentUserEarnings">...</span></p>
+				<p>Puntos: <span class="currentUserPoints">...</span></p>
+				<p>Puntos Restantes: <span class="currentUserPointsLeft">...</span></p>
 			</div>
 		</div>
 		<div id="sidepanel-menu">
@@ -82,7 +82,7 @@
 	<div id="maincontent">
 		<div id="toppanel">
 			<div class="col-xs-11">
-				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
+				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información personal</h2>
 			</div>
 			<div class="col-xs-1 horizontal">
 				<a href="/api/logout">

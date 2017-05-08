@@ -28,9 +28,9 @@
 		<div id="sidepanel-info">
 			<img src="/img/user-icon.png" class="pull-left">
 			<div class="vertical">
-				<p>Bonificación: $685.50</p>
-				<p>Puntos: 68</p>
-				<p>Puntos Restantes: 32</p>
+				<p>Bonificación: $<span class="currentUserEarnings">...</span></p>
+				<p>Puntos: <span class="currentUserPoints">...</span></p>
+				<p>Puntos Restantes: <span class="currentUserPointsLeft">...</span></p>
 			</div>
 		</div>
 		<div id="sidepanel-menu">
@@ -82,7 +82,7 @@
 	<div id="maincontent">
 		<div id="toppanel">
 			<div class="col-xs-11">
-				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
+				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Tienda</h2>
 			</div>
 			<div class="col-xs-1 horizontal">
 				<a href="/api/logout">
@@ -100,14 +100,15 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="">Inicio</a></li>
-						<li><a href="">Hardware</a></li>
-						<li><a href="">Accesorios</a></li>
-						<li><a href="">Almacenamiento</a></li>
-						<li><a href="">Software</a></li>
+						<li><a href="/sub/dashboard.html">Inicio</a></li>
+						<li><a>Hardware</a></li>
+						<li><a>Accesorios</a></li>
+						<li><a>Almacenamiento</a></li>
+						<li><a>Software</a></li>
 					</ul>
 					<div class="navbar-right">
-						<button type="submit" form="frmAgregar" value="Submit" class="highlight"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</button>
+						<a class="btn" href="/sub/carrito.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</a>
+						<!-- <button type="submit" form="frmAgregar" value="Submit" class="highlight"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</button> -->
 					</div>
 				</div>
 			</nav>
@@ -149,17 +150,17 @@
 				</div>
 			</div>
 			<div id="productoGrid">
-				<div class="row">
-					<div class="col-md-4 col-sm-6 producto">
+				<div id="product-container" class="row">
+					<div id="product-template" class="col-md-4 col-sm-6 producto" hidden>
 						<div class="horizontal">
 							<div class="vertical">
-								<a href=""><img src="../img/productos/msi1080.png"></a>
+								<a id="productLink"><img id="productImage"></a>
 							</div>
 						</div>
-						<p>Tarjeta de video NVIDIA MSI GTX 1080</p>
-						<p class="precio">$8999</p>
+						<p id="productName">Tarjeta de video NVIDIA MSI GTX 1080</p>
+						<p class="precio">$<span id="productPrice">...</span></p>
 					</div>
-					<div class="col-md-4 col-sm-6 producto">
+<!-- 					<div class="col-md-4 col-sm-6 producto">
 						<div class="horizontal">
 							<div class="vertical">
 								<a href=""><img src="../img/productos/corsaircase.png"></a>
@@ -205,7 +206,7 @@
 						</div>
 						<p>Tarjeta madre Asus ROG VI Hero</p>
 						<p class="precio">$1899</p>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

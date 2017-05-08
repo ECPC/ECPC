@@ -59,6 +59,7 @@ class CreateUsersTable extends Migration
                 $table->string('name');
                 $table->text('description');
                 $table->string('image_path');
+                $table->string('image_path_min');
                 $table->float('price', 8, 2);
                 $table->integer('points')->unsigned();
                 $table->timestamps();

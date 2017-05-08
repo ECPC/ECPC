@@ -10,6 +10,16 @@ var sideNav = {
 			$("#name").text(usuario.name);
 			$("#id").text(usuario.id);
 		});
+        $.ajax({
+			type : 'GET',
+			url : "/api/user/progressInfo"})
+		.done(function(usuario){
+			$(".currentUserPoints").text(usuario.points);
+			$(".currentUserPointsLeft").text(100-usuario.points);
+			$(".currentUserChilds").text(usuario.partners);
+			$(".currentUserEarnings").text(usuario.earnings);
+			$(".currentUserProgressBar").width(usuario.points+"%");
+		});
     }
 }
 
