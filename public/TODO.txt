@@ -1,0 +1,79 @@
+TODO List:
+
+* Funcionabilidad:
+- General: 
+    - Validar controles de texto.
+
+- Compras recientes:
+    - Dar mas informacion en el preview de cada compra:
+        * Número de compra / ID
+        * Fecha
+        * Total
+    - Agregar filtros
+    - Cargar menos compras (?) con un mostrar más.
+
+- Arbol:
+    - Colocarlo el globo de información adicional. a un lado de el usuario donde demos clic.
+
+* Diseño:
+- General:
+    - Cambiar el color de barra superior.
+    - Quitar el degradado (?)
+    - Cambiar el color del borde en los controles de texto a uno mas clarito
+    para que resalte
+    - Cuando un input de texto este lleno, 
+    cambie de color el borde a naranja/ verde(?)
+    - Cuando un control este erroneo, poner el borde rojo.
+
+- Dashboard:
+    - Bajar intesidad de la sombra en el popup del estado.
+    - Dar bordes redondeados a el mismo popup.
+    - Cambiar los colores de fondo
+
+- Informacion personal:
+    - Cambiar color de barra de progreso a un naranja.
+    - Poner la foto de perfil arriba.
+    - Foto de perfil, con preview.
+    - Poner las secciones en una sola columna.
+
+- Configuracion de metodo de pago:
+    - Cambiar los colores de fonto.
+    - Agregar logo de paypal para que se vea con mas contenido.
+    - Bajar intesidad en la sombra de los container-box.
+    - Colocar imagen de fondo.
+
+- Compras recientes:
+    - Quitar margen entre las Compras
+    - Quitar el border-radius
+    - Colocar un borde que permita distinguir las Compras
+    - Dar mas informacion en el preview de cada compra:
+        * Número de compra / ID
+        * Fecha
+        * Total
+    - Agregar filtros
+    - Darle un mayor margen a las compras de la los bordes de la pagina
+    - Cargar menos compras (?) con un mostrar más.
+
+- Arbol:
+    - Disminuir el sombreado de la Información adicional.
+    - Redondear las esquinas
+    - Cambiar el color de fondo de la Informacion adicional
+    - Poner un triangulito como si fuera un globo de texto
+    - Colocarlo a un lado de el usuario donde demos clic.
+
+- Inscribir socio:
+    - Poner el formulario dentro de un cuadro contenedor de un color diferente al fondo.
+
+- Carrito:
+    - Colocar botones para agregar o quitar cantidad de productos a los lados del campo de cantidad
+    - Hacer dos columnas, la primera para los productos, y la segunda con los totales con un boton de Pagar.
+
+- Tienda:
+    - Arreglar navegacion superior, 
+    juntar la barra superior con los botones en la tienda.
+    - Agregar un marger a las filas de productos.
+    - Arreglar slideshow.
+
+- Correo:
+    - Hacer mas grande el logo.
+    - Cambiar el color de fondo.

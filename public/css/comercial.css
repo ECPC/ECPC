@@ -85,6 +85,9 @@ div.footer{
     .footer-logo{
         height: 270px;
     }
+    .footer-logo>img{
+        width: 250px;
+    }
     .footer .footer-list{
         padding-left: 40px; 
     }
@@ -100,7 +103,6 @@ div.footer{
         width: 50%;
         margin: auto;
     }
-
 
     .footer .footer-social{
         height: 270px;
@@ -135,9 +137,12 @@ div.footer{
     img.logo-responsive{
         width: 50%;
     }
+    .footer-logo>img{
+        width: 204px;
+    }
 }
 
-/*---- General classes -----*/
+/************************************** General classes ********************************/
 
 @media (min-width:768px){
     .full-height-content{
