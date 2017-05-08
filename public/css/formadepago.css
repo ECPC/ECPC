@@ -101,6 +101,31 @@
     padding: 10px 0px;
 }
 
-.black-strip{
-    
-}
+    .card-back .card-strip{
+        background: #3399ff;
+        width: 100%;
+        height: 50px;
+    }
+
+    .card-back .signature-container{
+        margin-top: 10px;
+        background-color: #ffe6cc;
+        overflow: hidden;
+        padding: 5px;
+    }
+    .card-back .signature-container > img{
+        width: 60%;
+    }
+
+    .card-back .security-code{
+        background-color: white;
+        margin-top: 10px;
+        height: 50px;
+        padding: 0px;
+    }
+
+    .card-back .security-code > input[type="number"]{
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+    }
