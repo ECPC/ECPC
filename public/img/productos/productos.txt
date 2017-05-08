@@ -1,0 +1,50 @@
+nombre: Gigabyte Tarjeta De Video Nvidia Geforce Gt710 2gb Ddr3 Hdmi 
+descripcion: Mejora la velocidad de tu PC con la nueva tarjeta gráfica NVIDIA® GeForce® GT 710. Disfruta de hasta 10 veces más el rendimiento que con los gráficos integrados en todas tus aplicaciones de PC. hasta un 80% más de velocidad de juego con total fiabilidad y estabilidad gracias a GeForce® Experience™.
+imagen: producto1.png
+precio: 849
+
+nombre: Tarjeta De Video Nvidia Pny Gtx 970 4gb DDR4
+descripcion: La GeForce GTX 970 es una tarjeta gráfica de alto rendimiento para juegos pesados. Con la Arquitectura NVIDIA Maxwell, maneja tecnología avanzada y de los mejores gráficos para una experiencia de juego increíble.
+imagen: producto2.jpg
+precio: 5999
+
+nombre: Tarjeta Video Gigabyte Nvidia Gtx 1080 G1 Gaming 8gb Gddr5x  
+descripcion: La serie de tarjeta gráfica GeForce GTX 10 cuenta con la tecnología Pascal para duplicar el rendimiento, en comparación con las tarjetas de gráficos de la generación anterior; además, ofrece nuevas e innovadoras tecnologías de juegos y experiencias de realidad virtual revolucionarias.
+imagen: producto3.png
+precio: 16995
+
+nombre: Tarjeta Madre Gigabyte Ga-z170x Gaming 3 Socket 1151 Intel
+descripcion: Intel Thunderbolt 3 Certified Motherboard. Soporte para procesadores de 7ma y 6ta Generación Intel® Core. Dual Channel DDR4, 4 DIMMs. Intel® USB 3.1 with USB Type-C™ - the world’s next Universal connector
+imagen: producto4.png
+precio: 3049
+
+nombre: Tarjeta Madre Asus B150 PRO GAMING/AURA
+descripcion: Chipset Intel B150, Soporta: Intel Core i7/Core i5/Core i3/Pentium de Socket 1151, Memoria: DDR4 2133 MHz, 64GB Max, Integrado: Audio HD, Red, USB 3.1 y SATA 3.0, ATX, Ptos: 2xPCIEx16, 2xPCIEx1, 2xPCI.
+imagen: producto5.png
+precio: 2499
+
+nombre: Tarjeta Madre ASUS H81M-A
+descripcion: Chipset Intel H81 Exp., Soporta: Core i7/i5/i3 de Socket 1150, Memoria: DDR3 1600/1333/1066 MHz, 16 GB Max, Integrado: Audio HD, Red, USB 3.0 y SATA 3.0, Micro-ATX, Ptos: 1xPCIEx16, 2xPCIEX1
+imagen: producto6.png
+precio: 1099
+
+nombre: Tarjeta Madre Gigabyte H170-Gaming 3
+descripcion:  Chipset Intel H170 Exp., Soporta: Core i7 / i5 de 6ta Gen., Socket 1151, Memoria: DDR4 2133 MHz, 64GB Max, Integrado: Audio HD, Red, USB 3.0 y SATA 3.0, ATX, Ptos: 2xPCIE 3.0 x16, 2xPCIE 3.0 x1. 2xPCI.
+imagen: producto7.png
+precio: 2499
+
+nombre: Procesador Intel Core i7-7700 de Séptima Generación
+descripcion: 3.6 GHz (hasta 4.2 GHz) con Intel HD Graphics 630, Socket 1151, L3 Caché 8 MB, Quad-Core, 14nm.
+imagen: producto8.png
+precio: 6699
+
+nombre: Procesador Intel Core i5-7400 de Séptima Generación
+descripcion: 3.0 GHz (hasta 3.5 GHz) con Intel HD Graphics 630, Socket 1151, L3 Caché 8 MB, Quad-Core, 14nm.
+imagen: producto9.png
+precio: 3899
+
+nombre: Procesador Intel Core i3-7100 de Séptima Generación
+descripcion: 3.9 GHz con Intel HD Graphics 630, Socket 1151, L3 Caché 3 MB, Dual-Core, 14nm.
+imagen: producto10.png
+precio: 2499
+

@@ -94,7 +94,7 @@
 		</div>
         <div class="mainpannel">
 			<div class="content container-fluid">
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-lg-8 col-lg-offset-2">
 				<form id="frmMetodo">
 					<h3>Metodo de pago:</h3>
 					<select id="selectMetodo" class="selectpicker" title="Seleccione un metodo">
@@ -112,7 +112,28 @@
 					<div class="form-section container-fluid container-box active">
 						<div class="display-card">
 							<div class="card card-front">
-								
+								<div class="row card-type">
+									<div class="col-xs-3 col-xs-offset-8">
+										<select id="selectCardType" class="selectpicker"  data-width="60px" data-height="30px">
+											<option data-content="<img class='select-icon' src='img/mastercard.png'>">MasterCard</option>
+											<option data-content="<img class='select-icon' src='img/visa-icon.png'>">Visa</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-3 card-number">
+										<input id="cardNumber1" maxlength="4" type="text" class="white" placeholder="0000">
+									</div>
+									<div class="col-xs-3 card-number">
+										<input id="cardNumber2" maxlength="4" type="text" class="white" placeholder="0000">
+									</div>
+									<div class="col-xs-3 card-number">
+										<input id="cardNumber3" maxlength="4" type="text" class="white" placeholder="0000">
+									</div>
+									<div class="col-xs-3 card-number">
+										<input id="cardNumber4" maxlength="4" type="text" class="white" placeholder="0000">
+									</div>
+								</div>
 							</div>
 							<div class="card card-back">
 								

@@ -142,6 +142,11 @@ legend {
 	margin-bottom: 10px !important;
 }
 
+/* css para usar boostrap-select */
+button.dropdown-toggle:before{
+	background: transparent;
+}
+
 .select-icon{
 	width: 20px;
 }
