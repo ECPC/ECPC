@@ -42,8 +42,8 @@ Route::get('/', function(){
 	return File::get(public_path() . '/ezpc.html');
 });
 //TODO: crear control de sesión
-Route::get('/api/logout', function($request){
-	session()->flush();
+Route::get('/api/logout', function(Request $request){
+	$request->session()->flush();
 	Auth::logout();
 	return redirect('/');
 });

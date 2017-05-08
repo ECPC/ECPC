@@ -63,4 +63,14 @@ class User extends Authenticatable
             $this->parent->addEarnings($earning);
         }
     }
+    public function addEarningsToMonth($money, MonthEarning $month)
+    {
+        $earning = $money * 0.1;
+        //$month = MonthEarning::currentMonth($this);
+        $month->earnings += $earning;
+        $month->save();
+        if($this->parent){
+            $this->parent->addEarningsToMonth($earning, $month);
+        }
+    }
 }

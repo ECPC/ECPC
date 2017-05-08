@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 
-	var ctx = $("#myChart");
+/*	var ctx = $("#myChart");
 	var ctx2 = $("#myChart2");
 	var data = {
 	    type: 'line',
@@ -75,7 +75,7 @@ jQuery(document).ready(function($) {
 	    }
 	};
 	var myChart2 = new Chart(ctx2, data2);
-	var myChart = new Chart(ctx, data);
+	var myChart = new Chart(ctx, data);*/
 
 	$("#tabRegistrar, #tabIniciar").on("click", function() {
 		$("#frmRegistrar, #frmIniciar").slideToggle('fast');
