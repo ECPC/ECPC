@@ -543,6 +543,7 @@ div#carritoContent form button, div#carritoContent form a.btn {
 
 /*************Compras recientes******************/
 div#comprasRecientesContent {
+	width: 100%;
 	padding: 10px 50px;
 }
 div.compra-reciente {
