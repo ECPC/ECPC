@@ -90,21 +90,27 @@
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
 		</div>
-		<div id="comprasRecientesContent">
-			<h4>Inscribir usuario</h4>
-			<p>Los datos de inicio de sesión seran enviados al correo de tu nuevo socio</p>
-			<form id="frmInscribir" onsubmit="return false;">
-				<div class="form-group">
-				<input class="formToken" type="hidden" name="_token">
-				<label for="name">Nombre</label>
-				<input class="form-control" type="text" name="name" required>
-				<label for="email">Correo electrónico</label>
-				<input class="form-control" type="email" name="email" required>
-				<button id="btnInscribir" type="submit">Inscribir</button>
-				<br>
-				<small>Borren los campos despues de subscribir a un usuario</small>
-				</div>
-			</form>
+		<div class="container-fluid">
+			<div id="inscribirContent" class="col-md-offset-2 col-md-8">
+				<h4>Inscribir usuario</h4>
+				<p>Los datos de inicio de sesión seran enviados al correo de tu nuevo socio</p>
+				<form id="frmInscribir" onsubmit="return false;">
+					<div class="form-group">
+						<input class="formToken" type="hidden" name="_token">
+						<label for="name" class="white form-label hidden-label">Nombre</label>
+						<input class="form-control white" type="text" name="name" placeholder="Nombre" required >
+					</div>
+					<div class="form-group">
+						<label for="email" class="white form-label hidden-label">Correo electrónico</label>
+						<input class="form-control white" type="email" name="email" placeholder="Correo electrónico" required>
+					</div>
+					<div class="horizontal">
+						<button id="btnInscribir" type="submit">Inscribir</button>
+					</div>
+					<br>
+					<small>Borren los campos despues de Inscribir a un usuario</small>
+				</form>
+			</div>
 		</div>
 	</div>
 
@@ -113,6 +119,7 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
 	<!-- <script type="text/javascript" src="../js/ezpc.js"></script> -->
+	<script src="../js/controles.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 	        //Puedes obtener el valor del token con la siguiente ruta
@@ -128,9 +135,14 @@
 			$("#frmInscribir").submit(function(e){
      			e.preventDefault();
 				onInscribir();
+				clearFrom();
 				return false;
 			});
 		});
+
+		function clearFrom(){
+			$('#frmInscribir input').val('');
+		}
 
 		function onInscribir()
 		{

@@ -543,7 +543,6 @@ div#carritoContent form button, div#carritoContent form a.btn {
 
 /*************Compras recientes******************/
 div#comprasRecientesContent {
-	width: 100%;
 	padding: 10px 50px;
 }
 div.compra-reciente {
@@ -569,7 +568,21 @@ div.compra-reciente>div>table + div {
 div.compra-reciente>div>table + div p {
 	margin-top: 10px;
 }
+
+
+/************************************************/
+
+/***************Inscribir************************/
+div#inscribirContent{
+	padding: 30px 50px;
+}
 #frmInscribir{
 	display: block;
 }
+
+#frmInscribir button[type="submit"]{
+	margin-top: 10px;
+}
+
+
 /************************************************/
