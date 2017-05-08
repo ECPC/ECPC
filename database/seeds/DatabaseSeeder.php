@@ -47,20 +47,60 @@ class DatabaseSeeder extends Seeder
             $product->description = $productsDescriptions[$i - 1];
             $product->image_path = '/img/productos/producto'.$i.'.png';
             $product->price = $productsPrices[$i - 1];
-            $product->points = $productsPrices[$i - 1] / 70;
+            $product->points = $productsPrices[$i - 1] / 210;
             $product->save();
         }
         //Creando usuarios de prueba con socios y compras
         $user;
         $user = new User();
-        $user->name = 'test1';
-        $user->email = 'test1@hotmail.com';
-        $user->password = bcrypt('test1');
+        $user->name = 'Mario';
+        $user->email = 'mario@hotmail.com';
+        $user->password = bcrypt('mario');
         $user->paymethod = true;
         $user->account_activated = true;
         $user->save();
         MonthEarning::createFictionalHistory($user);
-        for($i = 2 ; $i < 6; $i++){
+        //
+        $user = new User();
+        $user->name = 'Juana';
+        $user->email = 'juana@hotmail.com';
+        $user->password = bcrypt('test');
+        $user->parent_partner = 1;
+        $user->paymethod = true;
+        $user->account_activated = true;
+        $user->save();
+        MonthEarning::createFictionalHistory($user);
+        //
+        $user = new User();
+        $user->name = 'Pedro';
+        $user->email = 'pedro@hotmail.com';
+        $user->password = bcrypt('pedro');
+        $user->parent_partner = 1;
+        $user->paymethod = true;
+        $user->account_activated = true;
+        $user->save();
+        MonthEarning::createFictionalHistory($user);
+        //
+        $user = new User();
+        $user->name = 'Omar';
+        $user->email = 'omar@hotmail.com';
+        $user->password = bcrypt('omar');
+        $user->parent_partner = 1;
+        $user->paymethod = true;
+        $user->account_activated = true;
+        $user->save();
+        MonthEarning::createFictionalHistory($user);
+        //
+        $user = new User();
+        $user->name = 'Vicente';
+        $user->email = 'vicente@hotmail.com';
+        $user->password = bcrypt('vicente');
+        $user->parent_partner = 1;
+        $user->paymethod = true;
+        $user->account_activated = true;
+        $user->save();
+        MonthEarning::createFictionalHistory($user);
+/*        for($i = 2 ; $i < 6; $i++){
 	        $user = new User();
 	        $user->name = 'test'.$i;
 	        $user->email = 'test'.$i.'@hotmail.com';
@@ -70,7 +110,7 @@ class DatabaseSeeder extends Seeder
         	$user->account_activated = true;
 	        $user->save();
         	MonthEarning::createFictionalHistory($user);
-        }
+        }*/
         //
     }
 }
