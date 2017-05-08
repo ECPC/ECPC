@@ -152,35 +152,6 @@
 	<script src="/js/Chart.bundle.min.js"></script>
 	<!-- <script type="text/javascript" src="js/ezpc.js"></script> -->
 	<script type="text/javascript" src="/js/dashboardCharts.js"></script>
-		<!-- Arbol -->
-<!-- 	<script type="text/javascript" src="js/jquery.easing.js"></script>
-	<script type="text/javascript" src="js/raphael.js"></script>
-	<script type="text/javascript" src="js/Treant.js"></script>
-	<script type="text/javascript" src="js/collapsable.js"></script> -->
-	<!-- collapsable.js es necesario para el arbol -->
-	<script type="text/javascript">
-	$(document).ready(function(){
-		obtenerDatos();
-		//appendContent("/sub/ultimasCompras.html");
-	});
-	function obtenerDatos()
-	{
-		$.ajax({
-			type : 'GET',
-			url : "/api/user"})
-		.done(function(usuario){
-			$("#name").text(usuario.name);
-			$("#id").text(usuario.id);
-		});
-	}
-/*	function appendContent(source){
-		$.get(source, function(data){
-			$("#maincontent").append(data);
-			$.get("/api/user/selfPartnerNet", function(response){
-				initNodeChart(response);
-			});
-		});
-	}*/
-</script>
+	<script type="text/javascript" src="/js/sideNav.js"></script>
 </body>
 </html>
