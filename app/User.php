@@ -55,7 +55,7 @@ class User extends Authenticatable
     }
     public function addEarnings($money)
     {
-        $earning = $money * 0.1;
+        $earning = $money * 0.2;
         $month = MonthEarning::currentMonth($this);
         $month->earnings += $earning;
         $month->save();
@@ -65,7 +65,7 @@ class User extends Authenticatable
     }
     public function addEarningsToMonth($money, MonthEarning $month)
     {
-        $earning = $money * 0.1;
+        $earning = $money * 0.2;
         //$month = MonthEarning::currentMonth($this);
         $month->earnings += $earning;
         $month->save();
