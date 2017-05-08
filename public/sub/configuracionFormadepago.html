@@ -8,18 +8,18 @@
 	<title>Forma de pago</title>
 
 	<!-- Bootstrap -->
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-select.css">
 
-	<link rel="stylesheet" type="text/css" href="css/controles.css">
-	<link rel="stylesheet" type="text/css" href="css/ezpc-nav.css">
-	<link rel="stylesheet" type="text/css" href="css/formadepago.css">
+	<link rel="stylesheet" type="text/css" href="../css/controles.css">
+	<link rel="stylesheet" type="text/css" href="../css/ezpc-nav.css">
+	<link rel="stylesheet" type="text/css" href="../css/formadepago.css">
 </head>
 <body>
 	<nav id="sidepanel">
 		<div id="sidepanel-logo" class="horizontal">
 			<!-- <div class="vertical"> -->
-					<img src="img/dark logo.png">
+					<img src="../img/dark logo.png">
 			<!-- </div> -->
 		</div>
 		<div id="sidepanel-username" class="horizontal">
@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<div id="sidepanel-info">
-			<img src="img/user-icon.png" class="pull-left">
+			<img src="../img/user-icon.png" class="pull-left">
 			<div class="vertical">
 				<p>Bonificación: $685.50</p>
 				<p>Puntos: 68</p>
@@ -88,7 +88,7 @@
 				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Configurar forma de pago </h2>
 			</div>
 			<div class="col-md-1 horizontal">
-				<img src="img/user-icon-dark.png">
+				<img src="../img/user-icon-dark.png">
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
 		</div>
@@ -96,10 +96,12 @@
 			<div class="content container-fluid">
 				<div class="col-lg-8 col-lg-offset-2">
 				<form id="frmMetodo">
+					<input class="formToken" type="hidden" name="_token">
+
 					<h3>Metodo de pago:</h3>
-					<select id="selectMetodo" class="selectpicker" title="Seleccione un metodo">
-						<option data-content="<img class='select-icon' src='img/paypal.png'> Paypal">Paypal</option>
-						<option data-content="<img class='select-icon' src='img/credit-card.png'> Tarjeta de credito/debito">Tarjeta de credito/debito</option>
+					<select id="selectMetod" class="selectpicker" title="Seleccione un metodo">
+						<option data-content="<img class='select-icon' src='../img/paypal.png'> Paypal" value="1">Paypal</option>
+						<option data-content="<img class='select-icon' src='../img/credit-card.png'> Tarjeta de credito/debito" value="2">Tarjeta de credito/debito</option>
 					</select>
 					<div class="form-section container-fluid container-box active">
 						<div class="col-xs-5">
@@ -116,8 +118,8 @@
 									<div class="row card-type">
 										<div class="col-xs-3 col-xs-offset-9">
 											<select id="selectCardType" class="selectpicker"  data-width="auto" data-height="30px">
-												<option data-content="<img class='select-icon' src='img/mastercard.png'>">MasterCard</option>
-												<option data-content="<img class='select-icon' src='img/visa-icon.png'>">Visa</option>
+												<option data-content="<img class='select-icon' src='../img/mastercard.png'>" value="1">MasterCard</option>
+												<option data-content="<img class='select-icon' src='../img/visa-icon.png'>" value="2">Visa</option>
 											</select>
 										</div>
 									</div>
@@ -157,7 +159,7 @@
 									</div>
 									<div class="container-fluid">
 										<div class="col-xs-6 signature-container">
-											<img src="img/signature.png" alt="">
+											<img src="../img/signature.png" alt="">
 										</div>
 										<div class="col-xs-3 security-code">
 											<input id="cardCode" type="number" class="white" name="year" min="1" max="999" placeholder="CVV">
@@ -176,10 +178,12 @@
         </div>
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="js/jquery.min.js"></script>
+	<script src="../js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-select.js"></script>
-	<script src="js/controles.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-select.js"></script>
+	<script src="../js/controles.js"></script>
+	<script src="../js/sideNav.js"
+	<script src="../js/pages/pageFormadepago.js"></script>
 </body>
 </html>
