@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
                 $table->increments('id');
                 $table->integer('parent_partner')->unsigned()->nullable();
                 $table->string('name');
+                $table->string('lastname1')->nullable();
+                $table->string('lastname2')->nullable();
                 $table->string('email')->unique();
                 $table->string('password');
                 $table->string('activation_token')->nullable();

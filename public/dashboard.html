@@ -86,7 +86,7 @@
 	</nav>
 
 	<div id="maincontent">
-<!-- 		<div id="toppanel">
+		<div id="toppanel">
 			<div class="col-md-11">
 				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información General</h2>
 			</div>
@@ -143,26 +143,26 @@
 			<div class="col-md-6">
 				<canvas id="myChart"></canvas>	
 			</div>
-		</div> -->
+		</div>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<!-- <script src="js/Chart.bundle.min.js"></script> -->
-	<script type="text/javascript" src="js/ezpc.js"></script>
-	<!-- <script type="text/javascript" src="js/dashboardCharts.js"></script> -->
+	<script src="js/Chart.bundle.min.js"></script>
+	<!-- <script type="text/javascript" src="js/ezpc.js"></script> -->
+	<script type="text/javascript" src="js/dashboardCharts.js"></script>
 		<!-- Arbol -->
-	<script type="text/javascript" src="js/jquery.easing.js"></script>
+<!-- 	<script type="text/javascript" src="js/jquery.easing.js"></script>
 	<script type="text/javascript" src="js/raphael.js"></script>
 	<script type="text/javascript" src="js/Treant.js"></script>
-	<script type="text/javascript" src="js/collapsable.js"></script>
+	<script type="text/javascript" src="js/collapsable.js"></script> -->
 	<!-- collapsable.js es necesario para el arbol -->
 	<script type="text/javascript">
 	$(document).ready(function(){
 		obtenerDatos();
-		appendContent("/sub/socios.html");
+		//appendContent("/sub/ultimasCompras.html");
 	});
 	function obtenerDatos()
 	{
@@ -174,14 +174,14 @@
 			$("#id").text(usuario.id);
 		});
 	}
-	function appendContent(source){
+/*	function appendContent(source){
 		$.get(source, function(data){
 			$("#maincontent").append(data);
 			$.get("/api/user/selfPartnerNet", function(response){
 				initNodeChart(response);
 			});
 		});
-	}
+	}*/
 </script>
 </body>
 </html>
