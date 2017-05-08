@@ -109,34 +109,56 @@
 						</div>
 						</div>
 					</div>
-					<div class="form-section container-fluid container-box active">
-						<div class="display-card">
-							<div class="card card-front">
-								<div class="row card-type">
-									<div class="col-xs-3 col-xs-offset-8">
-										<select id="selectCardType" class="selectpicker"  data-width="60px" data-height="30px">
-											<option data-content="<img class='select-icon' src='img/mastercard.png'>">MasterCard</option>
-											<option data-content="<img class='select-icon' src='img/visa-icon.png'>">Visa</option>
-										</select>
+					<div class="form-section container-box active">
+						<div class="display-card container-fluid">
+							<div class="col-xs-12">
+								<div class="card card-front">
+									<div class="row card-type">
+										<div class="col-xs-3 col-xs-offset-9">
+											<select id="selectCardType" class="selectpicker"  data-width="auto" data-height="30px">
+												<option data-content="<img class='select-icon' src='img/mastercard.png'>">MasterCard</option>
+												<option data-content="<img class='select-icon' src='img/visa-icon.png'>">Visa</option>
+											</select>
+										</div>
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-3 card-number">
-										<input id="cardNumber1" maxlength="4" type="text" class="white" placeholder="0000">
+									<div class="row">
+										<div class="col-xs-3 card-number">
+											<input id="cardNumber1" maxlength="4" type="text" class="white" placeholder="0000">
+										</div>
+										<div class="col-xs-3 card-number">
+											<input id="cardNumber2" maxlength="4" type="text" class="white" placeholder="0000">
+										</div>
+										<div class="col-xs-3 card-number">
+											<input id="cardNumber3" maxlength="4" type="text" class="white" placeholder="0000">
+										</div>
+										<div class="col-xs-3 card-number">
+											<input id="cardNumber4" maxlength="4" type="text" class="white" placeholder="0000">
+										</div>
 									</div>
-									<div class="col-xs-3 card-number">
-										<input id="cardNumber2" maxlength="4" type="text" class="white" placeholder="0000">
+									<div class="card-expdate row">
+										<div class="col-xs-offset-4 col-xs-2">
+											<span class="expdate-label">Valido hasta</span>
+										</div>
+										<div class="col-xs-6 ">
+											<input id="cardExpdateMonth" type="number" class="white" name="month" min="1" max="12" placeholder="00">
+											/
+											<input id="cardExpdateYear" type="number" class="white" name="year" min="1" max="99" placeholder="00">
+										</div>
 									</div>
-									<div class="col-xs-3 card-number">
-										<input id="cardNumber3" maxlength="4" type="text" class="white" placeholder="0000">
-									</div>
-									<div class="col-xs-3 card-number">
-										<input id="cardNumber4" maxlength="4" type="text" class="white" placeholder="0000">
+									<div class="card-name row">
+										<div class="col-xs-6">
+										<input type="text" class="white" placeholder="Nombre como en tarjeta">
 									</div>
 								</div>
 							</div>
-							<div class="card card-back">
-								
+							<div class="col-xs-12">
+								<div class="card card-back">
+									<div class="row">
+									</div>
+									<div class="container-fluid">
+
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
