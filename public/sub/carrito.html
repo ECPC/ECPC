@@ -111,7 +111,8 @@
 					</div>
 				</div>
 			</nav>
-			<form id="frmPagar" class="form-active pull-right">
+			<div id="cargando"><h3 class="text-center">Cargando tu carrito...</h3></div>
+			<form method="post" action="/api/order/create" id="frmPagar" class="form-active pull-right" hidden>
 				<table id="cart-container" class="carrito-tabla">
 					<tr>
 						<th>Eliminar</th>
@@ -121,7 +122,7 @@
 						<th>Precio</th>
 						<th>Total</th>
 					</tr>
-					<tr id="row-template">
+					<tr id="row-template" hidden>
 						<td class="cell-eliminar">
 							<div class="horizontal">
 								<div class="vertical">
@@ -141,76 +142,21 @@
 						</td>
 						<td class="cell-cantidad">
 							<input id="quantity" name="quantity[]" type="number" class="white" min="1">
-							<input id="productID" type="hidden" name="productID[]">
+							<input id="productID" type="hidden" name="products[]">
 						</td>
 						<td class="cell-precio">
 							<p>$<span id="productPrice"></span></p>
 						</td>
 						<td class="cell-total">
-							<p>$<span id="productTotalPrice"></span></p>
+							<p>$<span class="productTotal" id="productTotalPrice"></span></p>
 						</td>
 					</tr>
-<!-- 					<tr>
-						<td class="cell-eliminar">
-							<div class="horizontal">
-								<div class="vertical">
-									<a href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-								</div>
-							</div>
-						</td>
-						<td class="cell-imagen">
-							<div class="horizontal">
-								<div class="vertical">
-									<img src="../img/productos/acermonitor.jpg">
-								</div>
-							</div>
-						</td>
-						<td class="cell-producto">
-							<a href="" class="producto"><p>Monitor Acer Z35</p></a>
-						</td>
-						<td class="cell-cantidad">
-							<input type="number" class="white" min="1">
-						</td>
-						<td class="cell-precio">
-							<p>$2999</p>
-						</td>
-						<td class="cell-total">
-							<p>$2999</p>
-						</td>
-					</tr>
-					<tr>
-						<td class="cell-eliminar">
-							<div class="horizontal">
-								<div class="vertical">
-									<a href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-								</div>
-							</div>
-						</td>
-						<td class="cell-imagen">
-							<div class="horizontal">
-								<div class="vertical">
-									<img src="../img/productos/acermonitor.jpg">
-								</div>
-							</div>
-						</td>
-						<td class="cell-producto">
-							<a href="" class="producto"><p>Monitor Acer Z35</p></a>
-						</td>
-						<td class="cell-cantidad">
-							<input type="number" class="form-control white" min="1">
-						</td>
-						<td class="cell-precio">
-							<p>$2999</p>
-						</td>
-						<td class="cell-total">
-							<p>$2999</p>
-						</td>
-					</tr> -->
 				</table>
 <!-- 				<p><strong>Subtotal: </strong>$7897</p>
 				<p><strong>IVA: </strong>$1100</p> -->
 				<p><strong>Total: </strong>$<span id="orderAmount">...</span></p>
-				<button type="submit" value="Submit">Pagar</button>
+				<input class="formToken" type="hidden" name="_token">
+				<button id="buyButton" type="submit" value="Submit" hidden>Comprar</button>
 				<!-- <button class="pull-left" onclick="location.href='tienda.html'">Seguir comprando</button> -->
 				<a class="btn pull-left" href="tienda.html">Seguir comprando</a>
 			</form>

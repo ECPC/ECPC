@@ -12,23 +12,26 @@ class OrderController extends Controller
 {
     public function create(Request $request)
     {
+        //return $request->all();
     	$user = Auth::user();
     	$order = new Order();
     	$order->user_id = $user->id;
-    	$order->address = $request->address;
+    	$order->address = $request->address? $request->address : "...";
     	$order->total_price = 0;
     	$order->total_points = 0;
     	$order->save();
     	$i = 0;
     	while($request->input("products.".$i)){
     		$product = Product::find($request->input("products.".$i));
-    		$order->total_price += $product->price;
-    		$order->total_points += $product->points;
-    		//
-    		$order_product = new OrderProduct();
-    		$order_product->order_id = $order->id;
-    		$order_product->product_id = $product->id;
-    		$order_product->save();
+            for($j = 0; $j < $request->input("quantity.".$i); $j++){
+                $order->total_price += $product->price;
+                $order->total_points += $product->points;
+                //
+                $order_product = new OrderProduct();
+                $order_product->order_id = $order->id;
+                $order_product->product_id = $product->id;
+                $order_product->save();
+            }
     		$i++;
     	}
 		//Agregar ganancias
@@ -37,7 +40,8 @@ class OrderController extends Controller
 		$month->points += $order->total_points;
 		$month->save();
     	$order->save();
-    	return $order;
+        $request->session()->put('cart', []);
+    	return redirect('/sub/ultimasCompras.html');//$order;
     }
     public function history()
     {

@@ -101,7 +101,7 @@ Route::group(['prefix' => 'api/product'], function(){
 //Order
 Route::group(['prefix' => 'api/order'], function(){
 	//TODO: modificar función create
-	//params, @products[], @quantity, @address
+	//params, @products[], @quantity[], @address
 	Route::post('create', 'OrderController@create');
 	Route::get('history', 'OrderController@history');
 });

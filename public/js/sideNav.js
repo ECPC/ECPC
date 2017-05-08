@@ -14,8 +14,9 @@ var sideNav = {
 			type : 'GET',
 			url : "/api/user/progressInfo"})
 		.done(function(usuario){
-			$(".currentUserPoints").text(usuario.points);
-			$(".currentUserPointsLeft").text(100-usuario.points);
+			let usuarioPoints = Number(usuario.points);
+			$(".currentUserPoints").text(usuarioPoints);
+			$(".currentUserPointsLeft").text(usuarioPoints>100 ? 0 : 100-usuarioPoints);
 			$(".currentUserChilds").text(usuario.partners);
 			$(".currentUserEarnings").text(usuario.earnings);
 			$(".currentUserProgressBar").width(usuario.points+"%");
