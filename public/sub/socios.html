@@ -8,14 +8,14 @@
 	<title>Dashboard</title>
 
 	<!-- Bootstrap -->
-	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
-	<link rel="stylesheet" type="text/css" href="../css/ezpc.css">
-	<link rel="stylesheet" type="text/css" href="../css/controles.css">
+	<link rel="stylesheet" type="text/css" href="/css/ezpc.css">
+	<link rel="stylesheet" type="text/css" href="/css/controles.css">
 	<!-- Arbol -->
-	<link rel="stylesheet" type="text/css" href="../css/Treant.css">
-	<link rel="stylesheet" type="text/css" href="../css/collapsable.css">
-	<link rel="stylesheet" type="text/css" href="../css/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="/css/Treant.css">
+	<link rel="stylesheet" type="text/css" href="/css/collapsable.css">
+	<link rel="stylesheet" type="text/css" href="/css/perfect-scrollbar/perfect-scrollbar.css">
 </head>
 <body>
 	<nav id="sidepanel">
@@ -120,12 +120,12 @@
 	<script src="../js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/ezpc.js"></script>
+	<!-- <script type="text/javascript" src="../js/ezpc.js"></script> -->
 	<!-- Arbol -->
-	<script type="text/javascript" src="../js/jquery.easing.js"></script>
-	<script type="text/javascript" src="../js/raphael.js"></script>
-	<script type="text/javascript" src="../js/Treant.js"></script>
-	<script type="text/javascript" src="../js/collapsable.js"></script>
+	<script type="text/javascript" src="/js/jquery.easing.js"></script>
+	<script type="text/javascript" src="/js/raphael.js"></script>
+	<script type="text/javascript" src="/js/Treant.js"></script>
+	<script type="text/javascript" src="/js/collapsable.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		obtenerDatos();
@@ -134,10 +134,9 @@
 	{
 		$.ajax({
 			type : 'GET',
-			url : "/api/user"})
-		.done(function(usuario){
-			$("#name").text(usuario.name);
-			$("#id").text(usuario.id);
+			url : "/api/user/selfPartnerNet"})
+		.done(function(response){
+			initNodeChart(response)
 		});
 	}
 </script>

@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
+use App\User;
+use App\Product;
+use App\OrderProduct;
+use App\MonthEarning;
 use Carbon\Carbon;
 class Order extends Model
 {
@@ -26,5 +30,30 @@ class Order extends Model
             ->timezone('America/Monterrey')
             ->toDateTimeString()
         ;
+    }
+
+    public static function createFictionalOrder(User $user, Product $product, MonthEarning $month)
+    {
+        $order = new Order();
+        $order->user_id = $user->id;
+        $order->address = "...";
+        $order->total_price = 0;
+        $order->total_points = 0;
+        $order->save();
+
+        $order->total_price += $product->price;
+        $order->total_points += $product->points;
+        //
+        $order_product = new OrderProduct();
+        $order_product->order_id = $order->id;
+        $order_product->product_id = $product->id;
+        $order_product->save();
+        //Agregar ganancias
+        $user->addEarningsToMonth($order->total_price, $month);
+        //$month = MonthEarning::currentMonth($user);
+        $month->points += $order->total_points;
+        $month->save();
+        $order->save();
+        //return $order;
     }
 }
