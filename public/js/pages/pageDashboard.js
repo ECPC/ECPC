@@ -1,5 +1,15 @@
 var page = {
     ready: function(){
+        $("div.status img").on("mouseenter", function() {
+            $("div.status-help-container").fadeIn('100', function() {
+                // $("div.status-help-container").fadeOut('200');
+            });
+        });
+        $("div.status img").on("mouseleave", function() {
+            $("div.status-help-container").fadeOut('100', function() {
+                // $("div.status-help-container").fadeOut('200');
+            });
+        });
         page.loadCharts();
     },
     loadCharts: function(){
@@ -18,20 +28,10 @@ var page = {
                         label: 'Historial de puntos',
                         data: monthEarnings.points,
                         backgroundColor: [
-                            'rgba(99, 99, 255, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
+                            'rgba(255, 163, 102, 0.2)'
                         ],
                         borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
+                            '#ffa366'
                         ],
                         borderWidth: 1
                     }]
@@ -54,20 +54,20 @@ var page = {
                         label: 'Historial de ganancias',
                         data: monthEarnings.earnings,
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
+                            'rgba(133, 201, 203, 0.2)',
+                            'rgba(133, 201, 203, 0.2)',
+                            'rgba(133, 201, 203, 0.2)',
+                            'rgba(133, 201, 203, 0.2)',
+                            'rgba(133, 201, 203, 0.2)',
+                            'rgba(133, 201, 203, 0.2)'
                         ],
                         borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
+                            'rgba(133, 201, 203, 1)',
+                            'rgba(133, 201, 203, 1)',
+                            'rgba(133, 201, 203, 1)',
+                            'rgba(133, 201, 203, 1)',
+                            'rgba(133, 201, 203, 1)',
+                            'rgba(133, 201, 203, 1)'
                         ],
                         borderWidth: 1
                     }]
@@ -84,17 +84,6 @@ var page = {
             };
             var myChart2 = new Chart(ctx2, data2);
             var myChart = new Chart(ctx, data);
-
-            $("div.status img").on("mouseenter", function() {
-                $("div.status-help-container").fadeIn('100', function() {
-                    // $("div.status-help-container").fadeOut('200');
-                });
-            });
-            $("div.status img").on("mouseleave", function() {
-                $("div.status-help-container").fadeOut('100', function() {
-                    // $("div.status-help-container").fadeOut('200');
-                });
-            });
         });
     }
 };

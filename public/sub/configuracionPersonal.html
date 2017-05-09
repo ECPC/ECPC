@@ -43,6 +43,7 @@
 				<div class="collapse" id="Menu-Inicio">
 					<li><a href="/sub/dashboard.html">Información General</a></li>
 					<li><a href="/sub/configuracionPersonal.html">Información Personal</a></li>
+					<li><a href="/sub/configuracionFormadepago.html">Información de pago</a></li>
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
@@ -82,11 +83,11 @@
 	<div id="maincontent">
 		<div id="toppanel">
 			<div class="col-xs-11">
-				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información personal</h2>
+				<h2><span id="menuBtn" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Información Personal</h2>
 			</div>
 			<div class="col-xs-1 horizontal">
 				<a href="/api/logout">
-					<img id="topProfileImg" src="/img/user-icon-dark.png">
+					<img id="topProfileImg" src="/img/user-icon.png">
 				</a>
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
@@ -103,7 +104,7 @@
 			<form method="post" action="/api/user/editInfo" id="frmRegistro" class="form-active">
 				<input class="formToken" type="hidden" name="_token">
 				<div class="row">
-					<div class="col-xs-6">
+					<div class="col-md-8 col-md-offset-2 col-xs-12 container-box">
 						<fieldset>
 							<legend>Información Basica</legend>
 							<div class="form-group">
@@ -111,13 +112,13 @@
 								<input type="text" name="name" id="txtNombre" class="form-control white" placeholder="Nombre(s)" required>
 							</div>
 							<div class="form-row">
-								<div class="col-xs-6 form-col">
+								<div class="col-sm-6 form-col">
 									<div class="form-group">
 										<label for="apellido_paterno" class="form-label hidden-label white">Apellido paterno</label>
 										<input type="text" name="apellido_paterno" id="txtApellidoPaterno" class="form-control white" placeholder="Apellido paterno">
 									</div>
 								</div>
-								<div class="col-xs-6 form-col">
+								<div class="col-sm-6 form-col">
 									<div class="form-group">
 										<label for="apellido_materno" class="form-label hidden-label white">Apellido materno</label>
 										<input type="text" name="apellido_materno" id="txtApellidoMaterno" class="form-control white" placeholder="Apellido materno">
@@ -130,13 +131,13 @@
 							</div>
 							<div class="form-row">
 								<br>
-								<div class="col-xs-6 form-col">
+								<div class="col-sm-6 form-col">
 									<label class="white">
 				                        <input type="radio" name="radiosGenero" id="radGeneroM" class="white" value="Mujer">
 				                        Mujer
 				                    </label>
 								</div>
-								<div class="col-xs-6 form-col">
+								<div class="col-sm-6 form-col">
 									<label class="white">
 				                        <input type="radio" name="radiosGenero" id="radGeneroH" class="white" value="Hombre">
 				                        Hombre
@@ -149,8 +150,6 @@
 								<input type="file" id="inpPerfil" class="form-control white" placeholder="Foto de perfil">
 							</div> -->
 						</fieldset>
-					</div>	
-					<div class="col-xs-6">
 						<fieldset>
 							<legend>Domicilio</legend>
 							<div class="form-group">
@@ -158,13 +157,13 @@
 								<input type="text" name="calle_numero" id="txtCalleNumero" class="form-control white" placeholder="Calle y Número">
 							</div>
 							<div class="form-row">
-								<div class="col-xs-6 form-col">
+								<div class="col-sm-6 form-col">
 									<div class="form-group">
 										<label for="colonia" class="form-label hidden-label white">Colonia</label>
 										<input type="text" name="colonia" id="txtColonia" class="form-control white" placeholder="Colonia">
 									</div>
 								</div>
-								<div class="col-xs-6 form-col">
+								<div class="col-sm-6 form-col">
 									<div class="form-group">
 										<label for="codigo_postal" class="form-label hidden-label white">Código Postal</label>
 										<input type="number" name="codigo_postal" id="txtCodigoPostal" class="form-control white" placeholder="Código postal">
@@ -172,13 +171,13 @@
 								</div>
 							</div>
 							<div class="form-row">
-								<div class="col-xs-6 form-col">
+								<div class="col-sm-6 form-col">
 									<div class="form-group">
 										<label for="municipio" class="form-label hidden-label white">Municipio</label>
 										<input type="text" name="municipio" id="txtMunicipio" class="form-control white" placeholder="Municipio">
 									</div>
 								</div>
-								<div class="col-xs-6 form-col">
+								<div class="col-sm-6 form-col">
 									<div class="form-group">
 										<label for="estado" class="form-label hidden-label white">Estado</label>
 										<input type="text" name="estado" id="txtEstado" class="form-control white" placeholder="Estado">
@@ -199,8 +198,9 @@
 	<script src="../js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/pages/pageConfiguracionPersonal.js"></script>
 	<script type="text/javascript" src="/js/sideNav.js"></script>
+	<script type="text/javascript" src="/js/controles.js"></script>
+	<script type="text/javascript" src="/js/pages/pageConfiguracionPersonal.js"></script>
 	<!-- collapsable.js es necesario para el arbol -->
 </body>
 </html>

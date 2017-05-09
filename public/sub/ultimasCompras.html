@@ -43,6 +43,7 @@
 				<div class="collapse" id="Menu-Inicio">
 					<li><a href="/sub/dashboard.html">Información General</a></li>
 					<li><a href="/sub/configuracionPersonal.html">Información Personal</a></li>
+					<li><a href="/sub/configuracionFormadepago.html">Información de pago</a></li>
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
@@ -82,45 +83,57 @@
 	<div id="maincontent">
 		<div id="toppanel">
 			<div class="col-xs-11">
-				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Mis compras</h2>
+				<h2><span id="menuBtn" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Ultimas compras</h2>
 			</div>
 			<div class="col-xs-1 horizontal">
 				<a href="/api/logout">
-					<img id="topProfileImg" src="/img/user-icon-dark.png">
+					<img id="topProfileImg" src="/img/user-icon.png">
 				</a>
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
 		</div>
-		<div id="comprasRecientesContent">
-			<div class="compra-reciente" id="order-template" hidden>
-				<a id="toggler" data-toggle="collapse" data-target="#compra1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Compra hecha en <strong id="orderDate">05/05/2017</strong></a>
-				<!-- <a href="" class="btn">Agregar</a> -->
-				<div id="compra1" class="collapse">
-					<table class="carrito-tabla">
-					<tbody id="productSection">
-						<tr>
-							<th>Producto</th>
-							<th>Cantidad</th>
-							<th>Precio</th>
-							<th>Total</th>
-						</tr>
-						<tr id="product-template" hidden>
-							<td class="cell-producto"><a href="producto.html" id="productName">Monitor Acer Z35</a></td>
-							<td class="cell-cantidad" id="productCount">2</td>
-							<td class="cell-precio" id="productPrice">$2999</td>
-							<td class="cell-total" id="productTotal">$5998</td>
-						</tr>
-					</tbody>
-					</table>
-					<div class="row">
-						<div class="col-xs-6">
-							<!-- <a href="" class="btn highlight pull-left"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</a> -->
+		<div id="comprasRecientesContent" class="container-fluid">
+			<div id="compras-container" class="col-xs-8 col-xs-offset-2">
+				<div class="compra-reciente" id="order-template" hidden>
+					<a id="toggler" data-toggle="collapse" data-target="#compra1" class="container-fluid">
+						<div class="col-sm-1">
+							#<strong id="idCompra">1</strong>
 						</div>
-						<div class="col-xs-6">
-							<p><strong>Total: </strong><span id="orderTotalPrice"></span></p>
+						<div class="col-sm-4 col-sm-offset-2">
+						 	<strong id="orderDate">05/05/2017</strong>
 						</div>
-					</div>
-				</div>	
+						<div class="col-sm-3 col-sm-offset-1">
+						  	Total: $<strong id="previewTotal">5998</strong>
+						</div>
+						<div class="col-sm-1 expand-icon">
+						  	<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+						</div>
+					</a>
+					<!-- <a href="" class="btn">Agregar</a> -->
+					<div id="compra1" class="collapse">
+						<table class="carrito-tabla">
+							<tbody id="productSection">
+								<tr>
+									<th>Producto</th>
+									<th>Cantidad</th>
+									<th>Precio</th>
+									<th>Total</th>
+								</tr>
+								<tr id="product-template" hidden>
+									<td class="cell-producto"><a href="producto.html" id="productName">Monitor Acer Z35</a></td>
+									<td class="cell-cantidad" id="productCount">2</td>
+									<td class="cell-precio" id="productPrice">$2999</td>
+									<td class="cell-total" id="productTotal">$5998</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="container-fluid">
+							<div class="col-xs-6 col-xs-offset-6">
+								<p><strong>Total: </strong><span id="orderTotalPrice"></span></p>
+							</div>
+						</div>
+					</div>	
+				</div>
 			</div>
 		</div>
 	</div>

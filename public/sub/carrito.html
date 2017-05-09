@@ -43,6 +43,7 @@
 				<div class="collapse" id="Menu-Inicio">
 					<li><a href="/sub/dashboard.html">Información General</a></li>
 					<li><a href="/sub/configuracionPersonal.html">Información Personal</a></li>
+					<li><a href="/sub/configuracionFormadepago.html">Información de pago</a></li>
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
@@ -81,84 +82,88 @@
 	</nav>
 	<div id="maincontent">
 		<div id="toppanel">
-			<div class="col-xs-11">
-				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Carrito</h2>
+			<div class="col-xs-1">
+				<h2><span id="menuBtn" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true">
+			</div>
+			<div class="nav col-xs-10">
+				<div class=" collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="/sub/tienda.html">Inicio</a></li>
+						<li><a href="/sub/tienda.html">Hardware</a></li>
+						<li><a href="/sub/tienda.html">Accesorios</a></li>
+						<li><a href="/sub/tienda.html">Almacenamiento</a></li>
+						<li><a href="/sub/tienda.html">Software</a></li>
+					</ul>
+					<div class="navbar-right">
+						<a class="btn" href="/sub/carrito.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</a>
+						<!-- <button type="submit" form="frmAgregar" value="Submit" class="highlight"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</button> -->
+					</div>
+				</div>
 			</div>
 			<div class="col-xs-1 horizontal">
 				<a href="/api/logout">
-					<img id="topProfileImg" src="/img/user-icon-dark.png">
+					<img id="topProfileImg" src="/img/user-icon.png">
 				</a>
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
 		</div>
 		<div id="carritoContent">
-			<nav class="navbar navbar-default">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">
-						<img src="../img/light logo.png">
-					</a>
-				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="/sub/dashboard.html">Inicio</a></li>
-						<li><a>Hardware</a></li>
-						<li><a>Accesorios</a></li>
-						<li><a>Almacenamiento</a></li>
-						<li><a>Software</a></li>
-					</ul>
-					<div class="navbar-right">
-						<!-- <button type="submit" form="frmAgregar" value="Submit" class="highlight"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</button> -->
+			<div id="cargando"><h3 class="text-center">Cargando tu carrito...</h3></div>
+			<form method="post" action="/api/order/create" id="frmPagar" class="form-active container-fluid" hidden>
+				<div class="col-lg-10 col-md-12">
+					<div class="container-box">		
+						<table id="cart-container" class="carrito-tabla">
+							<tr>
+								<th>Eliminar</th>
+								<th>Imagen</th>
+								<th>Producto</th>
+								<th>Cantidad</th>
+								<th>Precio</th>
+								<th>Total</th>
+							</tr>
+							<tr id="row-template" hidden>
+								<td class="cell-eliminar">
+									<div class="horizontal">
+										<div class="vertical">
+											<a id="removeProductLink"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+										</div>
+									</div>
+								</td>
+								<td class="cell-imagen">
+									<div class="horizontal">
+										<div class="vertical">
+											<img id="productImage">
+										</div>
+									</div>
+								</td>
+								<td class="cell-producto">
+									<a id="productLink" class="producto"><p id="productName">Monitor Acer Z35</p></a>
+								</td>
+								<td class="cell-cantidad">
+									<input id="quantity" name="quantity[]" type="number" class="white" min="1">
+									<input id="productID" type="hidden" name="products[]">
+								</td>
+								<td class="cell-precio">
+									<p>$<span id="productPrice"></span></p>
+								</td>
+								<td class="cell-total">
+									<p>$<span class="productTotal" id="productTotalPrice"></span></p>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
-			</nav>
-			<div id="cargando"><h3 class="text-center">Cargando tu carrito...</h3></div>
-			<form method="post" action="/api/order/create" id="frmPagar" class="form-active pull-right" hidden>
-				<table id="cart-container" class="carrito-tabla">
-					<tr>
-						<th>Eliminar</th>
-						<th>Imagen</th>
-						<th>Producto</th>
-						<th>Cantidad</th>
-						<th>Precio</th>
-						<th>Total</th>
-					</tr>
-					<tr id="row-template" hidden>
-						<td class="cell-eliminar">
-							<div class="horizontal">
-								<div class="vertical">
-									<a id="removeProductLink"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-								</div>
-							</div>
-						</td>
-						<td class="cell-imagen">
-							<div class="horizontal">
-								<div class="vertical">
-									<img id="productImage">
-								</div>
-							</div>
-						</td>
-						<td class="cell-producto">
-							<a id="productLink" class="producto"><p id="productName">Monitor Acer Z35</p></a>
-						</td>
-						<td class="cell-cantidad">
-							<input id="quantity" name="quantity[]" type="number" class="white" min="1">
-							<input id="productID" type="hidden" name="products[]">
-						</td>
-						<td class="cell-precio">
-							<p>$<span id="productPrice"></span></p>
-						</td>
-						<td class="cell-total">
-							<p>$<span class="productTotal" id="productTotalPrice"></span></p>
-						</td>
-					</tr>
-				</table>
-<!-- 				<p><strong>Subtotal: </strong>$7897</p>
-				<p><strong>IVA: </strong>$1100</p> -->
-				<p><strong>Total: </strong>$<span id="orderAmount">...</span></p>
-				<input class="formToken" type="hidden" name="_token">
-				<button id="buyButton" type="submit" value="Submit" hidden>Comprar</button>
-				<!-- <button class="pull-left" onclick="location.href='tienda.html'">Seguir comprando</button> -->
-				<a class="btn pull-left" href="tienda.html">Seguir comprando</a>
+				<div class="col-lg-2 col-lg-offset-0 col-sm-6 col-sm-offset-6">
+					<div class="container-box">
+	<!-- 				<p><strong>Subtotal: </strong>$7897</p>
+					<p><strong>IVA: </strong>$1100</p> -->
+					<p><strong>Total: </strong>$<span id="orderAmount">...</span></p>
+					<input class="formToken" type="hidden" name="_token">
+					<button id="buyButton" type="submit" value="Submit" hidden>Comprar</button>
+					<!-- <button class="pull-left" onclick="location.href='tienda.html'">Seguir comprando</button> -->
+					<a class="btn" href="tienda.html">Seguir comprando</a>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

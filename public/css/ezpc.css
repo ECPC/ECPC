@@ -1,9 +1,9 @@
 a {
-	display: block !important;
-	color: inherit !important;
-	text-decoration: inherit !important;
-	width: 100% !important;
-	height: 100% !important;
+	display: block ;
+	color: inherit ;
+	text-decoration: inherit ;
+	width: 100% ;
+	height: 100% ;
 }
 hr {
 	border-top: 1px solid #636665;
@@ -69,16 +69,30 @@ div.border-right:after {
 }
 #sidepanel {
 	position: fixed;
-	background: #212222;
-	background: -moz-linear-gradient(top, #212222 0%, #2b3a48 1%, #212222 100%);
-	background: -webkit-linear-gradient(top, #212222 0%,#2b3a48 1%,#212222 100%);
-	background: linear-gradient(to bottom, #212222 0%,#2b3a48 1%,#212222 100%);
+	background: #2b3a48;
+	background: -moz-linear-gradient(top, #2b3a48 0%, #212222 100%);
+	background: -webkit-linear-gradient(top, #2b3a48 0%,#212222 100%);
+	background: linear-gradient(to bottom, #2b3a48 0%,#212222 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212222', endColorstr='#212222',GradientType=0 );
 	width: 20vw;
-	max-width: 20vw;
-	min-width: 20vw;
+	/*max-width: 20vw;
+	min-width: 20vw;*/
 	height: 100vh;
+	transition: width 0.2s ease;
+	overflow: hidden;
 }
+#sidepanel.expanded{
+	width: 0vw;
+}
+#sidepanel a {
+	display: block ;
+	color: inherit ;
+	text-decoration: inherit ;
+	width: 100% ;
+	height: 100% ;
+}
+
+
 #sidepanel-logo {
 	height: 50px;
 }
@@ -143,24 +157,34 @@ ul.sidepanel-list>div>li:hover {
 	color: #e6e6e6;	
 }
 #maincontent {
-	background-color: white;
+	background-color: #efefef;
 	width: 80vw;
 	height: 100vh;
 	margin-left: 20vw;
 	overflow-x: hidden;
+	transition: width 0.2s ease;
+	transition: margin-left 0.2s ease;
+}
+#maincontent.expanded{
+	width: 100vw;
+	margin-left: 0vw;
 }
 #toppanel {
-	background-color: #EFEFEF;
+	background-color: #2b3a48;
 	border-bottom: 2px solid #24292E;
 	width: 100%;
 	height: 50px;
+	color: white;
+}
+#toppanel #menuBtn{
+	cursor: pointer;
 }
 #toppanel h2 {
 	margin: 0px 0px 0px 0px;
 	font-size: 18pt;
 }
-#toppanel>div {
-	margin-top: 5px;
+#toppanel>div:not(.nav) {
+	margin-top: 10px;
 }
 #toppanel>div>a{
 	width: 32px !important;
@@ -172,6 +196,7 @@ ul.sidepanel-list>div>li:hover {
 #toppanel>div>span {
 	margin: 10 5px;
 }
+/*
 #maincontent>div + div {
 	background: #d9d9d9;
 	background: -moz-linear-gradient(top, #d9d9d9 0%, #ffffff 18%, #ffffff 100%);
@@ -179,6 +204,7 @@ ul.sidepanel-list>div>li:hover {
 	background: linear-gradient(to bottom, #d9d9d9 0%,#ffffff 18%,#ffffff 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#ffffff',GradientType=0 );
 }
+*/
 /*#content>div {
 	text-align: center;
 }
@@ -234,9 +260,11 @@ div.form-header>div:not(.form-header-active):hover {
 div.form-header-active {
 	background-color: #2B3A48;
 }
+/*
 #graph-container {
 	margin: 50px 10px;
 }
+*/
 div.status img {
 	width: 32px;
 	height: 32px;
@@ -261,30 +289,19 @@ div.status-help {
 	width: 160px;
 	height: 190px;
 	border-radius: 0px;
-	background-color: white;
+	background-color: #f9f9f9;
 	text-align: left;
 	font-size: 9pt;
 	padding: 10px;
-	box-shadow: 2px 1px 1px 2px #212222;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(204, 204, 204,.6);
+	border-radius: 5px;
 	z-index: 10;
 }
 div.status-help img {
 	height: 24px;
 	margin-right: 4px;
 }
-div#progressInfo {
-	margin: 20px 0px;
-	padding: 0px 20px;
-	height: 90px;
-}
-div#progressInfo div.progress {
-	width: 90%;
-	margin: auto;
 
-}
-div#progressInfo div.progress-bar {
-	background-color: #2B3A48;
-}
 div#progressInfo h5 {
 	text-align: center;
 }
@@ -297,11 +314,19 @@ div#fotoPerfil>div + div {
 div#submitButton {
 	height: 50px;
 }
+
+div.container-box{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 1px #888888;
+	padding: 20px;
+}
 /***************Dashboard******************/
 div#content-info {
 	width: 100%;
 	padding: 50px 50px;
 	text-align: center;
+	background-color: white;
 }
 div#content-info > div.container-fluid {
 	padding: 0;
@@ -316,12 +341,36 @@ div#content-info h1 {
 	font-size: 16pt;
 	font-weight: bold;
 }
+
+div#graph-container{
+	background-color: white;
+	padding: 50px 0px 80px 0px;
+}
+
+/******************************************/
+
+/**********Informacion personal************/
+
+div#progressInfo {
+	margin: 20px 0px;
+	padding: 0px 20px;
+	height: 90px;
+}
+div#progressInfo div.progress {
+	width: 90%;
+	margin: auto;
+
+}
+div#progressInfo div.progress-bar {
+	background-color: #85c9cb;
+}
+
 /******************************************/
 
 /****************TIENDA********************/
 div#storeContent {
 	width: 100%;
-	padding: 10px 50px;
+	/*padding: 10px 50px;*/
 	margin-bottom: 60px;
 }
 div#storeContent div.container {
@@ -335,6 +384,11 @@ div#productoGrid {
 	margin: 0px;
 	margin-top: 30px;
 }
+
+div#toppanel > .nav div.navbar-right{
+	margin-top: 5px; 
+}
+
 nav.navbar {
 	background-color: transparent;
 	border: none;
@@ -342,6 +396,7 @@ nav.navbar {
 	border-bottom: 2px solid #212222;
 	color: #212222;
 }
+
 ul.navbar-nav>li>a {
 	position: relative;
 	z-index: 1;
@@ -349,6 +404,11 @@ ul.navbar-nav>li>a {
 }
 ul.navbar-nav>li:hover {
 	color: white;
+}
+.nav>li>a:focus,
+.nav>li>a:hover{
+	color: white;
+	background-color: transparent;
 }
 ul.navbar-nav>li>a::after {
     content: "";
@@ -360,10 +420,10 @@ ul.navbar-nav>li>a::after {
     transform: scaleY(0);
     transform-origin: bottom center;
     background: #212222;
-	background: -moz-linear-gradient(top, #212222 0%, #2b3a48 1%, #212222 100%);
-	background: -webkit-linear-gradient(top, #212222 0%,#2b3a48 1%,#212222 100%);
-	background: linear-gradient(to bottom, #212222 0%,#2b3a48 1%,#212222 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212222', endColorstr='#212222',GradientType=0 );
+	background: -moz-linear-gradient(top, #212222 0%, #85C9CB 1%, #4dafb3 100%);
+	background: -webkit-linear-gradient(top, #212222 0%,#85C9CB 1%,#4dafb3 100%);
+	background: linear-gradient(to bottom, #212222 0%,#85C9CB 1%,#4dafb3 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212222', endColorstr='#85C9CB',GradientType=0 );
     z-index: -1;
     transition: transform 0.1s;
 }
@@ -386,6 +446,15 @@ div.carousel-inner img {
 	max-height: 300px;
 	border-radius: 6px;
 }
+
+div.producto{
+	margin-bottom: 30px;
+}
+
+div.producto > div.container-box{
+	height: 275px;
+}
+
 div.producto p {
 	padding: 0px;
 	margin: 0px;
@@ -417,6 +486,7 @@ div#progressInfo h4 {
 div#productoContent {
 	padding: 10px 50px;
 }
+/*
 div#productoContent div.producto-info {
 	background-color: white; 
 	margin-top: 30px;
@@ -424,19 +494,24 @@ div#productoContent div.producto-info {
 	box-shadow: 1px 1px 2px 1px #212222;
 	text-align: center;
 }
+*/
 div#productoContent div.producto-info form {
-	margin-bottom: 20px;
+	text-align: center;
 }
 div#productoContent div.producto-info form input{
 	width: 70px;
 }
+div#productoContent div.producto-info form button{
+	margin-top: 20px;
+}
 div#productoContent div.producto-info p {
 	font-size: 18pt;
-	font-weight: bold;
-	margin-bottom: 10px;
+	/*font-weight: bold;*/
+	margin-bottom: 20px;
 }
 div#productoContent p.precio {
 	font-size: 24pt !important;
+	text-align: center;
 }
 div#productoContent p.descripcion {
 	font-size: 14pt !important;
@@ -455,11 +530,13 @@ div#arbolContent img {
 div#arbolContent h1 {
 	font-size: 20pt;
 }
+/*
 div#arbolContent>div.container-fluid>div.row>div + div {
 	margin-top: 100px;
 	padding: 15px;
 	box-shadow: 1px 1px 2px 1px #212222;
 }
+*/
 div#arbolContent>div.container-fluid>div.row>div + div p{
 	margin-top: 10px;
 }
@@ -471,10 +548,10 @@ div#arbolContent>div + div strong{
 
 /*******************Carrito**********************/
 div#carritoContent {
-	padding: 10px 50px;
+	padding: 10px 0px;
 }
 div#carritoContent table.carrito-tabla {
-	width: 80%;
+	width: 100%;
 	margin: auto;
 }
 table.carrito-tabla tr {
@@ -529,8 +606,10 @@ td.cell-producto {
 }
 div#carritoContent form {
 	width: 100%;
-	padding: 10px 100px;
 	text-align: right;
+}
+div#carritoContent form > div:first-child{
+	margin-bottom: 50px;
 }
 div#carritoContent form p {
 	font-size: 10pt;
@@ -545,24 +624,61 @@ div#carritoContent form button, div#carritoContent form a.btn {
 /************************************************/
 
 /*************Compras recientes******************/
-div#comprasRecientesContent {
+/*div#comprasRecientesContent {
 	width: 100%;
 	padding: 10px 50px;
+}*/
+div#compras-container{
+	height: 100%;
+	border-radius: 4px;
+	overflow: hidden;
+	padding: 0px;
+	background-color: #2B3A48; 
+	margin-top: 50px; 
+	margin-bottom: 50px; 
 }
 div.compra-reciente {
 	color: white;
 	padding: 10px;
-	border-radius: 4px;
+	/*border-radius: 4px;*/
 	background-color: #2B3A48;
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
 }
+div.compra-reciente:nth-child(odd) {
+	color: white;
+	background-color: #394d60;
+}
+div.compra-reciente > a {
+	display: block ;
+	color: inherit ;
+	text-decoration: inherit ;
+	width: 100% ;
+	height: 100% ;
+	cursor: pointer;
+	text-align: right;
+}
+div.compra-reciente > a > .expand-icon{
+	padding: 0px;
+	text-align: right;
+}
+
 div.compra-reciente>div {
-	padding: 5px;
-	color: #212222;
-	background-color: white;
+	margin-top:10px; 
+	padding: 10px;
+	color: white;
+	background-color: #2B3A48;
 }
+div.compra-reciente:nth-child(even)>div{
+	background-color: #394d60;
+}
+
 div.compra-reciente>div>table {
 	width: 100%;
+	background-color: #f6f6f6;
+	border-radius: 4px;
+    color: black;
+    border: none;
+    overflow: hidden;
 }
 div.compra-reciente>div>table + div {
 	margin-top: 10px;

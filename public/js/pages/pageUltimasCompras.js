@@ -8,7 +8,7 @@ var page = {
 			_foreach(response, function(item){
 				var order = $("#order-template").clone();
 				page.llenarCampos(order, item);
-				$("#comprasRecientesContent").append(order);
+				$("#compras-container").append(order);
 				order.show("fast");
 			});
             $(".product").show();
@@ -17,7 +17,9 @@ var page = {
     llenarCampos: function(orden, data){
         orden.find("#toggler").attr("data-target", "#compra"+data.id);
 		orden.find(".collapse").attr("id", "compra"+data.id);
+		orden.find("#idCompra").text(data.id);
 		orden.find("#orderDate").text(data.created_at);
+		orden.find("#previewTotal").text(data.total_price);
 		orden.find("#orderTotalPrice").text("$"+data.total_price);
 		_foreach(data.products, function(item){
 			var product = $("#product-template").clone();

@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+
 	$("input").on("input", function() {
 		var label = $(this).parent('div.form-group').find('label.form-label');
 		if ($(this).val() === "" && !label.hasClass('hidden-label')) {
@@ -14,8 +15,10 @@ jQuery(document).ready(function($) {
 		var label = $(this).parent('div.form-group').find('label.form-label');
 		if ($(this).val() !== "") {
 			label.addClass('visible-label');
+			$(this).addClass('filled-input');
 		} else {
 			label.removeClass('visible-label');
+			$(this).removeClass('filled-input');
 		}
 	});
 	$("input.form-control-date").blur(function() {

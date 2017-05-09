@@ -29,6 +29,20 @@ var page = {
     		$("#registerProgress").text(userInfo.registerProgress);
     		$("#editButton").show("slow");
     		//console.log(userInfo.registerProgress);
+			$("input").each(function(){
+				var label = $(this).parent('div.form-group').find('label.form-label');
+				if ($(this).val() !== "" && label.hasClass('hidden-label')) {
+					label.slideDown('200');
+					label.removeClass('hidden-label')
+				}
+				if ($(this).val() !== "") {
+					label.addClass('visible-label');
+					$(this).addClass('filled-input');
+				} else {
+					label.removeClass('visible-label');
+					$(this).removeClass('filled-input');
+				}
+			});
     	});
     }
 };

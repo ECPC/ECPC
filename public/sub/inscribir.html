@@ -42,6 +42,7 @@
 				<div class="collapse" id="Menu-Inicio">
 					<li><a href="/sub/dashboard.html">Información General</a></li>
 					<li><a href="/sub/configuracionPersonal.html">Información Personal</a></li>
+					<li><a href="/sub/configuracionFormadepago.html">Información de pago</a></li>
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
@@ -81,18 +82,19 @@
 	<div id="maincontent">
 		<div id="toppanel">
 			<div class="col-xs-11">
-				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Inscribir socio</h2>
+				<h2><span id="menuBtn" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Inscribir socio</h2>
 			</div>
 			<div class="col-xs-1 horizontal">
 				<a href="/api/logout">
-					<img id="topProfileImg" src="/img/user-icon-dark.png">
+					<img id="topProfileImg" src="/img/user-icon.png">
 				</a>
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
 		</div>
 		<div class="container-fluid">
 			<div id="inscribirContent" class="col-md-offset-2 col-md-8">
-				<h4>Inscribir usuario</h4>
+				<div class="container-box">
+				<h2>Inscribir socio</h2>
 				<p>Los datos de inicio de sesión seran enviados al correo de tu nuevo socio</p>
 				<form id="frmInscribir" onsubmit="return false;">
 					<div class="form-group">
@@ -109,6 +111,7 @@
 					</div>
 					<br>
 				</form>
+				</div>
 			</div>
 		</div>
 	</div>

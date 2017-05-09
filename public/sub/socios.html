@@ -47,6 +47,7 @@
 				<div class="collapse" id="Menu-Inicio">
 					<li><a href="/sub/dashboard.html">Información General</a></li>
 					<li><a href="/sub/configuracionPersonal.html">Información Personal</a></li>
+					<li><a href="/sub/configuracionFormadepago.html">Información de pago</a></li>
 				</div>
 			</ul>
 			<ul class="sidepanel-list">
@@ -86,11 +87,11 @@
 	<div id="maincontent">
 		<div id="toppanel">
 			<div class="col-xs-11">
-				<h2><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Mi red de socios</h2>
+				<h2><span id="menuBtn" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Socios</h2>
 			</div>
 			<div class="col-xs-1 horizontal">
 				<a href="/api/logout">
-					<img id="topProfileImg" src="/img/user-icon-dark.png">
+					<img id="topProfileImg" src="/img/user-icon.png">
 				</a>
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>	
 			</div>
@@ -102,14 +103,16 @@
 						<div class="chart" id="collapsable-example"></div>
 					</div>
 					<div class="col-xs-4">
-						<!-- La idea es que esto cambie en el on hover sobre un icono de socio -->
-						<h1>Información adicional de</h1>
-						<p id="partnerName"></p>
-						<hr>
-						<p><strong>Correo eléctronico: </strong><span id="userEmail"></span></p>
-						<p><strong>Puntos del mes: </strong><span id="userPoints"></span></p>
-						<p><strong>Bonificación de mes: </strong><span id="userEarnings"></span></p>
-						<p><strong>Socios inscritos: </strong><span id="userPartners"></span></p>
+						<div class="container-box">
+							<!-- La idea es que esto cambie en el on hover sobre un icono de socio -->
+							<h1>Información adicional de</h1>
+							<p id="partnerName"></p>
+							<hr>
+							<p><strong>Correo eléctronico: </strong><span id="userEmail"></span></p>
+							<p><strong>Puntos del mes: </strong><span id="userPoints"></span></p>
+							<p><strong>Bonificación de mes: </strong><span id="userEarnings"></span></p>
+							<p><strong>Socios inscritos: </strong><span id="userPartners"></span></p>
+						</div>
 					</div>
 				</div>
 			</div>
