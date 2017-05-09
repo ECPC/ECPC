@@ -26,8 +26,3 @@ TODO List:
 - Correo:
     - Hacer mas grande el logo.
     - Cambiar el color de fondo.
-
-
-    Modificaciones visuales
-- Todas las pantallas se editaron.
-- Se agrego la configuracion de forma de pago en la navegacion lateral
