@@ -9,9 +9,13 @@
 
 	<!-- Bootstrap -->
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Alertify -->
+	<link rel="stylesheet" href="/css/alertify/alertify.min.css" />
+	<link rel="stylesheet" href="/css/alertify/themes/semantic.min.css" />
 	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
 	<link rel="stylesheet" type="text/css" href="../css/ezpc.css">
 	<link rel="stylesheet" type="text/css" href="../css/controles.css">
+
 </head>
 <body>
 	<nav id="sidepanel">
@@ -169,14 +173,21 @@
 			<div id="productoGrid" class="container-fluid">
 				<div class="col-xs-10 col-xs-offset-1 container-box">
 					<div id="product-container" class="row container-fluid">
-						<div id="product-template" class="col-md-3 col-sm-6 producto" hidden>	
+						<div id="product-template" class="col-md-4 col-sm-6 producto" hidden>	
 							<div class="horizontal">
 								<div class="vertical">
 									<a id="productLink"><img id="productImage"></a>
 								</div>
 							</div>
-							<p id="productName">Tarjeta de video NVIDIA MSI GTX 1080</p>
 							<p class="precio">$<span id="productPrice">...</span></p>
+							<p id="productName">Tarjeta de video NVIDIA MSI GTX 1080</p>
+							<form id="frmAgregar" class="form-active form-inline" onsubmit="return false;">
+									<input id="productID" type="hidden" name="productID">
+									<input id="txtCantidad" type="hidden" name="txtCantidad" value="1">
+								<div class="form-group col-xs-12">
+									<button id="agregarButton" type="submit" value="Submit" class="highlight"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -188,6 +199,7 @@
 	<script src="../js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/alertify/alertify.min.js"></script>
 	<script type="text/javascript" src="../js/ezpc.js"></script>
 	<script type="text/javascript" src="/js/sideNav.js"></script>
 	<script type="text/javascript" src="/js/pages/pageTienda.js"></script>

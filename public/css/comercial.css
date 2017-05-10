@@ -3,6 +3,12 @@
     dark-blue: #2b3a48
 */
 
+.modal-content{
+    background: transparent;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
 .bg-color-gray{
     background-color: #efefef;
 }

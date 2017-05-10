@@ -9,6 +9,7 @@ var page = {
 				var order = $("#order-template").clone();
 				page.llenarCampos(order, item);
 				$("#compras-container").append(order);
+				//$("#compras-container").append('<div class="borderBottom"></div>');
 				order.show("fast");
 			});
             $(".product").show();
