@@ -25,7 +25,7 @@
                         Estas a un paso más de tener acceso inmediato a tu oficina virtual, solo necesitas hacer clic en el siguiente enlace para terminar con el proceso de registro:
                     </p>
 
-                    <p><a target="_blank" href="http://ezpc/api/user/{{$user->id}}/activateAccount/{{$user->activation_token}}">Haz clic aquí para completar el registro.</a></p>
+                    <p><a target="_blank" href="http://ezpcapp.frb.io/api/user/{{$user->id}}/activateAccount/{{$user->activation_token}}">Haz clic aquí para completar el registro.</a></p>
 
                     <p>
                         ¡Buena suerte!

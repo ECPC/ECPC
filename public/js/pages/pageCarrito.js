@@ -6,6 +6,8 @@ var page ={
         });
     	$.get("/api/cart", function(products){
     		var orderAmount = 0;
+            page.productsLength = products.length;
+            page.getUserRegisterProgress();
     		page._foreach(products, function(item){
     			var product = $("#row-template").clone();
     			product.attr("id", item.id);
@@ -29,13 +31,11 @@ var page ={
     		});
     		$("#row-template").remove();
     		$("#orderAmount").text(orderAmount);
-    		if(products.length > 0){
-    			$("#buyButton").show();
-    		}
     		$("#frmPagar").show("slow");
     		$("#cargando").hide("slow");
     	});
     },
+    productsLength : 0,
     _foreach(_array, callback){
     	for(var i = 0; i < _array.length; i++){
     		callback(_array[i]);
@@ -47,6 +47,16 @@ var page ={
 			orderAmount += Number($(this).text());
 		});
 		$("#orderAmount").text(orderAmount);
+    },
+    getUserRegisterProgress(){
+        $.ajax({
+            type : 'GET',
+            url : "/api/user"})
+        .done(function(usuario){
+            if(page.productsLength > 0 && usuario.registerProgress == 100){
+                $("#buyButton").show("slow");
+            }
+        });
     }
 };
 

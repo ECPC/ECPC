@@ -10,6 +10,9 @@ var sideNav = {
 		.done(function(usuario){
 			$("#name").text(usuario.name);
 			$("#id").text(usuario.id);
+			if(usuario.registerProgress < 100){
+				$("#aviso-registro").show();
+			}
 		});
         $.ajax({
 			type : 'GET',

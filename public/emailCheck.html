@@ -2,10 +2,21 @@
 <html>
 <head>
 	<title>Verificación de correo</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/ezpc.css">
 </head>
 <body>
-	<h4>Verifica tu correo</h4>
-	<p>Accede a tu dirección de correo para verificar tu identidad</p>
-	<p>Si no recibiste el correo da click <a href="/api/user/activateAccountForced">aquí</a>:</p>
+	<div id="maincontent" class="container emailCheck-container">
+		<div id="toppanel">
+			<img class="emailCheck-container" height="40px" src="/img/dark logo.png">
+		</div>
+		<div id="emailCheck-container" class="container-box">
+			<legend>Antes de continuar...</legend>
+			<div class="panel-body">
+			<p>Gracias por registrarte, nos entusiasma que quieras formar parte de EZPC. Solo antes de continuar, accede a tu dirección de correo para verificar tu identidad.</p>
+			¿No recibiste ningún correo de confirmación?<a class="btn btn-default" href="/api/user/activateAccountForced">Haz click aquí para verificar</a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
