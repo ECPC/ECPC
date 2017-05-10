@@ -2,6 +2,8 @@ var page = {
     ready: function(){
     	page.getToken();
     	page.fillUserData();
+		$(document).on('onboarding', page.onboarding);
+		onboardingProgress.serverload();
     },
     getToken: function(){
         //Puedes obtener el valor del token con la siguiente ruta
@@ -44,6 +46,44 @@ var page = {
 				}
 			});
     	});
+    },
+	steps: [
+		{ attachTo: '.onboarding-informacion left', title: 'Información Personal.', text: 'Aquí puedes completar la información de tu perfil. <strong>¡Recuerda!</strong> esta información es necesaria para poder utilizar la tienda.'},
+		{ attachTo: '#progressInfo bottom', title: 'Progreso del registro.', text: '¡No podrás realizar compras en la tienda hasta no completar tu registro al <strong>100%</strong>!'},
+		{ attachTo: '#editButton left', title: 'Siempre guarda.', text: '¡No olvides guardar tus cambios!'},
+		{ attachTo: '.onboarding-tienda right', title: 'Tienda.', text: 'Al terminar tu registro, ¿porqué no das una vuelta por la tienda?'}
+	],
+    onboarding: function(){
+		if(!onboardingProgress.progress.configuracion){
+			var tour = new Shepherd.Tour({
+				defaults: {
+					classes: 'shepherd-theme-dark',
+					scrollTo: true
+				}
+			});
+
+			page.steps = onboardingBuilder.attachButtons(tour, page.steps);
+
+			page.steps[2].buttons[1].action = function(){
+				$('#Menu-Reportes').collapse('show');
+				return tour.next();
+			}
+
+			page.steps[0].buttons[0].action = function(){
+				onboardingProgress.progress.configuracion = true;
+				onboardingProgress.save();
+				return tour.hide();
+			}
+			page.steps[3].buttons[1].action = function(){
+				onboardingProgress.progress.configuracion = true;
+				onboardingProgress.save();
+				return tour.hide();
+			}
+
+			onboardingBuilder.attachToTour(tour, page.steps);
+
+			tour.start();
+		}
     }
 };
 

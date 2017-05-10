@@ -1,4 +1,4 @@
-a {
+a:not(.shepherd-button):not(.carousel-control) {
 	display: block ;
 	color: inherit ;
 	text-decoration: inherit ;
@@ -760,3 +760,15 @@ div#inscribirContent{
 }
 
 /************************************************/
+
+
+/********************Onboarding********************/
+.shepherd-element.shepherd-theme-dark .shepherd-content footer .shepherd-buttons li .shepherd-button.highlight{
+	border-color: #ff9933;
+    color: white;
+    background-color: #ff9933;
+}
+
+/************************************************/
+
+

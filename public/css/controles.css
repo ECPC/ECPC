@@ -104,7 +104,7 @@ button:hover, a.btn:hover, a.btn.highlight:hover{
 a.btn {
 	display: inline-block !important;
 }
-button.dark {
+button.dark, a.btn.dark {
 	box-shadow: 0 0 0px 0px #e5e6e6;
 }
 button.highlight, a.btn.highlight {

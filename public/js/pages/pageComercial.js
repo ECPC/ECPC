@@ -35,7 +35,7 @@ var page = {
              else{
                  //Credenciales incorrectas
                  if(response.message == "1"){
-                     $("#mensaje").text("No se pudo iniciar sesión");
+                     alertify.error('No se pudo iniciar sesión. El usuario o contraseña no existen.');
                  }
                  //Hay que validar la identidad
                  else if(response.message == "0"){
@@ -58,7 +58,7 @@ var page = {
                  window.location = response.redirect;
              }
              else{
-                 //No se pudo registrar
+                 alertify.error('Hubo un error al registrarse, por favor verifique que no hay campos vacios.');
              }
          });
      },

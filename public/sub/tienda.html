@@ -12,10 +12,15 @@
 	<!-- Alertify -->
 	<link rel="stylesheet" href="/css/alertify/alertify.min.css" />
 	<link rel="stylesheet" href="/css/alertify/themes/semantic.min.css" />
+
+	<link type="text/css" rel="stylesheet" href="/css/shepherd/shepherd-theme-dark.css" />
 	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
 	<link rel="stylesheet" type="text/css" href="../css/ezpc.css">
 	<link rel="stylesheet" type="text/css" href="../css/controles.css">
-
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- Estos scripts se necesitan en el header para comprobar la sesion antes de que la pagina cargue -->
+	<script src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/sessionCheck.js"></script>
 </head>
 <body>
 	<nav id="sidepanel">
@@ -57,7 +62,7 @@
 					</a>
 				</li>
 				<div class="collapse" id="Menu-Actividad">
-					<li><a href="/sub/ultimasCompras.html">Compras recientes</a></li>
+					<li><a class="onboarding-compras" href="/sub/ultimasCompras.html">Compras recientes</a></li>
 					<!-- <li>Ultimos Socios Agregados</li> -->
 				</div>
 			</ul>
@@ -99,7 +104,7 @@
 						<li><a href="/sub/tienda.html">Software</a></li>
 					</ul>
 					<div class="navbar-right">
-						<a class="btn" href="/sub/carrito.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</a>
+						<a class="onboarding-carrito btn" href="/sub/carrito.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</a>
 						<!-- <button type="submit" form="frmAgregar" value="Submit" class="highlight"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</button> -->
 					</div>
 				</div>
@@ -112,27 +117,6 @@
 			</div>
 		</div>
 		<div id="storeContent">
-			<!--
-			<nav class="navbar navbar-default">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">
-						<img src="../img/light logo.png">
-					</a>
-				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="/sub/dashboard.html">Inicio</a></li>
-						<li><a>Hardware</a></li>
-						<li><a>Accesorios</a></li>
-						<li><a>Almacenamiento</a></li>
-						<li><a>Software</a></li>
-					</ul>
-					<div class="navbar-right">
-						<a class="btn" href="/sub/carrito.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ver carrito</a>
-					</div>
-				</div>
-			</nav>
-			-->
 			<div class="row">
 				<div class="col-xs-12">
 					<div id="slideProductos" class="carousel slide" data-ride="carousel">
@@ -171,7 +155,7 @@
 				</div>
 			</div>
 			<div id="productoGrid" class="container-fluid">
-				<div class="col-xs-10 col-xs-offset-1 container-box">
+				<div class="onboarding-productos col-xs-10 col-xs-offset-1 container-box">
 					<div id="product-container" class="row container-fluid">
 						<div id="product-template" class="col-md-4 col-sm-6 producto" hidden>	
 							<div class="horizontal">
@@ -195,10 +179,13 @@
 		</div>
 	</div>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="../js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="/js/shepherd/tether.js"></script>
+	<script src="/js/shepherd/shepherd.min.js"></script>
+	<script type="text/javascript" src="/js/onboarding.js"></script>
+
 	<script src="/js/alertify/alertify.min.js"></script>
 	<script type="text/javascript" src="../js/ezpc.js"></script>
 	<script type="text/javascript" src="/js/sideNav.js"></script>
