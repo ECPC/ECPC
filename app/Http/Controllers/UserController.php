@@ -30,6 +30,9 @@ class UserController extends Controller
                 $user->genero = 0;
             }
         }
+        if($request->contrasenia){
+            $user->contrasenia = $request->contrasenia;
+        }
         //$user
         $user->save();
         return redirect("/sub/configuracionPersonal.html");//$request->all();//$user;
