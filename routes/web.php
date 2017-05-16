@@ -105,6 +105,7 @@ Route::group(['prefix' => 'api/order'], function(){
 	//params, @products[], @quantity[], @address
 	Route::post('create', 'OrderController@create');
 	Route::get('history', 'OrderController@history');
+	Route::get('historyOffset/{offset}/count/{count}', 'OrderController@historyPaginated');
 });
 //Cart
 //TODO: crear control de carro

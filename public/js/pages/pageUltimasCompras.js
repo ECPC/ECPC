@@ -3,7 +3,12 @@ var page = {
         page.obtenerUltimasCompras();
     },
     obtenerUltimasCompras: function(){
-        $.get("/api/order/history", function(response){
+    	//Aquí esta el servicio nuevo para paginar las compras...
+    	//la nomenclatura es la siguiente:
+    	//api/order/historyAt/{posición a paginar}/count/{numeroDeEntradas}
+        //para obtener las siguientes entradas escribirías:
+        //api/order/historyOffset/10/count/5
+        $.get("/api/order/historyOffset/0/count/5", function(response){
 			//console.log(response);
 			_foreach(response, function(item){
 				var order = $("#order-template").clone();

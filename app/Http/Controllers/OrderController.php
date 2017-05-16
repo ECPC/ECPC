@@ -48,11 +48,27 @@ class OrderController extends Controller
     	$user = Auth::user();
     	$orders = Order::where('user_id', $user->id)
     		->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc')
     		->get(['id', 'total_points', 'total_price', 'created_at']);
     	foreach ($orders as $order) {
     		$order["products"] = Order::find($order['id'])->products();
     		$order["created_at"];
     	}
     	return $orders;
+    }
+    public function historyPaginated(Request $request, $offset, $count)
+    {
+        $user = Auth::user();
+        $orders = Order::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc')
+            ->skip($offset)
+            ->take($count)
+            ->get(['id', 'total_points', 'total_price', 'created_at']);
+        foreach ($orders as $order) {
+            $order["products"] = Order::find($order['id'])->products();
+            $order["created_at"];
+        }
+        return $orders;
     }
 }
